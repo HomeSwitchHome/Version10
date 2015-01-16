@@ -33,7 +33,7 @@ include("up_house_post.php"); ?>
 						<legend>Formulaire <?php echo('/img/'.$id_logement_photo);?></legend>
 						<p>
 							<label for="fichier_a_uploader" title="Recherchez le fichier à uploader !">Envoyer le fichier :</label>
-							<input type="hidden" name="MAX_FILE_SIZE" value="<?php echo MAX_SIZE; ?>" />
+							<input type="hidden" name="MAX_FILE_SIZE"  />
 							<input name="fichier" type="file" id="fichier_a_uploader" />
 							<input type="submit" name="submit" value="Uploader" />
 						</p>

@@ -3,14 +3,13 @@
 	<head>
 		<title>Recherche Avancée</title>
 		<meta charset="utf-8" />
-		<!-- <link href="style.css" rel="stylesheet" /> -->
-		<link href="http://fonts.googleapis.com/css?family=Oxygen:400,700,300" rel="stylesheet" type="text/css" />
+		<link href="style.css" rel="stylesheet" />
+		<link href="http://fonts.googleapis.com/css?family=Oxygen:400,700,300" rel="stylesheet" />
 	</head>
 	<body>
-	<div>
-	</div>
-		<?php include("header.php"); ?>
-		<h1>Recherchez un logement</h1>
+		<div id="wrapper">
+			<?php include("header.php"); ?>
+			<h1>Recherchez un logement</h1>
 			<form method="post" action="" >
 				<h4>Mots clefs</h4>
 				<fieldset>
@@ -85,5 +84,6 @@
 					<input type="reset" name="Annuler" value="Annuler" />
 			</form>
 			<?php include("footer.php"); ?>
+		</div>
 	</body>
 </html>
