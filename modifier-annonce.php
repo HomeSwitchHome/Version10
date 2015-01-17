@@ -30,8 +30,6 @@ $result2 = $logement_info2 -> fetch();
             <form action="modifier-annonce2.php?idLogement=<?php echo $idLogement; ?>" method="post" class="register" enctype="multipart/form-data">
         
                 <div class="register-left-grid">
-                <?php debug($result); ?>
-                <?php debug($result2); ?>
 
                     <div>
                         <label for="titre_annonce">Titre de l'annonce :</label><br/>
@@ -105,7 +103,7 @@ $result2 = $logement_info2 -> fetch();
 
                     <h4>Equipements</h4>
                     <fieldset>
-                        <label>Garage <input type="checkbox" name="equipement[garage]" value="1" <?php if($==){echo 'checked';} ?>></label>
+                        <label>Garage <input type="checkbox" name="equipement[garage]" value="1" ></label>
                         <label>Jardin <input type="checkbox" name="equipement[jardin]" value="2"></label>
                         <label>Piscine <input type="checkbox" name="equipement[piscine]" value="3"></label>
                         <label>Télévision <input type="checkbox" name="equipement[television]" value="4"></label>
