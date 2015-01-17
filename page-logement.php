@@ -40,7 +40,7 @@ $result = $logement_info -> fetch();
 	                    	<?php //affichage de l'entête du tableau
 	 
 	                        //nom du répertoire contenant les images à afficher
-	                        $nom_repertoire = 'img/'.$idLogement.'/';
+	                        $nom_repertoire = 'img/'.$idLogement;
 	                         
 	                        //on ouvre le repertoire
 	                        $pointeur = opendir($nom_repertoire);

@@ -50,7 +50,7 @@ $user = $user_name -> fetch();
                                     $profil -> execute();
                                     while ($photoLogements = $profil -> fetch())
                                         {
-                                        $image = '<a href="img/'.$photoLogements['id'].'/1.jpg"><img src="img/'.$photoLogements['id'].'/1.jpg" id="image_liste_logements"></a>';
+                                        $image = '<a href="page-logement.php?idLogement='.$photoLogements['id'].'"><img src="img/'.$photoLogements['id'].'/1.jpg" id="image_liste_logements"></a>';
                                         echo ($image);
                                         }
                                 ?>
