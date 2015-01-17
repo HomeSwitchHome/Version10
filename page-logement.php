@@ -15,7 +15,6 @@ $logement_equipe -> execute();
 $result = $logement_info -> fetch();
 $membrelog=$result['membres_idMembres'];
 
-
 ?>
 
 <!DOCTYPE html>
@@ -139,7 +138,7 @@ $membrelog=$result['membres_idMembres'];
 	                        
 	                                <?php while ($equipement = $logement_equipe -> fetch()) 
 	                        		{
-	                        			echo("<img src='pictos/".$equipement['equipement'].".png' class=\"picto\">");
+	                        			echo("<img src='pictos/".$equipement['equipement'].".png' class=\"picto\" title='' >");
 	                            	}
 	                                ?>
 	                             </ul>

@@ -46,17 +46,17 @@ try{
 
                     <div>
                         <label for="titre_annonce">Titre de l'annonce :</label><br/>
-                        <input type="text" name="titre_annonce" value="<?php echo $result['titre_annonce']; ?>"/>
+                        <input type="text" name="titre_annonce" value="<?php echo $result['titre_annonce']; ?>" required/>
                     </div>
 
                     <div>
                         <label for="adresse">Adresse du logement :</label><br/>
-                        <input type="text" name="adresse" value="<?php echo $result['adresse']; ?>"/>
+                        <input type="text" name="adresse" value="<?php echo $result['adresse']; ?>" required/>
                     </div>
 
                     <div>
                         <label for="ville">Ville :</label><br/>
-                        <input type="text" name="ville" value="<?php echo $result2['ville']; ?>"/>
+                        <input type="text" name="ville" value="<?php echo $result2['ville']; ?>" required/>
                     </div>
 
                     <div>
@@ -69,12 +69,12 @@ try{
 
                     <div>
                         <label for="surfaceInterieure">Taille du logement (en m²) :</label>
-                        <input type="number" name="surfaceInterieure" value="<?php echo $result['surfaceInterieure']; ?>"/>
+                        <input type="number" name="surfaceInterieure" value="<?php echo $result['surfaceInterieure']; ?>" required/>
                     </div>
 
                     <div>
                         <label for="nombrePieces">Nombre de pièces :</label>
-                        <input type="number" name="nombrePieces" value="<?php echo $result['nombrePieces']; ?>"/>
+                        <input type="number" name="nombrePieces" value="<?php echo $result['nombrePieces']; ?>" required/>
                     </div>
 
                     <div>
@@ -95,8 +95,8 @@ try{
                     <br/> 
 
                     <div>
-                        <label for="description">Description succincte :</label>
-                        <textarea name="descriptionSuccincte" rows="3" cols="45"><?php echo $result['descriptionSuccincte']; ?></textarea>
+                        <label for="descriptionSuccincte">Description succincte :</label>
+                        <textarea name="descriptionSuccincte" rows="3" cols="45" required><?php echo $result['descriptionSuccincte']; ?></textarea>
                     </div>           
 
                     <div>
