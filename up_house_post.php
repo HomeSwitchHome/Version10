@@ -4,7 +4,7 @@ require 'functions.php';
 
 try
     {
-	      $bdd = new PDO('mysql:host=localhost;dbname=hsh', 'root', '', [
+	      $bdd = new PDO('mysql:host=localhost;dbname=hsh', 'root', 'root', [
 	      		PDO::ATTR_ERRMODE=>PDO::ERRMODE_WARNING
 	      	]);
     }

@@ -15,7 +15,7 @@
 				if(empty($errors)){
 
 					
-					$req = $bdd->prepare('INSERT INTO minichat (pseudo, message, date_ajout, IDLogement) VALUES ("'.$_POST['pseudo'].'","'.$_POST['message'].'", NOW(), "'.$idLogement.'")');
+					$req = $bdd->prepare('INSERT INTO minichat (pseudo, message, dateAjout, IDLogement) VALUES ("'.$_POST['pseudo'].'","'.$_POST['message'].'", NOW(), "'.$idLogement.'")');
 					$req->execute();
 				}
 			}else{
@@ -36,7 +36,7 @@ require_once('config.php');?>
 
 <?php
 	// Récupération des commentaires
-	$req = $bdd->prepare('SELECT id, pseudo, message, DATE_FORMAT(date_ajout, \'%d/%m/%Y à %Hh%imin%ss\') AS date_ajout FROM minichat WHERE IDLogement="'.$idLogement.'" ORDER BY date_ajout DESC LIMIT 0, 100');
+	$req = $bdd->prepare('SELECT id, pseudo, message, DATE_FORMAT(dateAjout, \'%d/%m/%Y à %Hh%imin%ss\') AS dateAjout FROM minichat WHERE IDLogement="'.$idLogement.'" ORDER BY dateAjout DESC LIMIT 0, 100');
 	try{
 		$req->execute();
 	}catch (Exception $e){
@@ -45,7 +45,7 @@ require_once('config.php');?>
 
 	while($donnees = $req->fetch(PDO::FETCH_ASSOC)){
 ?>
-<p><strong><?php echo htmlspecialchars($donnees['pseudo']); ?></strong> le <?php echo $donnees['date_ajout']; ?> :</p>
+<p><strong><?php echo htmlspecialchars($donnees['pseudo']); ?></strong> le <?php echo $donnees['dateAjout']; ?> :</p>
 <p><?php echo nl2br(htmlspecialchars($donnees['message'])); ?></p>
 
 <?php

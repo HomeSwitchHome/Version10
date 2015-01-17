@@ -1,7 +1,7 @@
 <?php require_once("config.php"); 
 $idLogement  = $_GET["idLogement"] ;
 //$idLogement = 4;
-$logement_info = $bdd -> prepare('SELECT nombrePieces, description, titre_annonce, surfaceInterieure, surfaceExterieure, nombreLitsSimples, nombreLitsDoubles, descriptionProximite, membres_idMembres, types_idTypes
+$logement_info = $bdd -> prepare('SELECT *
                                     FROM logements WHERE id = '.$idLogement);
 $logement_info -> execute();
 

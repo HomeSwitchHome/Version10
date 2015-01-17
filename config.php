@@ -1,7 +1,7 @@
 <?php
 	session_start();
 
-	$bdd = new PDO('mysql:host=localhost;dbname=hsh', 'root', '', [PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8']);
+	$bdd = new PDO('mysql:host=localhost;dbname=hsh', 'root', 'root', [PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8']);
 	$bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 /*----------------------------------------------------------------------------------------------------------------------------*/
@@ -40,7 +40,7 @@
 
 	function isadmin()
 	{ 
-				$bdd = new PDO('mysql:host=localhost;dbname=hsh', 'root', '', [PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8']);
+				$bdd = new PDO('mysql:host=localhost;dbname=hsh', 'root', 'root', [PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8']);
 	$bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$verifadmin = $bdd -> prepare("SELECT admin FROM membres WHERE id =".$_SESSION["userID"]);
                 $verifadmin -> execute();
@@ -65,7 +65,29 @@
 
 	}*/
 
+	/*function annonceProfil()
+		{
+			$bdd = new PDO('mysql:host=localhost;dbname=hsh', 'root', 'root', [PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8']);
+			$bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+			$profil = $bdd -> prepare("SELECT id, membres_idMembres FROM logements WHERE membres_idMembres=".$_SESSION['userID']);
+			$profil -> execute();
+			while ($photoLogements = $profil -> fetch())
+			{
+				echo("<a href=\"#\"><img src=\"img/$/1.jpg\" id=\"image_liste_logements\"></a>");
+			}
+		}*/
 	
-	
+	/*function annonceProfil($identifiant)
+	{
+		$bdd = new PDO('mysql:host=localhost;dbname=hsh', 'root', 'root', [PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8']);
+		$bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		$profil = $bdd -> prepare("SELECT id, membres_idMembres FROM logements WHERE membres_idMembres=".$id);
+        $profil -> execute();
+        while ($photoLogements = $profil -> fetch())
+        {
+        $image = '<a href="img/'.$photoLogements['id'].'/1.jpg"><img src="img/'.$photoLogements['id'].'/1.jpg" id="image_liste_logements"></a>';
+        echo ($image);
+        }
+	}*/
 
 ?>

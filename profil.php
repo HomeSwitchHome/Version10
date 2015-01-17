@@ -45,10 +45,16 @@ $user = $user_name -> fetch();
                     </div>    
                          <div class="liste_logements">
                             <h4>Logements de <?php echo $user["prenom"];?> <?php echo $user["nom"]; ?></h4>
-                            
-                                <a href="#"><img src="images/maison1.jpg" id="image_liste_logements"></a>
-                                <a href="#"><img src="images/maison2.jpg" id="image_liste_logements"></a>
-                                <a href="#"><img src="images/maison3.jpg" id="image_liste_logements"></a>
+                                <?php 
+                                    $profil = $bdd -> prepare("SELECT id, membres_idMembres FROM logements WHERE membres_idMembres=".$id);
+                                    $profil -> execute();
+                                    while ($photoLogements = $profil -> fetch())
+                                        {
+                                        $image = '<a href="img/'.$photoLogements['id'].'/1.jpg"><img src="img/'.$photoLogements['id'].'/1.jpg" id="image_liste_logements"></a>';
+                                        echo ($image);
+                                        }
+                                ?>
+                                
 
                         </div>   
                     
