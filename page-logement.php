@@ -21,7 +21,7 @@ $membrelog=$result['membres_idMembres'];
 
 ?>
 
-<!DOCTYPE>
+<!DOCTYPE html>
 
 <html>
     <head>
