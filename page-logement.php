@@ -8,7 +8,7 @@ $logement_info -> execute();
 $logement_contrainte = $bdd -> prepare('SELECT contraint.logements_id, contraint.contraintes_id, contraintes.contrainte, contraintes.id FROM contraint INNER JOIN contraintes ON contraint.contraintes_id=contraintes.id WHERE contraint.logements_id='.$idLogement);
 $logement_contrainte -> execute();
 
-$logement_equipe = $bdd -> prepare('SELECT equipe.logements_id, equipe.equipements_id, equipements.nom, equipements.id FROM equipe INNER JOIN equipements ON equipe.equipements_id=equipements.id WHERE equipe.logements_id='.$idLogement);
+$logement_equipe = $bdd -> prepare('SELECT equipe.logements_id, equipe.equipements_id, equipements.equipement, equipements.id FROM equipe INNER JOIN equipements ON equipe.equipements_id=equipements.id WHERE equipe.logements_id='.$idLogement);
 $logement_equipe -> execute();
 
 $result = $logement_info -> fetch();
@@ -70,30 +70,31 @@ $membrelog=$result['membres_idMembres'];
 	                        $nom_repertoire = 'img/'.$idLogement;
 	                         
 	                        //on ouvre le repertoire
-	                        $pointeur = opendir($nom_repertoire);
-	                        $i = 0;
+	                        if(file_exists($nom_repertoire)){
+		                        $pointeur = opendir($nom_repertoire);
+		                        $i = 0;
+		                         
+		                        //on les stocke les noms des fichiers des images trouvées, dans un tableau
+		                        while ($fichier = readdir($pointeur)){
+			                        if (substr($fichier, -3) == "gif" || substr($fichier, -3) == "jpg" || substr($fichier, -3) == "png"
+			                        || substr($fichier, -4) == "jpeg" || substr($fichier, -3) == "PNG" || substr($fichier, -3) == "GIF"
+			                        || substr($fichier, -3) == "JPG"){
+				                        $tab_image[$i] = $fichier;
+				                        $i++;
+				                    }
+		                        }
+		                         
+		                        //on ferme le répertoire
+		                        closedir($pointeur);
+		                        //on trie le tableau par ordre alphabétique
+		                        array_multisort($tab_image, SORT_ASC);
 	                         
-	                        //on les stocke les noms des fichiers des images trouvées, dans un tableau
-	                        while ($fichier = readdir($pointeur)){
-		                        if (substr($fichier, -3) == "gif" || substr($fichier, -3) == "jpg" || substr($fichier, -3) == "png"
-		                        || substr($fichier, -4) == "jpeg" || substr($fichier, -3) == "PNG" || substr($fichier, -3) == "GIF"
-		                        || substr($fichier, -3) == "JPG"){
-			                        $tab_image[$i] = $fichier;
-			                        $i++;
-			                    }
-	                        }
-	                         
-	                        //on ferme le répertoire
-	                        closedir($pointeur);
-	                         
-	                        //on trie le tableau par ordre alphabétique
-	                        array_multisort($tab_image, SORT_ASC);
-	                         
-	                        //affichage des images (en 60 * 60 ici)
-	                        for ($j=0;$j<=$i-1;$j++){
-		                        $image = '<a href="'.$nom_repertoire.'/'.$tab_image[$j].'"><img src="'.$nom_repertoire.'/'.$tab_image[$j].'" id="image_liste_logements"></a>';
-		                        echo ($image);
-	                        }
+		                        //affichage des images (en 60 * 60 ici)
+		                        for ($j=0;$j<=$i-1;$j++){
+			                        $image = '<a href="'.$nom_repertoire.'/'.$tab_image[$j].'"><img src="'.$nom_repertoire.'/'.$tab_image[$j].'" id="image_liste_logements"></a>';
+			                        echo ($image);
+		                        }
+	                    	}
 	                    	?>
 	                    </div>
 	                </div>
