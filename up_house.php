@@ -68,7 +68,12 @@
                         <input type="number" name="nombreLitsDoubles"/>
                     </div>
 
-                    <br/>       
+                    <br/>
+
+                    <div>
+                        <label for="description">Description succincte :</label>
+                        <textarea name="descriptionSuccincte" rows="3" cols="45"></textarea>
+                    </div>       
 
                     <div>
                         <label for="description">Description du logement :</label>

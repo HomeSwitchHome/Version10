@@ -6,7 +6,7 @@ $idLogement  = $_GET["idLogement"] ;
 $f = array();
 
 try{
-    $logement_info = $bdd -> prepare("SELECT nombrePieces, description, titre_annonce, surfaceInterieure, surfaceExterieure, nombreLitsSimples, nombreLitsDoubles, descriptionProximite, membres_idMembres, types_idTypes, adresse, villes_id
+    $logement_info = $bdd -> prepare("SELECT nombrePieces, description, descriptionSuccincte, titre_annonce, surfaceInterieure, surfaceExterieure, nombreLitsSimples, nombreLitsDoubles, descriptionProximite, membres_idMembres, types_idTypes, adresse, villes_id
                                 FROM logements WHERE id = $idLogement");
     $logement_info -> execute();
     $result = $logement_info -> fetch();
@@ -93,7 +93,12 @@ try{
                         <input type="number" name="nombreLitsDoubles" value="<?php echo $result['nombreLitsDoubles']; ?>"/>
                     </div>
 
-                    <br/>       
+                    <br/> 
+
+                    <div>
+                        <label for="description">Description succincte :</label>
+                        <textarea name="descriptionSuccincte" rows="3" cols="45"><?php echo $result['descriptionSuccincte']; ?></textarea>
+                    </div>           
 
                     <div>
                         <label for="description">Description du logement :</label>
@@ -286,7 +291,7 @@ try{
 
                 </div>
 
-                <input type="submit" value="Valider" class="submit_button"/>
+                <input type="submit" value="Modifier" class="submit_button"/>
 
             </form>
 
