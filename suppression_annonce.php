@@ -25,11 +25,11 @@ $result = $logement_info -> fetch();
 						$envoidelete = $bdd -> prepare("DELETE FROM logements WHERE id = '$idlog' ");
 						$envoidelete -> execute();
 						$dir = 'img/'.$idlog;
-						rmdir($dir);
+						rrmdir($dir);
 					}
 				?>
 
-				<a href="index.php">Retour page accueil</a>
+				<div align="center"><a href="index.php"><h3>Retour page accueil</h3></a></div>
 			</div>
 		</div>
 	</body>

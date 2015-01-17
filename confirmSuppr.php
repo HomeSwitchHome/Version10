@@ -6,7 +6,7 @@ $idlog = $_GET["idlog"];
 						$envoidelete = $bdd -> prepare("DELETE FROM logements WHERE id = '$idlog' ");
 						$envoidelete -> execute();
 						$dir = 'img/'.$idlog;
-						rmdir($dir);
+						rrmdir($dir);
 					}
 				?>
 

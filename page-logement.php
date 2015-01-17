@@ -5,8 +5,20 @@ $logement_info = $bdd -> prepare('SELECT nombrePieces, description, titre_annonc
                                     FROM logements WHERE id = '.$idLogement);
 $logement_info -> execute();
 
+$logement_contrainte = $bdd -> prepare('SELECT contraint.logements_id, contraint.contraintes_id, contraintes.contrainte, contraintes.id FROM contraint INNER JOIN contraintes ON contraint.contraintes_id=contraintes.id WHERE contraint.logements_id='.$idLogement);
+$logement_contrainte -> execute();
+
+$logement_equipe = $bdd -> prepare('SELECT equipe.logements_id, equipe.equipements_id, equipements.nom, equipements.id FROM equipe INNER JOIN equipements ON equipe.equipements_id=equipements.id WHERE equipe.logements_id='.$idLogement);
+$logement_equipe -> execute();
+
 $result = $logement_info -> fetch();
 $membrelog=$result['membres_idMembres'];
+
+
+
+
+
+
 ?>
 
 <!DOCTYPE>
@@ -123,13 +135,20 @@ $membrelog=$result['membres_idMembres'];
 	 
 	                             </ul>
 
-	                        <h1><strong>Contraintes</strong></h1>
+	                        <h1><strong>Contraintes et services</strong></h1>
 
 	                            <ul class="infosPerso">
-	                        
-	                                <li>Bla bla bla</li>
-	 
-	                             </ul>
+	                        		<?php while ($contrainte = $logement_contrainte -> fetch()) 
+	                        		{
+	                        			echo("<li><img src='pictos/".$contrainte['contrainte'].".png'></li>");
+	                            	}
+	                                ?>
+	                                <?php while ($equipement = $logement_equipe -> fetch()) 
+	                        		{
+	                        			echo("<li><img src='pictos/".$equipement['nom'].".png'></li>");
+	                            	}
+	                                ?>
+	 							</ul>
 	                        <h1><strong>Commentaires</strong></h1>     
 	                            <ul class="infosPerso">
 	                                <?php include("Essavis.php"); ?>
