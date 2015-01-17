@@ -45,7 +45,7 @@
                     <div class="box-style box-style01">
                         <?php if (isadmin()) { ?>
                         <a href="" onClick="confirme(<?php echo($ligne['id']);?>)"><img src="cross.svg" width="15px" height="15px" class="boutonsuppr"></a><?php } ?>
-                        <?php } ?>
+                        
                         <div class="content">
                 
                             <div class="image"><img src="img/<?php echo($ligne['id']);?>/1.jpg" width="324" height="200" alt="" /></div>
@@ -58,14 +58,14 @@
             
                         </div>
                     
-                    </div><?php $i++ ?>
+                    </div><?php } ?><?php $i++ ?>
         
                 <?php if($i < $nb) {?><div class="tbox2">
             
                     <div class="box-style box-style02">
                         <?php if (isadmin()) { ?>
                         <a href="" onClick="confirme(<?php echo($ligne['id']);?>)"><img src="cross.svg" width="15px" height="15px" class="boutonsuppr"></a><?php } ?>
-                        <?php } ?>
+                        
                         <div class="content">
 
                             <div class="image"><img src="img/<?php echo($ligne['id']);?>/1.jpg" width="324" height="200" alt="" /></div>
@@ -78,14 +78,14 @@
             
                         </div>
                         
-                    </div><?php $i++ ?>
+                    </div><?php } ?><?php $i++ ?>
         
                 <?php if($i < $nb) {?><div class="tbox3">
             
                     <div class="box-style box-style03">
                         <?php if (isadmin()) { ?>
                         <a href="" onClick="confirme(<?php echo($ligne['id']);?>)"><img src="cross.svg" width="15px" height="15px" class="boutonsuppr"></a><?php } ?>
-                        <?php } ?>
+                        
                         <div class="content">
 
                             <div class="image"><img src="img/<?php echo($ligne['id']);?>/1.jpg" width="324" height="200" alt="" /></div>
@@ -100,7 +100,7 @@
         
                     </div>
                 
-                </div><?php $i++ ?>
+                </div><?php } ?><?php $i++ ?>
                 <?php } ?>
     
             <!--<div id="three-column" class="container">
