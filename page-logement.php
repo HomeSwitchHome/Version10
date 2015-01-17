@@ -91,7 +91,7 @@ $membrelog=$result['membres_idMembres'];
 	                         
 		                        //affichage des images (en 60 * 60 ici)
 		                        for ($j=0;$j<=$i-1;$j++){
-			                        $image = '<a href="'.$nom_repertoire.'/'.$tab_image[$j].'"><img src="'.$nom_repertoire.'/'.$tab_image[$j].'" id="image_liste_logements"></a>';
+			                        $image = '<a href="'.$nom_repertoire.'/'.$tab_image[$j].'"><img src="'.$nom_repertoire.'/'.$tab_image[$j].'" id="image_liste_logements" style="margin-left: 12%;"></a>';
 			                        echo ($image);
 		                        }
 	                    	}
