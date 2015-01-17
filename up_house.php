@@ -16,7 +16,7 @@
 
             <h3 class="register-title">INFORMATIONS DU LOGEMENT</h3>
 
-            <form action="upload_photos_logement.php" method="post" class="register" enctype="multipart/form-data">
+            <form action="upload_photos_logement.php" method="post" class="register" enctype="multipart/form-data" accept-charset="utf-8">
         
                 <div class="register-left-grid">
 

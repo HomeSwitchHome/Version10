@@ -1,5 +1,7 @@
 <?php
-	session_start();
+	if(!isset($_SESSION)){
+		session_start();
+	}
 	function message ($message, $type = null){
 	$color = $type === 'error' ? '#ff0000' : '#1E824c';
 	return '<div style="font-size:16px;color:' . $color . ';">' . $message . '</div>';

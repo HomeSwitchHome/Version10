@@ -1,16 +1,30 @@
 <?php require_once("config.php");
 require 'functions.php';
 $idLogement  = $_GET["idLogement"] ;
-//$idLogement = 4;
-$logement_info = $bdd -> prepare('SELECT nombrePieces, description, titre_annonce, surfaceInterieure, surfaceExterieure, nombreLitsSimples, nombreLitsDoubles, descriptionProximite, membres_idMembres, types_idTypes, adresse, villes_id
-                                    FROM logements WHERE id = '.$idLogement);
-$logement_info -> execute();
-$result = $logement_info -> fetch();
+//$idLogement = 49;
 
-$logement_info2 = $bdd -> prepare('SELECT ville FROM villes WHERE id = '.$result['villes_id']);
-$logement_info2 -> execute();
-$result2 = $logement_info2 -> fetch();
+$f = array();
 
+try{
+    $logement_info = $bdd -> prepare("SELECT nombrePieces, description, titre_annonce, surfaceInterieure, surfaceExterieure, nombreLitsSimples, nombreLitsDoubles, descriptionProximite, membres_idMembres, types_idTypes, adresse, villes_id
+                                FROM logements WHERE id = $idLogement");
+    $logement_info -> execute();
+    $result = $logement_info -> fetch();
+
+    $logement_info2 = $bdd -> prepare('SELECT ville FROM villes WHERE id = '.$result['villes_id']);
+    $logement_info2 -> execute();
+    $result2 = $logement_info2 -> fetch();
+
+    $logement_info3 = $bdd -> prepare("SELECT equipements_id FROM equipe WHERE logements_id = $idLogement");
+    $logement_info3 -> execute();
+    $result3 = $logement_info3 -> fetchAll();
+
+    $logement_info4 = $bdd -> prepare("SELECT contraintes_id FROM contraint WHERE logements_id = $idLogement");
+    $logement_info4 -> execute();
+    $result4 = $logement_info4 -> fetchAll();
+}catch(Exception $e){
+        die('Erreur : '.$e->getMessage());
+}
 ?>
 
 <html>
@@ -27,7 +41,7 @@ $result2 = $logement_info2 -> fetch();
 
             <h3 class="register-title">INFORMATIONS DU LOGEMENT</h3>
 
-            <form action="modifier-annonce2.php?idLogement=<?php echo $idLogement; ?>" method="post" class="register" enctype="multipart/form-data">
+            <form action="modifier-annonce2.php?idLogement=<?php echo $idLogement; ?>" method="post" class="register" enctype="multipart/form-data" accept-charset="utf-8">
         
                 <div class="register-left-grid">
 
@@ -103,25 +117,25 @@ $result2 = $logement_info2 -> fetch();
 
                     <h4>Equipements</h4>
                     <fieldset>
-                        <label>Garage <input type="checkbox" name="equipement[garage]" value="1" ></label>
-                        <label>Jardin <input type="checkbox" name="equipement[jardin]" value="2"></label>
-                        <label>Piscine <input type="checkbox" name="equipement[piscine]" value="3"></label>
-                        <label>Télévision <input type="checkbox" name="equipement[television]" value="4"></label>
-                        <label>Train <input type="checkbox" name="equipement[train]" value="5"></label>
-                        <label>Handicap <input type="checkbox" name="equipement[handicap]" value="6"></label>
-                        <label>Wifi <input type="checkbox" name="equipement[wifi]" value="7"></label>
-                        <label>Cuisine <input type="checkbox" name="equipement[cuisine]" value="8"></label>
-                        <label>Aéroport <input type="checkbox" name="equipement[aeroport]" value="9"></label>
+                        <label>Garage <input type="checkbox" name="equipement[garage]" value="1" <?php foreach($result3 as $k => $v){if($v['equipements_id']==1){echo 'checked';}} ?> ></label>
+                        <label>Jardin <input type="checkbox" name="equipement[jardin]" value="2" <?php foreach($result3 as $k => $v){if($v['equipements_id']==2){echo 'checked';}} ?> ></label>
+                        <label>Piscine <input type="checkbox" name="equipement[piscine]" value="3" <?php foreach($result3 as $k => $v){if($v['equipements_id']==3){echo 'checked';}} ?> ></label>
+                        <label>Télévision <input type="checkbox" name="equipement[television]" value="4" <?php foreach($result3 as $k => $v){if($v['equipements_id']==4){echo 'checked';}} ?> ></label>
+                        <label>Train <input type="checkbox" name="equipement[train]" value="5" <?php foreach($result3 as $k => $v){if($v['equipements_id']==5){echo 'checked';}} ?> ></label>
+                        <label>Handicap <input type="checkbox" name="equipement[handicap]" value="6" <?php foreach($result3 as $k => $v){if($v['equipements_id']==6){echo 'checked';}} ?> ></label>
+                        <label>Wifi <input type="checkbox" name="equipement[wifi]" value="7" <?php foreach($result3 as $k => $v){if($v['equipements_id']==7){echo 'checked';}} ?> ></label>
+                        <label>Cuisine <input type="checkbox" name="equipement[cuisine]" value="8" <?php foreach($result3 as $k => $v){if($v['equipements_id']==8){echo 'checked';}} ?> ></label>
+                        <label>Aéroport <input type="checkbox" name="equipement[aeroport]" value="9" <?php foreach($result3 as $k => $v){if($v['equipements_id']==9){echo 'checked';}} ?> ></label>
                     </fieldset>
                     <h4>Contraintes </h4>
                     <fieldset>
-                        <label>Animaux autorisés <input type="checkbox" name="contrainte[animauxAutorises]" value="1"></label>
-                        <label>Animaux interdits <input type="checkbox" name="contrainte[animauxInterdits]" value="2"></label>
-                        <label>Bruit autorisé <input type="checkbox" name="contrainte[bruitAutorise]" value="3"></label>
-                        <label>Bruit interdit <input type="checkbox" name="contrainte[bruitInterdit]" value="4"></label>
-                        <label>Fumé autorisé <input type="checkbox" name="contrainte[fumeAutorise]" value="5"></label>
-                        <label>Fumé interdite <input type="checkbox" name="contrainte[fumeInterdite]" value="6"></label>
-                        <label>Plantes <input type="checkbox" name="contrainte[plantes]" value="7"></label>
+                        <label>Animaux autorisés <input type="checkbox" name="contrainte[animauxAutorises]" value="1" <?php foreach($result4 as $k => $v){if($v['contraintes_id']==1){echo 'checked';}} ?> ></label>
+                        <label>Animaux interdits <input type="checkbox" name="contrainte[animauxInterdits]" value="2" <?php foreach($result4 as $k => $v){if($v['contraintes_id']==2){echo 'checked';}} ?> ></label>
+                        <label>Bruit autorisé <input type="checkbox" name="contrainte[bruitAutorise]" value="3" <?php foreach($result4 as $k => $v){if($v['contraintes_id']==3){echo 'checked';}} ?> ></label>
+                        <label>Bruit interdit <input type="checkbox" name="contrainte[bruitInterdit]" value="4" <?php foreach($result4 as $k => $v){if($v['contraintes_id']==4){echo 'checked';}} ?> ></label>
+                        <label>Fumé autorisé <input type="checkbox" name="contrainte[fumeAutorise]" value="5" <?php foreach($result4 as $k => $v){if($v['contraintes_id']==5){echo 'checked';}} ?> ></label>
+                        <label>Fumé interdite <input type="checkbox" name="contrainte[fumeInterdite]" value="6" <?php foreach($result4 as $k => $v){if($v['contraintes_id']==6){echo 'checked';}} ?> ></label>
+                        <label>Plantes <input type="checkbox" name="contrainte[plantes]" value="7" <?php foreach($result4 as $k => $v){if($v['contraintes_id']==7){echo 'checked';}} ?> ></label>
                     </fieldset>
 
                     <!-- <div class="pictos">
