@@ -21,17 +21,17 @@
 
                     <div>
                         <label for="titre_annonce">Titre de l'annonce :</label><br/>
-                        <input type="text" name="titre_annonce"/>
+                        <input type="text" name="titre_annonce" required/>
                     </div>
 
                     <div>
                         <label for="adresse">Adresse du logement :</label><br/>
-                        <input type="text" name="adresse"/>
+                        <input type="text" name="adresse" required/>
                     </div>
 
                     <div>
                         <label for="ville">Ville :</label><br/>
-                        <input type="text" name="ville"/>
+                        <input type="text" name="ville " required/>
                     </div>
 
                     <div>
@@ -44,12 +44,12 @@
 
                     <div>
                         <label for="surfaceInterieure">Taille du logement (en m²) :</label>
-                        <input type="number" name="surfaceInterieure"/>
+                        <input type="number" name="surfaceInterieure" required/>
                     </div>
 
                     <div>
                         <label for="nombrePieces">Nombre de pièces :</label>
-                        <input type="number" name="nombrePieces"/>
+                        <input type="number" name="nombrePieces" required/>
                     </div>
 
                     <div>
@@ -70,8 +70,8 @@
                     <br/>
 
                     <div>
-                        <label for="description">Description succincte :</label>
-                        <textarea name="descriptionSuccincte" rows="3" cols="45"></textarea>
+                        <label for="descriptionSuccincte">Description succincte :</label>
+                        <textarea name="descriptionSuccincte" rows="3" cols="45" required></textarea>
                     </div>       
 
                     <div>

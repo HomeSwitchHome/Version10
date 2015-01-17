@@ -15,12 +15,6 @@ $logement_equipe -> execute();
 $result = $logement_info -> fetch();
 $membrelog=$result['membres_idMembres'];
 
-$equipement = $logement_equipe -> fetchAll();
-$contrainte = $logement_contrainte -> fetch();
-
-debug($equipement);
-debug($contrainte);
-
 ?>
 
 <!DOCTYPE html>
@@ -141,7 +135,7 @@ debug($contrainte);
 	                        
 	                                <?php while ($equipement = $logement_equipe -> fetch()) 
 	                        		{
-	                        			echo("<img src='pictos/".$equipement['equipement'].".png' class=\"picto\">");
+	                        			echo("<img src='pictos/".$equipement['equipement'].".png' class=\"picto\" title='' >");
 	                            	}
 	                                ?>
 	                             </ul>
