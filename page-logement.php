@@ -122,9 +122,11 @@ $membrelog=$result['membres_idMembres'];
 
 	                            <ul class="infosPerso">
 	                        
-	                                <li>Cuisine</li>
-	                                <li>Internet</li>
-	                                <li>Télévision</li>
+	                                <?php while ($equipement = $logement_equipe -> fetch()) 
+	                        		{
+	                        			echo("<img src='pictos/".$equipement['nom'].".png' class=\"picto\">");
+	                            	}
+	                                ?>
 	                             </ul>
 
 	                        <h1><strong>Description</strong></h1>
@@ -143,11 +145,7 @@ $membrelog=$result['membres_idMembres'];
 	                        			echo("<img src='pictos/".$contrainte['contrainte'].".png' class=\"picto\">");
 	                            	}
 	                                ?>
-	                                <?php while ($equipement = $logement_equipe -> fetch()) 
-	                        		{
-	                        			echo("<img src='pictos/".$equipement['nom'].".png' class=\"picto\">");
-	                            	}
-	                                ?>
+	                                
 	 							</ul>
 	                        <h1><strong>Commentaires</strong></h1>     
 	                            <ul class="infosPerso">
