@@ -1,5 +1,4 @@
 <?php require_once("config.php");
-require 'functions.php';
 // Connexion à la base de données
 
 try

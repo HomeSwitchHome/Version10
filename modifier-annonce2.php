@@ -5,7 +5,7 @@ $idLogement  = $_GET["idLogement"] ;
 
 try
     {
-	      $bdd = new PDO('mysql:host=localhost;dbname=hsh', 'root', 'root', [
+	      $bdd = new PDO('mysql:host=localhost;dbname=hsh', 'root', '', [
 	      		PDO::ATTR_ERRMODE=>PDO::ERRMODE_WARNING
 	      	]);
     }
