@@ -18,7 +18,7 @@
  
         else {
                 echo "<li><a href=\"up_house.php\">Annonce</a></li>";
-                echo "<li><a href=\"profil.php\">Profil</a></li>";
+                echo "<li><a href=\"profil.php\">Mon profil</a></li>";
 
                 /*$verifadmin = $bdd -> prepare("SELECT admin FROM membres WHERE id =".$_SESSION["userID"]);
                 $verifadmin -> execute();
