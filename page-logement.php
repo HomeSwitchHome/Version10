@@ -73,7 +73,7 @@ $membrelog=$result['membres_idMembres'];
 	                		<a href=\"#\" onClick=\"confirme2(".$idLogement.")\">Je suis intéressé par cette annonce !</a>
 	                		<br/>
 	                		
-	                	</div>")
+	                	</div>");
 	                	}
 
 	                	?>
