@@ -36,6 +36,13 @@ $result = $logement_info -> fetch();
             <div class="annonce">
 	            <div class="profil">
 	                <div class="colonne_gauche_profil">
+	                	<?php if ($result['membres_idMembres'] = $_SESSION['userID']) {?>
+	                	<div align="center">
+	                		<a href="modifier-annonce.php?idLogement=<?php echo($idLogement);?>">Modifier mon annonce</a>
+	                		<br/>
+	                		<a href="#">Supprimer mon annonce</a>
+	                	</div>
+	                	<?php }?>
 	                    <div class="liste_logements">
 	                    	<?php //affichage de l'entête du tableau
 	 

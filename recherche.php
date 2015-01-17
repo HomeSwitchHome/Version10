@@ -59,6 +59,7 @@
 					<label>Note supérieur à <input type="number" name="Note" value="1" min="1" max="10" /></label>
 				</fieldset>
 				<h4>Equipements</h4>
+				<fieldset>
 					<label>Garage <input type="checkbox" name="garage" value=""></label>
 					<label>Jardin <input type="checkbox" name="jardin" value=""></label>
 					<label>Piscine <input type="checkbox" name="piscine" value=""></label>
@@ -68,7 +69,6 @@
 					<label>Wifi <input type="checkbox" name="wifi" value=""></label>
 					<label>Cuisine <input type="checkbox" name="Cuisine" value=""></label>
 					<label>Aéroport <input type="checkbox" name="aéroport" value=""></label>
-				<fieldset>
 				</fieldset>
 				<h4>Contraintes </h4>
 				<fieldset>

@@ -90,17 +90,40 @@
                         <p>Remarques ?</p>
                     </div>
 
+                    <h4>Equipements</h4>
+                    <fieldset>
+                        <label>Garage <input type="checkbox" name="garage" value="1"></label>
+                        <label>Jardin <input type="checkbox" name="equipement" value="2"></label>
+                        <label>Piscine <input type="checkbox" name="piscine" value=""></label>
+                        <label>Télévision <input type="checkbox" name="télévision" value=""></label>
+                        <label>Train <input type="checkbox" name="train" value=""></label>
+                        <label>Handicap <input type="checkbox" name="handicap" value=""></label>
+                        <label>Wifi <input type="checkbox" name="wifi" value=""></label>
+                        <label>Cuisine <input type="checkbox" name="Cuisine" value=""></label>
+                        <label>Aéroport <input type="checkbox" name="aéroport" value=""></label>
+                    </fieldset>
+                    <h4>Contraintes </h4>
+                    <fieldset>
+                        <label>Animaux autorisés <input type="checkbox" name="animauxAutorisés" value=""></label>
+                        <label>Animaux interdits <input type="checkbox" name="animauxInterdits" value=""></label>
+                        <label>Bruit autorisé <input type="checkbox" name="bruitAutorisé" value=""></label>
+                        <label>Bruit interdit <input type="checkbox" name="bruitInterdit" value=""></label>
+                        <label>Fumé autorisé <input type="checkbox" name="fuméAutorisé" value=""></label>
+                        <label>Fumé interdite <input type="checkbox" name="fuméInterdite" value=""></label>
+                        <label>Plantes <input type="checkbox" name="plantes" value=""></label>
+                    </fieldset>
+
                     <div class="pictos">
 
-                        
-                        <p class="pictos"><img src="pictos/picto_fumer_interdit.png"/>Espace non fumeur ?</p>
+                        <img src="pictos/picto_fumer_interdit.png"/>
+                        <p class="pictos">Espace non fumeur ?</p>
 
                         <label for="fumeur">Oui
-                        <input type="radio" name="fumeur" value="non" class="pictos" checked="checked"/>
+                        <input type="radio" name="fumeur" value="1" class="pictos" checked="checked"/>
                         </label>
 
                         <label for="fumeur">Non
-                        <input type="radio" name="fumeur" value="oui" class="pictos"/>
+                        <input type="radio" name="fumeur" value="0" class="pictos"/>
                         </label>
                         <br/>
 
@@ -108,11 +131,11 @@
                         <p class="pictos">Animaux interdits ?</p>
 
                         <label for="animaux">Oui
-                        <input type="radio" name="animaux" value="non" class="pictos" checked="checked"/>
+                        <input type="radio" name="animaux" value="1" class="pictos" checked="checked"/>
                         </label>
 
                         <label for="animaux">Non
-                        <input type="radio" name="animaux" value="oui" class="pictos"/>
+                        <input type="radio" name="animaux" value="0" class="pictos"/>
                         </label>
                         <br/>
 
@@ -120,11 +143,11 @@
                         <p class="pictos">Bruit interdit ?</p>
 
                         <label for="bruit">Oui
-                        <input type="radio" name="bruit" value="non" class="pictos" checked="checked"/>
+                        <input type="radio" name="bruit" value="1" class="pictos" checked="checked"/>
                         </label>
 
                         <label for="bruit">Non
-                        <input type="radio" name="bruit" value="oui" class="pictos"/>
+                        <input type="radio" name="bruit" value="0" class="pictos"/>
                         </label>
                         <br/>
 
@@ -132,11 +155,11 @@
                         <p class="pictos">Adapté aux handicapés ?</p>
 
                         <label for="handicap">Oui
-                        <input type="radio" name="handicap" value="oui" class="pictos" checked="checked"/>
+                        <input type="radio" name="handicap" value="1" class="pictos" checked="checked"/>
                         </label>
 
                         <label for="handicap">Non
-                        <input type="radio" name="handicap" value="non" class="pictos"/>
+                        <input type="radio" name="handicap" value="0" class="pictos"/>
                         </label>
                         <br/>
 
@@ -144,11 +167,11 @@
                         <p class="pictos">Aéroport à proximité ?</p>
 
                         <label for="aeroport">Oui
-                        <input type="radio" name="aeroport" value="oui" class="pictos" checked="checked"/>
+                        <input type="radio" name="aeroport" value="1" class="pictos" checked="checked"/>
                         </label>
 
                         <label for="aeroport">Non
-                        <input type="radio" name="aeroport" value="non" class="pictos"/>
+                        <input type="radio" name="aeroport" value="0" class="pictos"/>
                         </label>
                         <br/>
 
@@ -156,11 +179,11 @@
                         <p class="pictos">Gare à proximité ?</p>
 
                         <label for="gare">Oui
-                        <input type="radio" name="gare" value="oui" class="pictos" checked="checked"/>
+                        <input type="radio" name="gare" value="1" class="pictos" checked="checked"/>
                         </label>
 
                         <label for="gare">Non
-                        <input type="radio" name="gare" value="non" class="pictos"/>
+                        <input type="radio" name="gare" value="0" class="pictos"/>
                         </label>
                         <br/>
 
@@ -168,11 +191,11 @@
                         <p class="pictos">Garage disponible ?</p>
 
                         <label for="garage">Oui
-                        <input type="radio" name="garage" value="oui" class="pictos" checked="checked"/>
+                        <input type="radio" name="garage" value="garage" class="pictos" checked="checked"/>
                         </label>
 
                         <label for="garage">Non
-                        <input type="radio" name="garage" value="non" class="pictos"/>
+                        <input type="radio" name="garage" class="pictos"/>
                         </label>
                         <br/>
 
@@ -180,11 +203,11 @@
                         <p class="pictos">Wifi disponible ?</p>
 
                         <label for="wifi">Oui
-                        <input type="radio" name="wifi" value="oui" class="pictos" checked="checked"/>
+                        <input type="radio" name="wifi" value="1" class="pictos" checked="checked"/>
                         </label>
 
                         <label for="wifi">Non
-                        <input type="radio" name="wifi" value="non" class="pictos"/>
+                        <input type="radio" name="wifi" value="0" class="pictos"/>
                         </label>
                         <br/>
 
@@ -192,11 +215,11 @@
                         <p class="pictos">Présence de jardin ?</p>
 
                         <label for="jardin">Oui
-                        <input type="radio" name="jardin" value="oui" class="pictos" checked="checked"/>
+                        <input type="radio" name="jardin" value="1" class="pictos" checked="checked"/>
                         </label>
 
                         <label for="jardin">Non
-                        <input type="radio" name="jardin" value="non" class="pictos"/>
+                        <input type="radio" name="jardin" value="0" class="pictos"/>
                         </label>
                         <br/>
 
@@ -204,11 +227,11 @@
                         <p class="pictos">Présence de piscine ?</p>
 
                         <label for="piscine">Oui
-                        <input type="radio" name="piscine" value="oui" class="pictos" checked="checked"/>
+                        <input type="radio" name="piscine" value="1" class="pictos" checked="checked"/>
                         </label>
 
                         <label for="piscine">Non
-                        <input type="radio" name="piscine" value="non" class="pictos"/>
+                        <input type="radio" name="piscine" value="0" class="pictos"/>
                         </label>
                         <br/>
 
@@ -216,11 +239,11 @@
                         <p class="pictos">Présence de TV ?</p>
 
                         <label for="tv">Oui
-                        <input type="radio" name="tv" value="oui" class="pictos" checked="checked"/>
+                        <input type="radio" name="tv" value="1" class="pictos" checked="checked"/>
                         </label>
 
                         <label for="tv">Non
-                        <input type="radio" name="tv" value="non" class="pictos"/>
+                        <input type="radio" name="tv" value="0" class="pictos"/>
                         </label>
                         <br/>
 
@@ -228,11 +251,11 @@
                         <p class="pictos">Besoin d'arroser des plantes ?</p>
 
                         <label for="plante">Oui
-                        <input type="radio" name="plante" value="oui" class="pictos" checked="checked"/>
+                        <input type="radio" name="plante" value="1" class="pictos" checked="checked"/>
                         </label>
 
                         <label for="plante">Non
-                        <input type="radio" name="plante" value="non" class="pictos"/>
+                        <input type="radio" name="plante" value="0" class="pictos"/>
                         </label>
                     </div>
 
