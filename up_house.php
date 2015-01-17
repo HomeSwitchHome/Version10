@@ -92,28 +92,28 @@
 
                     <h4>Equipements</h4>
                     <fieldset>
-                        <label>Garage <input type="checkbox" name="garage" value="1"></label>
-                        <label>Jardin <input type="checkbox" name="equipement" value="2"></label>
-                        <label>Piscine <input type="checkbox" name="piscine" value=""></label>
-                        <label>Télévision <input type="checkbox" name="télévision" value=""></label>
-                        <label>Train <input type="checkbox" name="train" value=""></label>
-                        <label>Handicap <input type="checkbox" name="handicap" value=""></label>
-                        <label>Wifi <input type="checkbox" name="wifi" value=""></label>
-                        <label>Cuisine <input type="checkbox" name="Cuisine" value=""></label>
-                        <label>Aéroport <input type="checkbox" name="aéroport" value=""></label>
+                        <label>Garage <input type="checkbox" name="equipement[garage]" value="1"></label>
+                        <label>Jardin <input type="checkbox" name="equipement[jardin]" value="2"></label>
+                        <label>Piscine <input type="checkbox" name="equipement[piscine]" value="3"></label>
+                        <label>Télévision <input type="checkbox" name="equipement[television]" value="4"></label>
+                        <label>Train <input type="checkbox" name="equipement[train]" value="5"></label>
+                        <label>Handicap <input type="checkbox" name="equipement[handicap]" value="6"></label>
+                        <label>Wifi <input type="checkbox" name="equipement[wifi]" value="7"></label>
+                        <label>Cuisine <input type="checkbox" name="equipement[cuisine]" value="8"></label>
+                        <label>Aéroport <input type="checkbox" name="equipement[aeroport]" value="9"></label>
                     </fieldset>
                     <h4>Contraintes </h4>
                     <fieldset>
-                        <label>Animaux autorisés <input type="checkbox" name="animauxAutorisés" value=""></label>
-                        <label>Animaux interdits <input type="checkbox" name="animauxInterdits" value=""></label>
-                        <label>Bruit autorisé <input type="checkbox" name="bruitAutorisé" value=""></label>
-                        <label>Bruit interdit <input type="checkbox" name="bruitInterdit" value=""></label>
-                        <label>Fumé autorisé <input type="checkbox" name="fuméAutorisé" value=""></label>
-                        <label>Fumé interdite <input type="checkbox" name="fuméInterdite" value=""></label>
-                        <label>Plantes <input type="checkbox" name="plantes" value=""></label>
+                        <label>Animaux autorisés <input type="checkbox" name="contrainte[animauxAutorises]" value="1"></label>
+                        <label>Animaux interdits <input type="checkbox" name="contrainte[animauxInterdits]" value="2"></label>
+                        <label>Bruit autorisé <input type="checkbox" name="contrainte[bruitAutorise]" value="3"></label>
+                        <label>Bruit interdit <input type="checkbox" name="contrainte[bruitInterdit]" value="4"></label>
+                        <label>Fumé autorisé <input type="checkbox" name="contrainte[fumeAutorise]" value="5"></label>
+                        <label>Fumé interdite <input type="checkbox" name="contrainte[fumeInterdite]" value="6"></label>
+                        <label>Plantes <input type="checkbox" name="contrainte[plantes]" value="7"></label>
                     </fieldset>
 
-                    <div class="pictos">
+                    <!-- <div class="pictos">
 
                         <img src="pictos/picto_fumer_interdit.png"/>
                         <p class="pictos">Espace non fumeur ?</p>
@@ -257,7 +257,7 @@
                         <label for="plante">Non
                         <input type="radio" name="plante" value="0" class="pictos"/>
                         </label>
-                    </div>
+                    </div> -->
 
                 </div>
 

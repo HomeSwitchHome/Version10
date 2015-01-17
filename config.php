@@ -46,7 +46,10 @@
 		$verifadmin = $bdd -> prepare("SELECT admin FROM membres WHERE id =".$_SESSION["userID"]);
                 $verifadmin -> execute();
                 $numadmin = $verifadmin->fetch();
-                if ($numadmin['admin'] == 1) {return TRUE;}} 
+                if ($numadmin['admin'] == 1) {return TRUE;}
+        }else{
+        	return false;
+        } 
 	}	
 
 	/*function isadmin2()
