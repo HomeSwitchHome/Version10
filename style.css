@@ -4,6 +4,15 @@
 	src :url('font/BadScript-Regular.ttf') format('truetype');
 }
 
+@font-face {
+	font-family: 'Oxygen';
+	src :url('font/Oxygen-Regular.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'Oxygen-Light';
+	src :url('font/Oxygen-Light.ttf') format('truetype');
+}
+
 body {
 	margin: 0;
 	padding: 0;
@@ -17,7 +26,7 @@ h1, h2, h3 {
 	margin: 0;
 	padding: 0;
 	text-transform: uppercase;
-	font-weight: 300;
+	font-family: 'Oxygen-Light';
 	color: #7D7764;
 }
 

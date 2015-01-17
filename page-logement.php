@@ -27,13 +27,18 @@ $membrelog=$result['membres_idMembres'];
     <head>
         <meta charset="utf-8">
         <title>Home Switch Home</title>
-        <link href="http://fonts.googleapis.com/css?family=Oxygen:400,700,300" rel="stylesheet" />
         <link href="style.css" rel="stylesheet" />       
         <script language="javascript">
 			function confirme( identifiant ){
 				var confirmation = confirm( "Voulez vous vraiment supprimer votre annonce ?" ) ;
 				if( confirmation ){
 					document.location.href = "suppression_annonce.php?idLogement="+identifiant ;
+				}
+			}
+			function confirme2( identifiant ){
+				var confirmation = confirm( "Voulez vous vraiment supprimer votre annonce ?" ) ;
+				if( confirmation ){
+					document.location.href = "contacter_membre.php?idLogement="+identifiant ;
 				}
 			}
     	</script>
@@ -62,7 +67,16 @@ $membrelog=$result['membres_idMembres'];
 	                		<br/>
 	                		<a href=\"#\" onClick=\"confirme(".$idLogement.")\">Supprimer mon annonce</a>
 	                	</div>");
-	                	}?>
+	                	}
+	                	else {
+	                		echo ("<div align=\"center\">
+	                		<a href=\"#\" onClick=\"confirme2(".$idLogement.")\">Je suis intéressé par cette annonce !</a>
+	                		<br/>
+	                		
+	                	</div>")
+	                	}
+
+	                	?>
 	                    <div class="liste_logements">
 	                    	<?php //affichage de l'entête du tableau
 	 

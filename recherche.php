@@ -4,7 +4,6 @@
 		<title>Recherche Avancée</title>
 		<meta charset="utf-8" />
 		<link href="style.css" rel="stylesheet" />
-		<link href="http://fonts.googleapis.com/css?family=Oxygen:400,700,300" rel="stylesheet" />
 	</head>
 	<body>
 		<div id="wrapper">
