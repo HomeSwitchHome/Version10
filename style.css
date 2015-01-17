@@ -13,6 +13,11 @@
 	src :url('font/Oxygen-Light.ttf') format('truetype');
 }
 
+@font-face {
+	font-family: 'Oxygen-Bold';
+	src :url('font/Oxygen-Bold.ttf') format('truetype');
+}
+
 body {
 	margin: 0;
 	padding: 0;

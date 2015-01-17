@@ -4,6 +4,8 @@
 	$bdd = new PDO('mysql:host=localhost;dbname=hsh', 'root', 'root', [PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8']);
 	$bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
+	define('BASE_URL', dirname(dirname($_SERVER['SCRIPT_NAME'])));
+
 /*----------------------------------------------------------------------------------------------------------------------------*/
 
 	function escape($text)
@@ -64,6 +66,11 @@
      rmdir($dir);
    		}
  	}
+
+ 	function webroot($url) {
+		trim($url,'/');
+		return BASE_URL.'/'.$url;
+	}
 
 	/*function isadmin2()
 	{
