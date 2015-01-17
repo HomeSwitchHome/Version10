@@ -31,7 +31,7 @@
 
                     <div>
                         <label for="ville">Ville :</label><br/>
-                        <input type="text" name="ville " required/>
+                        <input type="text" name="ville" required/>
                     </div>
 
                     <div>
