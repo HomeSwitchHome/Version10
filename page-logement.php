@@ -140,12 +140,12 @@ $membrelog=$result['membres_idMembres'];
 	                            <ul class="infosPerso">
 	                        		<?php while ($contrainte = $logement_contrainte -> fetch()) 
 	                        		{
-	                        			echo("<li><img src='pictos/".$contrainte['contrainte'].".png'></li>");
+	                        			echo("<img src='pictos/".$contrainte['contrainte'].".png' class=\"picto\">");
 	                            	}
 	                                ?>
 	                                <?php while ($equipement = $logement_equipe -> fetch()) 
 	                        		{
-	                        			echo("<li><img src='pictos/".$equipement['nom'].".png'></li>");
+	                        			echo("<img src='pictos/".$equipement['nom'].".png' class=\"picto\">");
 	                            	}
 	                                ?>
 	 							</ul>
