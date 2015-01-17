@@ -1,4 +1,5 @@
 <?php require_once("config.php"); 
+require 'functions.php';
 $idLogement  = $_GET["idLogement"] ;
 //$idLogement = 4;
 $logement_info = $bdd -> prepare('SELECT nombrePieces, description, titre_annonce, surfaceInterieure, surfaceExterieure, nombreLitsSimples, nombreLitsDoubles, descriptionProximite, membres_idMembres, types_idTypes
@@ -14,10 +15,11 @@ $logement_equipe -> execute();
 $result = $logement_info -> fetch();
 $membrelog=$result['membres_idMembres'];
 
+$equipement = $logement_equipe -> fetchAll();
+$contrainte = $logement_contrainte -> fetch();
 
-
-
-
+debug($equipement);
+debug($contrainte);
 
 ?>
 
