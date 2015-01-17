@@ -42,10 +42,11 @@
 	{ 
 				$bdd = new PDO('mysql:host=localhost;dbname=hsh', 'root', 'root', [PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8']);
 	$bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		if (!empty($_SESSION["userID"])) {
 		$verifadmin = $bdd -> prepare("SELECT admin FROM membres WHERE id =".$_SESSION["userID"]);
                 $verifadmin -> execute();
                 $numadmin = $verifadmin->fetch();
-                if ($numadmin['admin'] == 1) {return TRUE;} 
+                if ($numadmin['admin'] == 1) {return TRUE;}} 
 	}	
 
 	/*function isadmin2()

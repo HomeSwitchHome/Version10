@@ -1,6 +1,10 @@
 <?php require_once("config.php"); 
-$id  = $_GET["idPersonne"];
+$idlog = $_GET["idLogement"];
+$logement_info = $bdd -> prepare('SELECT membres_idMembres
+                                    FROM logements WHERE id = '.$idlog);
+$logement_info -> execute();
 
+$result = $logement_info -> fetch();
  ?>
 
 
@@ -17,17 +21,15 @@ $id  = $_GET["idPersonne"];
 		    <div id="user_list">
 
 				<?php 
-					$verifadmin = $bdd -> prepare("SELECT admin FROM membres WHERE id =".$_SESSION["userID"]);
-				    $verifadmin -> execute();
-				    $numadmin = $verifadmin->fetch();
-				    if ($numadmin['admin'] == 1) {
-						$envoidelete = $bdd -> prepare("DELETE FROM membres WHERE id = '$id' ");
+						if ($result['membres_idMembres'] = $_SESSION['userID']) {
+						$envoidelete = $bdd -> prepare("DELETE FROM logements WHERE id = '$idlog' ");
 						$envoidelete -> execute();
-						
+						$dir = 'img/'.$idlog;
+						rmdir($dir);
 					}
 				?>
 
-				<a href="modif1.php">Retour page administration</a>
+				<a href="index.php">Retour page accueil</a>
 			</div>
 		</div>
 	</body>

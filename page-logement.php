@@ -17,6 +17,14 @@ $result = $logement_info -> fetch();
         <title>Home Switch Home</title>
         <link href="http://fonts.googleapis.com/css?family=Oxygen:400,700,300" rel="stylesheet" />
         <link href="style.css" rel="stylesheet" />       
+        <script language="javascript">
+			function confirme( identifiant ){
+				var confirmation = confirm( "Voulez vous vraiment supprimer votre annonce ?" ) ;
+				if( confirmation ){
+					document.location.href = "suppression_annonce.php?idLogement="+identifiant ;
+				}
+			}
+    	</script>
     </head>
 
     <body>
@@ -40,7 +48,7 @@ $result = $logement_info -> fetch();
 	                	<div align="center">
 	                		<a href="modifier-annonce.php?idLogement=<?php echo($idLogement);?>">Modifier mon annonce</a>
 	                		<br/>
-	                		<a href="#">Supprimer mon annonce</a>
+	                		<a href="#" onClick="confirme(<?php echo($idLogement);?>)">Supprimer mon annonce</a>
 	                	</div>
 	                	<?php }?>
 	                    <div class="liste_logements">
