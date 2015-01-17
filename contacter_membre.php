@@ -1,25 +1,40 @@
 <?php require_once("config.php");
+require("functions.php");
 require_once('PHPMailer/class.phpmailer.php');
-$idUser = $_GET['idUser'];
+$idLogement = $_GET['idLogement'];
 
-$user_name = $bdd -> prepare('SELECT prenom, nom, email, age, telephone FROM membres WHERE id = '.$idUser);
+$user_name = $bdd -> prepare('SELECT prenom, nom, email, age, telephone FROM membres WHERE id = '.$_SESSION['userID']);
 $user_name -> execute();
 
+$proprietaire = $bdd -> prepare('SELECT logements.id,logements.membres_idMembres, membres.email FROM logements INNER JOIN membres ON logements.membres_idMembres=membres.id WHERE logements.id='.$idLogement);
+$proprietaire -> execute();
+
 $result = $user_name -> fetch();
+$infoproprio = $proprietaire -> fetch();
 
+$email=$result['email'];
+$prenom=$result['prenom'];
+$nom=$result['nom'];
+$age=$result['age'];
+$telephone=$result['telephone'];
 
+$sendto=$infoproprio['email'];
 
-
-
+$pageweb=$_SERVER['SERVER_NAME'];
 	$mail = new PHPMailer();
 
 	$mail->IsHTML(true);
 	$mail->CharSet = "utf-8";
 	$mail->From = $email;
-	$mail->FromName = 'Contact';
-	$mail->Subject = 'Un formulaire de contact a été soumis';
-	$mail->Body = $message_html;
-	$mail->AddAddress('danny.canaan@gmail.com');
+	$mail->FromName = $prenom.' '.$nom;
+	$mail->Subject = $prenom.' '.$nom.' est intéressé par votre annonce';
+	$mail->Body = 
+				'Bonjour, <br/>
+
+				Nous vous informons que '.$prenom.' '.$nom.' est intéressé(e) par votre <a href="'.$pageweb.'/Version10/page-logement.php?idLogement='.$idLogement.'">annonce</a>
+				Voici ces coordonnées : '.$email.' '.$telephone.'
+				<br/>Veuillez le contacter.';
+	$mail->AddAddress($sendto);
 	
     $mail->Send();
 
@@ -39,9 +54,9 @@ $result = $user_name -> fetch();
 		<div id="wrapper">
 				
 			<?php include("header.php") ?>
-
-			<h4>Le propriétaire de l'annonce sait désormais que vous êtes intéressé par cette annonce, il prendra contact avec vous afin d'établir les termes d'un échange.</h4>
-			<a href="index.php">Retourner à la page d'accueil</a>
+			<br/><br/><br/><br/>
+			<p>Le propriétaire de l'annonce sait désormais que vous êtes intéressé par cette annonce, il prendra contact avec vous afin d'établir les termes d'un échange.</p>
+			<div align="center"><h2><a href="index.php">Retourner à la page d'accueil</a></h2></div>
 
 
 
