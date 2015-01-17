@@ -17,14 +17,18 @@ try{
 
 $sql = 'SELECT id FROM villes WHERE ville = :ville';
 $sql2 = "UPDATE logements SET nombrePieces = :nombrePieces, adresse = :adresse, description = :description, descriptionSuccincte = :descriptionSuccincte, villes_id = :villes_id, titre_annonce = :titre_annonce, surfaceInterieure = :surfaceInterieure, surfaceExterieure = :surfaceExterieure, nombreLitsSimples = :nombreLitsSimples, nombreLitsDoubles = :nombreLitsDoubles, descriptionProximite = :descriptionProximite, membres_idMembres = :membres_idMembres, types_idTypes = :types_idTypes";
-$sql3 = "UPDATE equipe SET logements_id = :logements_id, equipements_id = :equipements_id";
-$sql4 = "UPDATE contraint SET logements_id = :logements_id, contraintes_id = :contraintes_id";
+$sql3 = "DELETE FROM equipe WHERE logements_id = $idLogement";
+$sql4 = "DELETE FROM contraint WHERE logements_id = $idLogement";
+$sql5 = "INSERT INTO equipe (logements_id, equipements_id) VALUES (:logements_id, :equipements_id)";
+$sql6 = "INSERT INTO contraint (logements_id, contraintes_id) VALUES (:logements_id, :contraintes_id)";
 
 
 $stmt = $bdd2->prepare($sql);
 $stmt2 = $bdd2->prepare($sql2);
 $stmt3 = $bdd2->prepare($sql3);
 $stmt4 = $bdd2->prepare($sql4);
+$stmt5 = $bdd2->prepare($sql5);
+$stmt6 = $bdd2->prepare($sql6);
 
 
 try {
@@ -39,6 +43,14 @@ try {
 
 	foreach ($_POST['contrainte'] as $k => $v){
 			$stmt4->execute(['logements_id' => $idLogement, 'contraintes_id' => $v]);
+	}
+
+	foreach ($_POST['equipement'] as $k => $v){
+			$stmt5->execute(['logements_id' => $idLogement, 'equipements_id' => $v]);
+	}
+
+	foreach ($_POST['contrainte'] as $k => $v){
+			$stmt6->execute(['logements_id' => $idLogement, 'contraintes_id' => $v]);
 	}
 
 } catch (PDOException $e) {
