@@ -41,6 +41,7 @@
 		<script src="js/skel.min.js"></script>
 		<script src="js/skel-layers.min.js"></script>
 		<script src="js/init.js"></script>
+		<script src="js/popupccm.js"></script>
 	</head>
 
 	<body>
@@ -52,7 +53,7 @@
 				
 				<h1>Home Switch Home</h1>
 				<p>Le site d'échange de logement entre particuliers</p>
-				<a href="#html2" id="lien_button_transparent"><p><div id="button_transparent">Comment ça marche ?</div></p></a>	
+				<a href="#html2" id="lien_button_transparent" onClick="popup('popUpDiv')"><p><div id="button_transparent">Comment ça marche ?</div></p></a>	
 			</div>
 			<!--<div id="masquer" class="ccmarche" style="display: none;">
 					<img src="images/logoccm.png" onclick="disparaitre();" id="ccmar">
@@ -476,6 +477,11 @@
 		<div class="overflow">
 			<h2>Hello</h2>
 		</div>
+		<div id="blanket" style="display:none;"></div>
+	<div id="popUpDiv" style="display:none;">
+		
+		<a href="#" onclick="popup('popUpDiv')" ><img src="cross.svg" width="15px" height="15px" class="boutonsuppr"></a>
+	</div>	
 	</body>
 
 </html>

@@ -8,7 +8,7 @@ $logement_info -> execute();
 $logement_contrainte = $bdd -> prepare('SELECT contraint.logements_id, contraint.contraintes_id, contraintes.contrainte, contraintes.id FROM contraint INNER JOIN contraintes ON contraint.contraintes_id=contraintes.id WHERE contraint.logements_id='.$idLogement);
 $logement_contrainte -> execute();
 
-$logement_equipe = $bdd -> prepare('SELECT equipe.logements_id, equipe.equipements_id, equipements.nom, equipements.id FROM equipe INNER JOIN equipements ON equipe.equipements_id=equipements.id WHERE equipe.logements_id='.$idLogement);
+$logement_equipe = $bdd -> prepare('SELECT equipe.logements_id, equipe.equipements_id, equipements.equipement, equipements.id FROM equipe INNER JOIN equipements ON equipe.equipements_id=equipements.id WHERE equipe.logements_id='.$idLogement);
 $logement_equipe -> execute();
 
 $result = $logement_info -> fetch();
@@ -124,7 +124,7 @@ $membrelog=$result['membres_idMembres'];
 	                        
 	                                <?php while ($equipement = $logement_equipe -> fetch()) 
 	                        		{
-	                        			echo("<img src='pictos/".$equipement['nom'].".png' class=\"picto\">");
+	                        			echo("<img src='pictos/".$equipement['equipement'].".png' class=\"picto\">");
 	                            	}
 	                                ?>
 	                             </ul>
