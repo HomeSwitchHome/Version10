@@ -39,23 +39,23 @@
 				</fieldset>
 				<h4>Nombre de couchages</h4>
 				<fieldset>
-					<label>Capacité total </label><input type="number" min="1" max="9999" value="1" /></br>
-					<label>Nombre de lits doubles </label><input type="number" min="1" max="9999" value="1" /></br>
-					<label>Nombre de lits simples </label><input type="number" min="1" max="9999" value="1" /></br>
+					<label>Capacité total </label><input type="number" min="1" max="9999" /></br>
+					<label>Nombre de lits doubles </label><input type="number" min="1" max="9999" /></br>
+					<label>Nombre de lits simples </label><input type="number" min="1" max="9999" /></br>
 				</fieldset>
 				<h4>Surface</h4>
 				<fieldset>
-					<label>Surface <input type="number" min="1" max="9999" value="1" /></label></br>
-					<label>Surface intérieur <input type="number" min="1" max="9999" value="1" /></label></br>
-					<label>Surface extérieur <input type="number" min="1" max="9999" value="1" /></label></br>
+					<label>Surface <input type="number" min="1" max="9999" /></label></br>
+					<label>Surface intérieur <input type="number" min="1" max="9999" /></label></br>
+					<label>Surface extérieur <input type="number" min="1" max="9999" /></label></br>
 				</fieldset>
 				<h4>Nombre de pièces</h4>
 				<fieldset>
-					<label>Nombre de pièces <input type="number" name="rooms" value="1" min="1" max="50" ></label>
+					<label>Nombre de pièces <input type="number" name="rooms" min="1" max="50" ></label>
 				</fieldset>
 				<h4>Note</h4>
 				<fieldset>
-					<label>Note supérieur à <input type="number" name="Note" value="1" min="1" max="10" /></label>
+					<label>Note supérieur à <input type="number" name="Note" min="1" max="10" /></label>
 				</fieldset>
 				<h4>Equipements</h4>
 				<fieldset>
