@@ -259,10 +259,10 @@
                         </label>
                     </div> -->
 
-                </div>
+                
 
                 <input type="submit" value="Valider" class="submit_button"/>
-
+                </div>
             </form>
 
         </div>
