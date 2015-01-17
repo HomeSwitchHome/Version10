@@ -26,13 +26,13 @@ $membrelog=$result['membres_idMembres'];
         <link href="style.css" rel="stylesheet" />       
         <script language="javascript">
 			function confirme( identifiant ){
-				var confirmation = confirm( "Voulez vous vraiment supprimer votre annonce ?" ) ;
+				var confirmation = confirm( "Voulez-vous vraiment supprimer votre annonce ?" ) ;
 				if( confirmation ){
 					document.location.href = "suppression_annonce.php?idLogement="+identifiant ;
 				}
 			}
 			function confirme2( identifiant ){
-				var confirmation = confirm( "Voulez vous vraiment contacter le propriétaire de cette annonce ?" ) ;
+				var confirmation = confirm( "Voulez-vous vraiment contacter le propriétaire de cette annonce ?" ) ;
 				if( confirmation ){
 					document.location.href = "contacter_membre.php?idLogement="+identifiant ;
 				}
@@ -59,9 +59,12 @@ $membrelog=$result['membres_idMembres'];
 	                <div class="colonne_gauche_profil">
 	                	<?php if ($membrelog == $_SESSION['userID'] || isadmin()) {
 	                	echo ("<div align=\"center\">
+	                		<a href=\"#\" onClick=\"confirme2(".$idLogement.")\">Je suis intéressé par cette annonce !</a>
+	                		<br/>
 	                		<a href=\"modifier-annonce.php?idLogement=".$idLogement."\">Modifier mon annonce</a>
 	                		<br/>
 	                		<a href=\"#\" onClick=\"confirme(".$idLogement.")\">Supprimer mon annonce</a>
+	                		<br/>
 	                	</div>");
 	                	}
 	                	else {
