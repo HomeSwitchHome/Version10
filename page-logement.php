@@ -36,7 +36,7 @@ $membrelog=$result['membres_idMembres'];
 				}
 			}
 			function confirme2( identifiant ){
-				var confirmation = confirm( "Voulez vous vraiment supprimer votre annonce ?" ) ;
+				var confirmation = confirm( "Voulez vous vraiment contacter le propriétaire de cette annonce ?" ) ;
 				if( confirmation ){
 					document.location.href = "contacter_membre.php?idLogement="+identifiant ;
 				}

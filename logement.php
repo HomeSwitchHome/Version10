@@ -50,7 +50,7 @@
                             <div class="image"><img src="img/<?php echo($ligne['id']);?>/1.jpg" width="324" height="200" alt="" /></div>
                                 
                                 <h2><?php echo ($ligne['titre_annonce']);?></h2>
-                                <p><?php echo ($ligne['description']);?></p>
+                                <p><?php echo ($ligne['descriptionSuccincte']);?></p>
                                 <a href="page-logement.php?idLogement=<?php echo($ligne['id']);?>" class="button">Plus d'informations</a>
                                             <?php $ligne = $q-> fetch();?>
                             </div>
@@ -70,7 +70,7 @@
                             <div class="image"><img src="img/<?php echo($ligne['id']);?>/1.jpg" width="324" height="200" alt="" /></div>
                 
                                 <h2><?php echo ($ligne['titre_annonce']);?></h2>
-                                <p><?php echo ($ligne['description']);?></p>
+                                <p><?php echo ($ligne['descriptionSuccincte']);?></p>
                                 <a href="page-logement.php?idLogement=<?php echo($ligne['id']);?>" class="button">Plus d'informations</a>
                                             <?php $ligne = $q-> fetch();?>
                             </div>
@@ -90,7 +90,7 @@
                             <div class="image"><img src="img/<?php echo($ligne['id']);?>/1.jpg" width="324" height="200" alt="" /></div>
                     
                                 <h2><?php echo ($ligne['titre_annonce']);?></h2>
-                                <p><?php echo ($ligne['description']);?></p>
+                                <p><?php echo ($ligne['descriptionSuccincte']);?></p>
                                 <a href="page-logement.php?idLogement=<?php echo($ligne['id']);?>" class="button">Plus d'informations</a>
                                             <?php $ligne = $q-> fetch();?>
                             </div>
@@ -113,7 +113,7 @@
                             <div class="image"><img src="images/maison1.jpg" width="324" height="200" alt="" /></div>
                 
                                 <h2><?php echo ($ligne['titre_annonce']);?></h2>
-                                <p><?php echo ($ligne['description']);?></p>
+                                <p><?php echo ($ligne['descriptionSuccincte']);?></p>
                                 <a href="page-logement.php?idLogement=<?php echo($ligne['id']);?>" class="button">Plus d'informations</a>
                 
                             </div>
@@ -131,7 +131,7 @@
                             <div class="image"><img src="images/maison1.jpg" width="324" height="200" alt="" /></div>
                                 <?php $ligne = $q-> fetch();?>
                                 <h2><?php echo ($ligne['titre_annonce']);?></h2>
-                                <p><?php echo ($ligne['description']);?></p>
+                                <p><?php echo ($ligne['descriptionSuccincte']);?></p>
                                 <a href="page-logement.php?idLogement=<?php echo($ligne['id']);?>" class="button">Plus d'informations</a>
 
                             </div>
@@ -149,7 +149,7 @@
                             <div class="image"><img src="images/maison1.jpg" width="324" height="200" alt="" /></div>
                     
                                 <h2><?php echo ($ligne['titre_annonce']);?></h2>
-                                <p><?php echo ($ligne['description']);?></p>
+                                <p><?php echo ($ligne['descriptionSuccincte']);?></p>
                                 <a href="page-logement.php?idLogement=<?php echo($ligne['id']);?>" class="button">Plus d'informations</a>
 
                             </div>
