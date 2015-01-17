@@ -90,7 +90,7 @@ if(!empty($_POST)) {
 			<?php include("header.php") ?>
 		<div id="user_list">
 			<h3>Votre photo a été mise en ligne</h3>
-			<h2>Voulez vous : <a href="upload_more_photos.php?idlog=<?php echo($ajoutPhoto);?>">Ajouter d'autres photos ?</a> ou <a href="index.php">Retourner à la page d'accueil ?</a></h2>
+			<h2>Voulez-vous : <a href="upload_more_photos.php?idlog=<?php echo($ajoutPhoto);?>">Ajouter d'autres photos ?</a> ou <a href="index.php">Retourner à la page d'accueil ?</a></h2>
 		</div>
 			
 		</div>
