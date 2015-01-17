@@ -6,7 +6,7 @@ $logement_info = $bdd -> prepare('SELECT nombrePieces, description, titre_annonc
 $logement_info -> execute();
 
 $result = $logement_info -> fetch();
-
+$membrelog=$result['membres_idMembres'];
 ?>
 
 <!DOCTYPE>
@@ -44,13 +44,13 @@ $result = $logement_info -> fetch();
             <div class="annonce">
 	            <div class="profil">
 	                <div class="colonne_gauche_profil">
-	                	<?php if ($result['membres_idMembres'] = $_SESSION['userID']) {?>
-	                	<div align="center">
-	                		<a href="modifier-annonce.php?idLogement=<?php echo($idLogement);?>">Modifier mon annonce</a>
+	                	<?php if ($membrelog == $_SESSION['userID'] || isadmin()) {
+	                	echo ("<div align=\"center\">
+	                		<a href=\"modifier-annonce.php?idLogement=".$idLogement."\">Modifier mon annonce</a>
 	                		<br/>
-	                		<a href="#" onClick="confirme(<?php echo($idLogement);?>)">Supprimer mon annonce</a>
-	                	</div>
-	                	<?php }?>
+	                		<a href=\"#\" onClick=\"confirme(".$idLogement.")\">Supprimer mon annonce</a>
+	                	</div>");
+	                	}?>
 	                    <div class="liste_logements">
 	                    	<?php //affichage de l'entête du tableau
 	 
