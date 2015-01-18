@@ -146,9 +146,8 @@
     debug($ligne);
 
     if($nb==0){
-        include('resultat-recherche3.php');
+        include('resultat-recherche4.php');
     }else{
         include('resultat-recherche2.php');
     }
-
 ?>
