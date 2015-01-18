@@ -1,5 +1,4 @@
 <?php require_once("config.php");
-require 'functions.php';
 $idLogement  = $_GET["idLogement"] ;
 //$idLogement = 49;
 

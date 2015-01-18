@@ -1,5 +1,5 @@
-<?php require_once("config.php");
-include("up_house_post.php"); ?>
+<?php
+require("up_house_post.php"); ?>
 
 
 

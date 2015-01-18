@@ -1,5 +1,4 @@
 <?php require_once("config.php");
-require 'functions.php';
 $mdp=sha1($_POST['mdp']);
 $mail=$_POST['email'];
 

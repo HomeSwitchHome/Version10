@@ -2,6 +2,7 @@
 	session_start();
 
 	define('BASE_URL', dirname(dirname($_SERVER['SCRIPT_NAME'])));
+	require 'functions.php';
 
 	function bddConnect(){
 
