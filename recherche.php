@@ -20,22 +20,6 @@
 
 				<br/><br/><h1 align="center">Recherche avancée</h1>
 				<form method="post" action="resultat-recherche.php" class="recherche">
-				<h4>Choisissez un lieu</h4>
-				<fieldset>
-					<label>Pays </label><select name="pays">
-					<option value="">France</option>
-					</select></br>
-					<label>Région </label><select name="région">
-					<option value="">région</option>
-					</select></br>
-					<label>Département </label><select name="département">
-					<option value="">département</option>
-					</select></br>
-					<label>Ville </label><select name="ville">
-					<option value="">Levallois-Perret</option>
-					</select></br>
-				</fieldset>
-
 				<h4>Type de logement</h4>
 				<fieldset>
 
