@@ -34,7 +34,7 @@ if (isverified()) {
 					'Bonjour, <br/>
 	
 					Nous vous informons que '.$prenom.' '.$nom.' est intéressé(e) par votre <a href="'.$pageweb.'/Version10/page-logement.php?idLogement='.$idLogement.'">annonce</a>
-					Voici ces coordonnées : '.$email.' '.$telephone.'
+					Voici ses coordonnées : '.$email.' '.$telephone.'
 					<br/>Veuillez le contacter.';
 		$mail->AddAddress($sendto);
 		
