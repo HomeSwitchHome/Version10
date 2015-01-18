@@ -1,5 +1,5 @@
 <?php require_once("config.php");
-
+if (isset($_SESSION["userID"])&&!empty($_SESSION['userID']))
 /************************************************************
 * Definition des constantes / tableaux et variables
 *************************************************************/
