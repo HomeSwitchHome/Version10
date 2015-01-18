@@ -10,13 +10,15 @@
 			<?php include("header.php"); ?>
 			<br/><br/><br/>
 			<h1 align="center">Recherche</h1>
-				<form method="get" action="search.php" class="recherche">
+				<form method="get" action="search.php" class="q">
 
 				
-					<label><input type="text" id="recherche-simple" name="recherche" placeholder="Tapez votre recherche" <?php if (empty($_SESSION)) echo 'disabled'; ?>/></label>
+					<label><input type="text" id="recherche-simple" name="q" placeholder="Tapez votre recherche" <?php if (empty($_SESSION)) echo 'disabled'; ?>/></label>
 				
 				<input type="submit" value="Rechercher" class="submit_button"/>
 				</form>
+
+
 				<br/><br/><h1 align="center">Recherche avancée</h1>
 				<form method="post" action="resultat-recherche.php" class="recherche">
 				<h4>Choisissez un lieu</h4>
@@ -37,6 +39,7 @@
 
 				<h4>Type de logement</h4>
 				<fieldset>
+
 					<label>Type </label><select name="types_idTypes">
 					<option value="1">Maison</option>
 					<option value="2">Appartement</option>
