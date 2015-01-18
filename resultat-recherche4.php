@@ -10,7 +10,7 @@
 				
 			<?php include("header.php") ?>
 		<div id="user_list">
-			<h3>Votre recherche n'a retourné aucun résultat</h3>
+			<h3>Votre recherche ne retourne aucun résultat</h3>
 			<h2>Voulez-vous : <a href="recherche.php">Effectuer une nouvelle recherche</a> ou <a href="index.php">Retourner à la page d'accueil ?</a></h2>
 		</div>
 			
