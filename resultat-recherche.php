@@ -1,7 +1,24 @@
 <?php
-	require_once("config.php"); 
-	$q=$bdd->query("SELECT logement FROM logements ORDER BY id desc");
-	$ligne = $q-> fetch();
+	require_once("config.php");
+    require 'functions.php';
+
+    debug($_POST);
+
+    $sql = "SELECT id FROM logements WHERE adresse= :adresse AND nombreLitsDoubles + nombreLitsSimples = :capaciteTotale AND nombreLitsDoubles = :nombreLitsDoubles AND nombreLitsSimples = :nombreLitsSimples AND surfaceInterieure + surfaceExterieure = :surfaceTotale AND surfaceInterieure = :surfaceInterieure AND surfaceExterieure = :surfaceExterieure AND nombrePieces = :nombrePieces AND types_idTypes = :type ORDER BY id desc";
+
+    try{    
+        $stmt = $bdd->prepare($sql);
+
+        $stmt->execute(['nombrePieces' => $_POST['nombrePieces'], 'adresse' => $_POST['adresse'], 'surfaceInterieure' => $_POST['surfaceInterieure'], 'surfaceExterieure' => $_POST['surfaceExterieure'], 'surfaceTotale' => $_POST['surfaceInterieure'] + $_POST['surfaceExterieure'], 'nombreLitsSimples' => $_POST['nombreLitsSimples'], 'nombreLitsDoubles' => $_POST['nombreLitsDoubles'], 'capaciteTotale' => $_POST['nombreLitsSimples'] + $_POST['nombreLitsDoubles'], 'type' => $_POST['type']]);
+
+    	$ligne = $stmt-> fetchAll();
+    }catch (PDOException $e) {
+        echo $e->getMessage();
+    }
+
+    debug($ligne);
+    die();
+
 ?>
 
 <!DOCTYPE html>
@@ -52,7 +69,7 @@
                                 <h2><?php echo ($ligne['titre_annonce']);?></h2>
                                 <p><?php echo ($ligne['descriptionSuccincte']);?></p>
                                 <a href="page-logement.php?idLogement=<?php echo($ligne['id']);?>" class="button">Plus d'informations</a>
-                                            <?php $ligne = $q-> fetch();?>
+                                            <?php $ligne = $stmt-> fetch();?>
                             </div>
             
                         </div>
@@ -72,7 +89,7 @@
                                 <h2><?php echo ($ligne['titre_annonce']);?></h2>
                                 <p><?php echo ($ligne['descriptionSuccincte']);?></p>
                                 <a href="page-logement.php?idLogement=<?php echo($ligne['id']);?>" class="button">Plus d'informations</a>
-                                            <?php $ligne = $q-> fetch();?>
+                                            <?php $ligne = $stmt-> fetch();?>
                             </div>
             
                         </div>
@@ -92,7 +109,7 @@
                                 <h2><?php echo ($ligne['titre_annonce']);?></h2>
                                 <p><?php echo ($ligne['descriptionSuccincte']);?></p>
                                 <a href="page-logement.php?idLogement=<?php echo($ligne['id']);?>" class="button">Plus d'informations</a>
-                                            <?php $ligne = $q-> fetch();?>
+                                            <?php $ligne = $stmt-> fetch();?>
                             </div>
             
                         </div>
@@ -109,7 +126,7 @@
                     <div class="box-style box-style01">
                 
                         <div class="content">
-                            <?php $ligne = $q-> fetch();?>
+                            <?php $ligne = $stmt-> fetch();?>
                             <div class="image"><img src="images/maison1.jpg" width="324" height="200" alt="" /></div>
                 
                                 <h2><?php echo ($ligne['titre_annonce']);?></h2>
@@ -129,7 +146,7 @@
                         <div class="content">
                     
                             <div class="image"><img src="images/maison1.jpg" width="324" height="200" alt="" /></div>
-                                <?php $ligne = $q-> fetch();?>
+                                <?php $ligne = $stmt-> fetch();?>
                                 <h2><?php echo ($ligne['titre_annonce']);?></h2>
                                 <p><?php echo ($ligne['descriptionSuccincte']);?></p>
                                 <a href="page-logement.php?idLogement=<?php echo($ligne['id']);?>" class="button">Plus d'informations</a>
@@ -145,7 +162,7 @@
                     <div class="box-style box-style03">
                 
                         <div class="content">
-                                <?php $ligne = $q-> fetch();?>
+                                <?php $ligne = $stmt-> fetch();?>
                             <div class="image"><img src="images/maison1.jpg" width="324" height="200" alt="" /></div>
                     
                                 <h2><?php echo ($ligne['titre_annonce']);?></h2>
