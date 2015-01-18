@@ -1033,3 +1033,12 @@ color: #FFF;
 width:100%;
 height:50px;
 }
+
+#recherche-simple {
+	margin: inherit;
+	margin-right: auto;
+	margin-left: auto;
+	width: 98%;
+	padding: inherit;
+	margin-top: 5%;
+}

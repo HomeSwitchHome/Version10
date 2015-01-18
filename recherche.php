@@ -9,15 +9,15 @@
 		<div id="wrapper">
 			<?php include("header.php"); ?>
 			<br/><br/><br/>
-			<h1 align="center">Recherchez un logement</h1>
-				<form method="post" action="search.php" class="recherche">
+			<h1 align="center">Recherche</h1>
+				<form method="get" action="search.php" class="recherche">
 
-				<h4>Mots clefs</h4>
-				<fieldset>
-					<label><input type="search" name="recherche" placeholder="Tapez votre recherche" <?php if (empty($_SESSION)) echo 'disabled'; ?>/></label>
-				</fieldset>
+				
+					<label><input type="text" id="recherche-simple" name="recherche" placeholder="Tapez votre recherche" <?php if (empty($_SESSION)) echo 'disabled'; ?>/></label>
+				
+				<input type="submit" value="Rechercher" class="submit_button"/>
 				</form>
-
+				<br/><br/><h1 align="center">Recherche avancée</h1>
 				<form method="post" action="resultat-recherche.php" class="recherche">
 				<h4>Choisissez un lieu</h4>
 				<fieldset>
