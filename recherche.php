@@ -37,7 +37,7 @@
 
 				<h4>Type de logement</h4>
 				<fieldset>
-					<label>Type </label><select name="type">
+					<label>Type </label><select name="types_idTypes">
 					<option value="1">Maison</option>
 					<option value="2">Appartement</option>
 					</select></br>
