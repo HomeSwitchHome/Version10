@@ -221,23 +221,28 @@
 
 		</br>
 		<div id="titre_carousel">
-				<h1><strong>Logements les mieux notés</strong></h1>
+				<h1><strong>Logements les plus populaires</strong></h1>
 		</div>
 		<section class="carousel">
+				<?php $p=$bdd->query("SELECT * FROM logements ORDER BY nombreClick desc");
+        		$ligne = $p-> fetch();?>
 				<div class="reel">
 
 					<article>
 						<div class="tbox1">
 				
 					<div class="box-style-orange">
-				
+						<?php if (isadmin()) { ?>
+                        <a href="" onClick="confirme(<?php echo($ligne['id']);?>)"><img src="cross.svg" width="15px" height="15px" class="boutonsuppr"></a><?php } ?>
+
 						<div class="content">
 				
-							<div class="image"><img src="images/maison5.jpg" width="324" height="" id="imgcarousel" /></div>
+							<div class="image"><img src="img/<?php echo($ligne['id']);?>/1.jpg" width="324" height="200" id="imgcarousel" /></div>
 								
-								<h2>Fusce ultrices fringilla</h2>
-								<p>Aliquam erat volutpat. Pellentesque tristique ante ut risus. Quisque dictum. Integer nisl risus, sagittis convallis, rutrum id, elementum congue, nibh. </p>
-								<a href="#" class="button">Plus d'informations</a>
+								<h2><?php echo ($ligne['titre_annonce']);?></h2>
+                                <p><?php echo ($ligne['descriptionSuccincte']);?></p>
+                                <a href="page-logement.php?idLogement=<?php echo($ligne['id']);?>" class="button">Plus d'informations</a>
+                                <?php $ligne = $p-> fetch();?>
 				
 							</div>
 			
@@ -250,14 +255,17 @@
 						<div class="tbox1">
 				
 					<div class="box-style-orange">
-				
+						<?php if (isadmin()) { ?>
+                        <a href="" onClick="confirme(<?php echo($ligne['id']);?>)"><img src="cross.svg" width="15px" height="15px" class="boutonsuppr"></a><?php } ?>
+
 						<div class="content">
 				
-							<div class="image"><img src="images/maison4.jpg" width="324" height="" id="imgcarousel" /></div>
+							<div class="image"><img src="img/<?php echo($ligne['id']);?>/1.jpg" width="324" height="200" id="imgcarousel" /></div>
 								
-								<h2>Fusce ultrices fringilla</h2>
-								<p>Aliquam erat volutpat. Pellentesque tristique ante ut risus. Quisque dictum. Integer nisl risus, sagittis convallis, rutrum id, elementum congue, nibh. </p>
-								<a href="#" class="button">Plus d'informations</a>
+								<h2><?php echo ($ligne['titre_annonce']);?></h2>
+                                <p><?php echo ($ligne['descriptionSuccincte']);?></p>
+                                <a href="page-logement.php?idLogement=<?php echo($ligne['id']);?>" class="button">Plus d'informations</a>
+                                            <?php $ligne = $p-> fetch();?>
 				
 							</div>
 			
@@ -270,14 +278,17 @@
 						<div class="tbox1">
 				
 					<div class="box-style-orange">
-				
+						<?php if (isadmin()) { ?>
+                        <a href="" onClick="confirme(<?php echo($ligne['id']);?>)"><img src="cross.svg" width="15px" height="15px" class="boutonsuppr"></a><?php } ?>
+
 						<div class="content">
 				
-							<div class="image"><img src="images/maison6.jpg" width="324" height="" id="imgcarousel" /></div>
+							<div class="image"><img src="img/<?php echo($ligne['id']);?>/1.jpg" width="324" height="200" id="imgcarousel" /></div>
 								
-								<h2>Fusce ultrices fringilla</h2>
-								<p>Aliquam erat volutpat. Pellentesque tristique ante ut risus. Quisque dictum. Integer nisl risus, sagittis convallis, rutrum id, elementum congue, nibh. </p>
-								<a href="#" class="button">Plus d'informations</a>
+								<h2><?php echo ($ligne['titre_annonce']);?></h2>
+                                <p><?php echo ($ligne['descriptionSuccincte']);?></p>
+                                <a href="page-logement.php?idLogement=<?php echo($ligne['id']);?>" class="button">Plus d'informations</a>
+                                            <?php $ligne = $p-> fetch();?>
 				
 							</div>
 			
@@ -290,14 +301,17 @@
 						<div class="tbox1">
 				
 					<div class="box-style-orange">
-				
+						<?php if (isadmin()) { ?>
+                        <a href="" onClick="confirme(<?php echo($ligne['id']);?>)"><img src="cross.svg" width="15px" height="15px" class="boutonsuppr"></a><?php } ?>
+
 						<div class="content">
 				
-							<div class="image"><img src="images/maison2.jpg" width="324" height="" id="imgcarousel" /></div>
+							<div class="image"><img src="img/<?php echo($ligne['id']);?>/1.jpg" width="324" height="200" id="imgcarousel" /></div>
 								
-								<h2>Fusce ultrices fringilla</h2>
-								<p>Aliquam erat volutpat. Pellentesque tristique ante ut risus. Quisque dictum. Integer nisl risus, sagittis convallis, rutrum id, elementum congue, nibh. </p>
-								<a href="#" class="button">Plus d'informations</a>
+								<h2><?php echo ($ligne['titre_annonce']);?></h2>
+                                <p><?php echo ($ligne['descriptionSuccincte']);?></p>
+                                <a href="page-logement.php?idLogement=<?php echo($ligne['id']);?>" class="button">Plus d'informations</a>
+                                            <?php $ligne = $p-> fetch();?>
 				
 							</div>
 			
@@ -310,14 +324,17 @@
 						<div class="tbox1">
 				
 					<div class="box-style-orange">
-				
+						<?php if (isadmin()) { ?>
+                        <a href="" onClick="confirme(<?php echo($ligne['id']);?>)"><img src="cross.svg" width="15px" height="15px" class="boutonsuppr"></a><?php } ?>
+
 						<div class="content">
 				
-							<div class="image"><img src="images/maison1.jpg" width="324" height="" id="imgcarousel" /></div>
+							<div class="image"><img src="img/<?php echo($ligne['id']);?>/1.jpg" width="324" height="200" id="imgcarousel" /></div>
 								
-								<h2>Fusce ultrices fringilla</h2>
-								<p>Aliquam erat volutpat. Pellentesque tristique ante ut risus. Quisque dictum. Integer nisl risus, sagittis convallis, rutrum id, elementum congue, nibh. </p>
-								<a href="#" class="button">Plus d'informations</a>
+								<h2><?php echo ($ligne['titre_annonce']);?></h2>
+                                <p><?php echo ($ligne['descriptionSuccincte']);?></p>
+                                <a href="page-logement.php?idLogement=<?php echo($ligne['id']);?>" class="button">Plus d'informations</a>
+                                            <?php $ligne = $p-> fetch();?>
 				
 							</div>
 			
@@ -330,14 +347,17 @@
 						<div class="tbox1">
 				
 					<div class="box-style-orange">
-				
+						<?php if (isadmin()) { ?>
+                        <a href="" onClick="confirme(<?php echo($ligne['id']);?>)"><img src="cross.svg" width="15px" height="15px" class="boutonsuppr"></a><?php } ?>
+
 						<div class="content">
 				
-							<div class="image"><img src="images/maison3.jpg" width="324" height="" id="imgcarousel" /></div>
+							<div class="image"><img src="img/<?php echo($ligne['id']);?>/1.jpg" width="324" height="200" id="imgcarousel" /></div>
 								
-								<h2>Fusce ultrices fringilla</h2>
-								<p>Aliquam erat volutpat. Pellentesque tristique ante ut risus. Quisque dictum. Integer nisl risus, sagittis convallis, rutrum id, elementum congue, nibh. </p>
-								<a href="#" class="button">Plus d'informations</a>
+								<h2><?php echo ($ligne['titre_annonce']);?></h2>
+                                <p><?php echo ($ligne['descriptionSuccincte']);?></p>
+                                <a href="page-logement.php?idLogement=<?php echo($ligne['id']);?>" class="button">Plus d'informations</a>
+                                            <?php $ligne = $p-> fetch();?>
 				
 							</div>
 			

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost:8889
--- Generation Time: Jan 18, 2015 at 02:11 PM
+-- Generation Time: Jan 18, 2015 at 03:54 PM
 -- Server version: 5.5.38
 -- PHP Version: 5.5.14
 
@@ -359,31 +359,32 @@ CREATE TABLE `logements` (
   `descriptionProximite` text,
   `membres_idMembres` int(11) NOT NULL,
   `types_idTypes` int(11) NOT NULL DEFAULT '2',
-  `villes_id` int(11) NOT NULL
+  `villes_id` int(11) NOT NULL,
+  `nombreClick` int(10) unsigned NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=49 ;
 
 --
 -- Dumping data for table `logements`
 --
 
-INSERT INTO `logements` (`id`, `titre_annonce`, `adresse`, `surfaceInterieure`, `surfaceExterieure`, `nombrePieces`, `descriptionSuccincte`, `description`, `nombreLitsSimples`, `nombreLitsDoubles`, `descriptionProximite`, `membres_idMembres`, `types_idTypes`, `villes_id`) VALUES
-(4, 'Chez Marco', 'Adresse', 47, 2, 12, 'Magnifique appartement avec vue sur la Seine.', 'Magnifique appartement avec vue sur la Seine.', 2, 2, '...', 5, 1, 30438),
-(5, 'Chez Marco', 'Adresse', 47, 2, 12, 'Magnifique appartement avec vue sur la Seine.', 'Magnifique appartement avec vue sur la Seine.', 2, 2, '...', 5, 1, 30438),
-(17, 'Chez Marco', 'Adresse', 47, 2, 12, '', 'Magnifique appartement avec vue sur la Seine.', 2, 2, '...', 5, 1, 30438),
-(18, 'Chez Marco', 'Adresse', 47, 2, 12, '', 'Magnifique appartement avec vue sur la Seine.', 2, 2, '...', 5, 1, 30438),
-(19, 'Chez Marco', 'Adresse', 47, 2, 12, '', 'Magnifique appartement avec vue sur la Seine.', 2, 2, '...', 5, 1, 30438),
-(20, 'Chez Marco', 'Adresse', 47, 2, 12, '', 'Magnifique appartement avec vue sur la Seine.', 2, 2, '...', 5, 1, 30438),
-(21, 'Chez Marco', 'Adresse', 47, 2, 12, '', 'Magnifique appartement avec vue sur la Seine.', 2, 2, '...', 5, 1, 30438),
-(36, 'Chez Marco', 'Adresse', 47, 2, 12, '', 'Magnifique appartement avec vue sur la Seine.', 2, 2, '...', 5, 1, 30438),
-(37, 'Chez Marco', 'Adresse', 47, 2, 12, '', 'Magnifique appartement avec vue sur la Seine.', 2, 2, '...', 5, 1, 30438),
-(38, 'Chez Marco', 'Adresse', 47, 2, 12, '', 'Magnifique appartement avec vue sur la Seine.', 2, 2, '...', 5, 1, 30438),
-(42, 'Chez Marco', 'Adresse', 47, 2, 12, 'Magnifique appartement avec vue sur la Seine.', 'Magnifique appartement avec vue sur la Seine.', 2, 2, '...', 5, 1, 30438),
-(43, 'Chez Marco', 'Adresse', 47, 2, 12, 'Magnifique appartement avec vue sur la Seine.', 'Magnifique appartement avec vue sur la Seine.', 2, 2, '...', 5, 1, 30438),
-(44, 'Chez Marc', 'Rue de l''Abbé Groult', 80, 4, 4, 'Appartement dans le 15e arrondissement de Paris, avec vue sur la Tour Eiffel.', 'Chez Marc ! ', 2, 2, 'Pas grand chose.', 6, 2, 30438),
-(45, 'Chez Bob', 'Rue Bob', 123, 2, 2, 'Chez Bob !', 'AZ', 2, 2, 'ZA', 1, 1, 30438),
-(46, 'Ajout Plusieurs phot', 'AZE', 123, 1, 1, 'Test', 'A', 1, 1, '1', 5, 1, 30438),
-(47, 'Ajout', 'AZE', 123, 1, 1, 'AZE', 'AZE', 1, 1, 'AZE', 5, 1, 30438),
-(48, 'Chez Benoit !', 'Rue Pierre Poli', 150, 40, 10, 'Maison sur une ile !', '...', 2, 2, '...', 14, 1, 30438);
+INSERT INTO `logements` (`id`, `titre_annonce`, `adresse`, `surfaceInterieure`, `surfaceExterieure`, `nombrePieces`, `descriptionSuccincte`, `description`, `nombreLitsSimples`, `nombreLitsDoubles`, `descriptionProximite`, `membres_idMembres`, `types_idTypes`, `villes_id`, `nombreClick`) VALUES
+(4, 'Chez Marco', 'Adresse', 47, 2, 12, 'Magnifique appartement avec vue sur la Seine.', 'Magnifique appartement avec vue sur la Seine.', 2, 2, '...', 5, 1, 30438, 1),
+(5, 'Chez Marco', 'Adresse', 47, 2, 12, 'Magnifique appartement avec vue sur la Seine.', 'Magnifique appartement avec vue sur la Seine.', 2, 2, '...', 5, 1, 30438, 0),
+(17, 'Chez Marco', 'Adresse', 47, 2, 12, '', 'Magnifique appartement avec vue sur la Seine.', 2, 2, '...', 5, 1, 30438, 0),
+(18, 'Chez Marco', 'Adresse', 47, 2, 12, '', 'Magnifique appartement avec vue sur la Seine.', 2, 2, '...', 5, 1, 30438, 0),
+(19, 'Chez Marco', 'Adresse', 47, 2, 12, '', 'Magnifique appartement avec vue sur la Seine.', 2, 2, '...', 5, 1, 30438, 0),
+(20, 'Chez Marco', 'Adresse', 47, 2, 12, '', 'Magnifique appartement avec vue sur la Seine.', 2, 2, '...', 5, 1, 30438, 0),
+(21, 'Chez Marco', 'Adresse', 47, 2, 12, '', 'Magnifique appartement avec vue sur la Seine.', 2, 2, '...', 5, 1, 30438, 0),
+(36, 'Chez Marco', 'Adresse', 47, 2, 12, '', 'Magnifique appartement avec vue sur la Seine.', 2, 2, '...', 5, 1, 30438, 0),
+(37, 'Chez Marco', 'Adresse', 47, 2, 12, '', 'Magnifique appartement avec vue sur la Seine.', 2, 2, '...', 5, 1, 30438, 0),
+(38, 'Chez Marco', 'Adresse', 47, 2, 12, '', 'Magnifique appartement avec vue sur la Seine.', 2, 2, '...', 5, 1, 30438, 0),
+(42, 'Chez Marco', 'Adresse', 47, 2, 12, 'Magnifique appartement avec vue sur la Seine.', 'Magnifique appartement avec vue sur la Seine.', 2, 2, '...', 5, 1, 30438, 0),
+(43, 'Chez Marco', 'Adresse', 47, 2, 12, 'Magnifique appartement avec vue sur la Seine.', 'Magnifique appartement avec vue sur la Seine.', 2, 2, '...', 5, 1, 30438, 0),
+(44, 'Chez Marc', 'Rue de l''Abbé Groult', 80, 4, 4, 'Appartement dans le 15e arrondissement de Paris, avec vue sur la Tour Eiffel.', 'Chez Marc ! ', 2, 2, 'Pas grand chose.', 6, 2, 30438, 0),
+(45, 'Chez Bob', 'Rue Bob', 123, 2, 2, 'Chez Bob !', 'AZ', 2, 2, 'ZA', 1, 1, 30438, 0),
+(46, 'Ajout Plusieurs phot', 'AZE', 123, 1, 1, 'Test', 'A', 1, 1, '1', 5, 1, 30438, 0),
+(47, 'Ajout', 'AZE', 123, 1, 1, 'AZE', 'AZE', 1, 1, 'AZE', 5, 1, 30438, 0),
+(48, 'Chez Benoit !', 'Rue Pierre Poli', 150, 40, 10, 'Maison sur une ile !', '...', 2, 2, '...', 14, 1, 30438, 0);
 
 -- --------------------------------------------------------
 
