@@ -67,12 +67,20 @@ $membrelog=$result['membres_idMembres'];
 	                		<br/>
 	                	</div>");
 	                	}
-	                	else {
+	                	if (isverified()) {
 	                		echo ("<div align=\"center\">
 	                		<a href=\"#\" onClick=\"confirme2(".$idLogement.")\">Je suis intéressé par cette annonce !</a>
 	                		<br/>
 	                		
 	                	</div>");
+	                	}
+	                	else {
+	                		echo ("<div align=\"center\">
+	                		<p>Votre compte n'est pas activé</p>
+	                		<br/>
+	                		
+	                	</div>");
+
 	                	}
 
 	                	?>
