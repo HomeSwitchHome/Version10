@@ -1,7 +1,7 @@
 <?php require_once("config.php"); 
 $idLogement  = $_GET["idLogement"] ;
 //$idLogement = 4;
-$logement_info = $bdd -> prepare('SELECT nombrePieces, description, descriptionSuccincte, titre_annonce, surfaceInterieure, surfaceExterieure, nombreLitsSimples, nombreLitsDoubles, descriptionProximite, membres_idMembres, types_idTypes
+$logement_info = $bdd -> prepare('SELECT nombrePieces, adresse, description, descriptionSuccincte, titre_annonce, surfaceInterieure, surfaceExterieure, nombreLitsSimples, nombreLitsDoubles, descriptionProximite, membres_idMembres, types_idTypes
                                     FROM logements WHERE id = '.$idLogement);
 $logement_info -> execute();
 
@@ -126,6 +126,8 @@ $membrelog=$result['membres_idMembres'];
 	                            <ul class="infosPerso">
 	                        
 	                                <li><?php echo $result['descriptionSuccincte'];?></li>
+	                                 <li>Adresse : <?php echo $result['adresse'];?></li>
+
 
 	                            </ul>
 	        
