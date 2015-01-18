@@ -1,5 +1,4 @@
 <?php require_once("config.php"); 
-require 'functions.php';
 $idLogement  = $_GET["idLogement"] ;
 //$idLogement = 4;
 $logement_info = $bdd -> prepare('SELECT nombrePieces, description, descriptionSuccincte, titre_annonce, surfaceInterieure, surfaceExterieure, nombreLitsSimples, nombreLitsDoubles, descriptionProximite, membres_idMembres, types_idTypes

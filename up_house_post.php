@@ -1,5 +1,4 @@
 <?php require_once("config.php");
-require 'functions.php';
 
 $sql = 'SELECT id FROM villes WHERE ville = :ville';
 $sql2 = "INSERT INTO logements (nombrePieces, adresse, description, descriptionSuccincte, villes_id, titre_annonce, surfaceInterieure, surfaceExterieure, nombreLitsSimples, nombreLitsDoubles, descriptionProximite, membres_idMembres, types_idTypes) VALUES(:nombrePieces, :adresse, :description, :descriptionSuccincte, :villes_id, :titre_annonce, :surfaceInterieure, :surfaceExterieure, :nombreLitsSimples, :nombreLitsDoubles, :descriptionProximite, :membres_idMembres, :types_idTypes)";

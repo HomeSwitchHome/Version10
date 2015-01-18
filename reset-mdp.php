@@ -1,5 +1,4 @@
 <?php require_once("config.php");
-require 'functions.php';
 $mail=$_GET['mail'];
 $clefCompte=$_GET['clefCompte'];
 

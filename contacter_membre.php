@@ -1,5 +1,4 @@
 <?php require_once("config.php");
-require("functions.php");
 require_once('PHPMailer/class.phpmailer.php');
 $idLogement = $_GET['idLogement'];
 
