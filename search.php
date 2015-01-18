@@ -1,6 +1,5 @@
 <?php
 	require_once("config.php"); 
-    debug($_GET);
 	$q=$_GET['recherche'];
 
     $s=explode(" ", $q);
@@ -15,12 +14,14 @@
                 $sql.=" OR ";
             }
             $sql.="titre_annonce, descriptionSuccincte, description LIKE '%$mot%'";
-            $i++;
+            $ii++;
         }
     }
+    $req = $bdd -> prepare($sql);
+    $req ->execute();
 
-	$ligne = $sql-> fetch();
-    
+    $nb = mysql_num_rows($req);
+	$ligne = $req-> fetch();
 
 ?>
 
@@ -50,14 +51,14 @@
             <?php include("header.php"); ?>
 
             <div id="logements">
-                <?php 
-                    $nb = $data['nb'];?>
+                
             <?php 
-            	while (!empty($ligne)){
+                $i = 0;
+                while ($i < $nb){
             ?>
             <div id="three-column" class="container">
 
-                <?php if(!empty($ligne)) {?><div class="tbox1">
+                <?php if($i < $nb) {?><div class="tbox1">
                 
                     <div class="box-style box-style01">
                         <?php if (isadmin()) { ?>
@@ -75,9 +76,9 @@
             
                         </div>
                     
-                    </div><?php } ?>
+                    </div><?php } ?><?php $i++ ?>
         
-                <?php if(!empty($ligne)) {?><div class="tbox2">
+                <?php if($i < $nb) {?><div class="tbox2">
             
                     <div class="box-style box-style02">
                         <?php if (isadmin()) { ?>
@@ -95,9 +96,9 @@
             
                         </div>
                         
-                    </div><?php } ?>
+                    </div><?php } ?><?php $i++ ?>
         
-                <?php if(!empty($ligne)) {?><div class="tbox3">
+                <?php if($i < $nb) {?><div class="tbox3">
             
                     <div class="box-style box-style03">
                         <?php if (isadmin()) { ?>
@@ -117,10 +118,10 @@
         
                     </div>
                 
-                </div><?php } ?>
+                </div><?php } ?><?php $i++ ?>
                 <?php } ?>
     
-            
+           
             </div>
         </div>
 

@@ -10,7 +10,7 @@
 			<?php include("header.php"); ?>
 			<br/><br/><br/>
 			<h1 align="center">Recherche</h1>
-				<form method="get" action="search.php" class="q">
+				<form method="get" action="search.php" class="recherche">
 
 				
 					<label><input type="text" id="recherche-simple" name="q" placeholder="Tapez votre recherche" <?php if (empty($_SESSION)) echo 'disabled'; ?>/></label>
