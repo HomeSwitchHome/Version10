@@ -134,7 +134,7 @@ $membrelog=$result['membres_idMembres'];
 
 	                            <ul class="infosPerso">
 	                        
-	                                <li>Type : <?php echo $result['types_idTypes'];?></li>
+	                                <li>Type : <?php if($result['types_idTypes']==1){echo'Maison';} if($result['types_idTypes']==2){echo'Appartement';};?></li>
 	                                <li>Superficie : <?php echo $result['surfaceInterieure'];?> m2 en intérieur, <?php echo $result['surfaceExterieure'];?> m2 en exterieur</li>
 	                                <li>Chambres : <?php echo $result['nombreLitsDoubles'];?> lit(s) double(s), <?php echo $result['nombreLitsSimples'];?> lit(s) simple(s)</li>
 
