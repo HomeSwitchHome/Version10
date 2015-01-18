@@ -70,25 +70,25 @@
 
 				<h4>Equipements</h4>
                     <fieldset>
-                        <label>Garage <input type="checkbox" name="equipement[garage]" value="1"></label>
-                        <label>Jardin <input type="checkbox" name="equipement[jardin]" value="2"></label>
-                        <label>Piscine <input type="checkbox" name="equipement[piscine]" value="3"></label>
-                        <label>Télévision <input type="checkbox" name="equipement[television]" value="4"></label>
-                        <label>Train <input type="checkbox" name="equipement[train]" value="5"></label>
-                        <label>Handicap <input type="checkbox" name="equipement[handicap]" value="6"></label>
-                        <label>Wifi <input type="checkbox" name="equipement[wifi]" value="7"></label>
-                        <label>Cuisine <input type="checkbox" name="equipement[cuisine]" value="8"></label>
-                        <label>Aéroport <input type="checkbox" name="equipement[aeroport]" value="9"></label>
+                        <label>Garage <input type="checkbox" name="equipements_id[garage]" value="1"></label>
+                        <label>Jardin <input type="checkbox" name="equipements_id[jardin]" value="2"></label>
+                        <label>Piscine <input type="checkbox" name="equipements_id[piscine]" value="3"></label>
+                        <label>Télévision <input type="checkbox" name="equipements_id[television]" value="4"></label>
+                        <label>Train <input type="checkbox" name="equipements_id[train]" value="5"></label>
+                        <label>Handicap <input type="checkbox" name="equipements_id[handicap]" value="6"></label>
+                        <label>Wifi <input type="checkbox" name="equipements_id[wifi]" value="7"></label>
+                        <label>Cuisine <input type="checkbox" name="equipements_id[cuisine]" value="8"></label>
+                        <label>Aéroport <input type="checkbox" name="equipements_id[aeroport]" value="9"></label>
                     </fieldset>
                     <h4>Contraintes </h4>
                     <fieldset>
-                        <label>Animaux autorisés <input type="checkbox" name="contrainte[animauxAutorises]" value="1"></label>
-                        <label>Animaux interdits <input type="checkbox" name="contrainte[animauxInterdits]" value="2"></label>
-                        <label>Bruit autorisé <input type="checkbox" name="contrainte[bruitAutorise]" value="3"></label>
-                        <label>Bruit interdit <input type="checkbox" name="contrainte[bruitInterdit]" value="4"></label>
-                        <label>Fumé autorisé <input type="checkbox" name="contrainte[fumeAutorise]" value="5"></label>
-                        <label>Fumé interdite <input type="checkbox" name="contrainte[fumeInterdite]" value="6"></label>
-                        <label>Plantes <input type="checkbox" name="contrainte[plantes]" value="7"></label>
+                        <label>Animaux autorisés <input type="checkbox" name="contraintes_id[animauxAutorises]" value="1"></label>
+                        <label>Animaux interdits <input type="checkbox" name="contraintes_id[animauxInterdits]" value="2"></label>
+                        <label>Bruit autorisé <input type="checkbox" name="contraintes_id[bruitAutorise]" value="3"></label>
+                        <label>Bruit interdit <input type="checkbox" name="contraintes_id[bruitInterdit]" value="4"></label>
+                        <label>Fumé autorisé <input type="checkbox" name="contraintes_id[fumeAutorise]" value="5"></label>
+                        <label>Fumé interdite <input type="checkbox" name="contraintes_id[fumeInterdite]" value="6"></label>
+                        <label>Plantes <input type="checkbox" name="contraintes_id[plantes]" value="7"></label>
                     </fieldset>
 
 					<input type="submit" value="Rechercher" class="submit_button"/>
