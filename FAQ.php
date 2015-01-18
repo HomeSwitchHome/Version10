@@ -18,7 +18,7 @@
 				<div id="titre">
 	
 					<h1><strong>FAQ</strong></h1>
-
+					
 				</div>
 
 			</div>

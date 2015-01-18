@@ -1,4 +1,6 @@
 <?php require_once("config.php");
+require_once('PHPMailer/class.phpmailer.php');
+
 
 //Création des variables, ce qui va permettre de les récupèrer dans le HTML.
 $messages= [];
@@ -25,7 +27,7 @@ if(!empty($_POST))
 	    $check_mdp = $_POST['check_mdp'];
 	    $age = $_POST["age"];
  		$telephone = $_POST["telephone"];
-
+ 		$clefCompte = bin2hex(openssl_random_pseudo_bytes(10));
     	//Test des variables.
   		//Si pas alphanumérique ou si vide : erreur.
     	if(!ctype_alnum($prenom) || mb_strlen($prenom) < 1)
@@ -63,7 +65,7 @@ if(!empty($_POST))
     
 			try
                 {
-                $register = $bdd->prepare("INSERT INTO membres (prenom, nom, email, mdp, age, telephone) VALUES (:prenom, :nom, :email, :mdp, :age, :telephone)");
+                $register = $bdd->prepare("INSERT INTO membres (prenom, nom, email, mdp, age, telephone, clefCompte) VALUES (:prenom, :nom, :email, :mdp, :age, :telephone, :clefCompte)");
 
                 $register->execute([
                     ":prenom" => $prenom,
@@ -71,10 +73,26 @@ if(!empty($_POST))
                     ":email" => $email,
                     ":mdp" => $mdp,
                     ":age" => $age,
-                    ":telephone" => $telephone
+                    ":telephone" => $telephone,
+                    ":clefCompte" => $clefCompte
                     ]);
  
                 $messages = 'Inscription réussie !';
+                $mail = new PHPMailer();
+
+				$mail->IsHTML(true);
+				$mail->CharSet = "utf-8";
+				$mail->From = 'contact@hsh.com';
+				$mail->FromName = 'Home Switch Home';
+				$mail->Subject = 'Bienvenue sur Home Switch Home';
+				$mail->Body = 
+				'Bonjour '.$prenom.' '.$nom.', <br/>
+				Vous venez de créer un compte sur Home Switch Home. Afin de valider votre inscription, veuillez cliquer sur le lien suivant :
+				<a href="http://localhost:8888/Version10/validation.php?mail='.$email.'&clefCompte='.$clefCompte.'">valider mon adresse mail</a>
+				';
+				$mail->AddAddress($email);
+	
+    			$mail->Send();
                 }    	
 
     		catch(Exception $e)

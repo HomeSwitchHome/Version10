@@ -72,6 +72,9 @@
 		return BASE_URL.'/'.$url;
 	}
 
+	
+
+
 	/*function isadmin2()
 	{
 		ob_start();
