@@ -13,9 +13,12 @@
     </head>
     <script type="text/javascript" >
         $(function() {
-            $("#autocomplete1").autocomplete({
-                source: data
+
+            $('#ville').autocomplete({
+                source: 'autocompletion.php',
+            
         });
+    });
     </script>
 
     <body>
