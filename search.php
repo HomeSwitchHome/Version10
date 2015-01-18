@@ -1,6 +1,6 @@
 <?php
 	require_once("config.php"); 
-	$q=$_GET['recherche'];
+	$q=$_GET['q'];
 
     $s=explode(" ", $q);
     $sql="SELECT * FROM logements";
@@ -13,7 +13,7 @@
             else {
                 $sql.=" OR ";
             }
-            $sql.="titre_annonce, descriptionSuccincte, description LIKE '%$mot%'";
+            $sql.="titre_annonce LIKE '%$mot%' OR descriptionSuccincte LIKE '%$mot%' OR description LIKE '%$mot%'";
             $ii++;
         }
     }
@@ -22,6 +22,8 @@
 
 	$ligne = $req-> fetch();
     $nb = $req->rowCount();
+
+    debug($sql);
 
 ?>
 
