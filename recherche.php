@@ -47,25 +47,25 @@
 
 				<h4>Nombre de couchages</h4>
 				<fieldset>
-					<label>Capacité total </label><input name="capaciteTotale" type="number" min="1" max="9999" /></br>
-					<label>Nombre de lits doubles </label><input type="number" name="nombreLitsDoubles" min="1" max="9999" /></br>
-					<label>Nombre de lits simples </label><input type="number" name="nombreLitsSimples" min="1" max="9999" /></br>
+					<label>Capacité total supérieur à </label><input name="capaciteTotale" type="number" min="1" max="9999" /></br>
+					<label><input type="number" name="nombreLitsDoubles[Min]" min="0" max="9999" /> < Nombre de lits doubles < </label><input type="number" name="nombreLitsDoubles[Max]" min="0" max="9999" /></br>
+					<label><input type="number" name="nombreLitsSimples[Min]" min="0" max="9999" /> < Nombre de lits simples < </label><input type="number" name="nombreLitsSimples[Max]" min="0" max="9999" /></br>
 				</fieldset>
 
 				<h4>Surface</h4>
 				<fieldset>
-					<label>Surface <input type="number" name="surfaceTotale" min="1" max="9999" /></label></br>
-					<label><input type="number" name="surfaceInterieure[Min]" min="1" max="9999" > < Surface intérieur < <input type="number" name="surfaceInterieure[Max]" min="1" max="9999" /></label></br>
-					<label><input type="number" name="surfaceExterieure[Min]"  min="1" max="9999" > < Surface extérieur < <input type="number" name="surfaceExterieure[Max]" min="1" max="9999" /></label></br>
+					<label>Surface supérieur à <input type="number" name="surfaceTotale" min="1" max="9999" /></label></br>
+					<label><input type="number" name="surfaceInterieure[Min]" min="0" max="9999" > < Surface intérieur < <input type="number" name="surfaceInterieure[Max]" min="1" max="9999" /></label></br>
+					<label><input type="number" name="surfaceExterieure[Min]"  min="0" max="9999" > < Surface extérieur < <input type="number" name="surfaceExterieure[Max]" min="1" max="9999" /></label></br>
 				</fieldset>
 
 				<h4>Nombre de pièces</h4>
 				<fieldset>
-					<label>Nombre de pièces > <input type="number" name="nombrePieces" min="1" max="50" ></label>
+					<label>Nombre de pièces > <input type="number" name="nombrePieces" /></label>
 				</fieldset>
 				<h4>Note</h4>
 				<fieldset>
-					<label>Note supérieur à <input type="number" name="Note" min="1" max="10" /></label>
+					<label>Note supérieur à <input type="number" name="nombreClick" /></label>
 				</fieldset>
 
 				<h4>Equipements</h4>
