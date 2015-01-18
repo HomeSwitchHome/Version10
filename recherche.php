@@ -44,21 +44,21 @@
 
 				<h4>Nombre de couchages</h4>
 				<fieldset>
-					<label>Capacité total </label><input type="number" min="1" max="9999" /></br>
-					<label>Nombre de lits doubles </label><input type="number" min="1" max="9999" /></br>
-					<label>Nombre de lits simples </label><input type="number" min="1" max="9999" /></br>
+					<label>Capacité total </label><input name="capaciteTotale" type="number" min="1" max="9999" /></br>
+					<label>Nombre de lits doubles </label><input type="number" name="nombreLitsDoubles" min="1" max="9999" /></br>
+					<label>Nombre de lits simples </label><input type="number" name="nombreLitsSimples" min="1" max="9999" /></br>
 				</fieldset>
 
 				<h4>Surface</h4>
 				<fieldset>
-					<label>Surface <input type="number" min="1" max="9999" /></label></br>
-					<label>Surface intérieur <input type="number" min="1" max="9999" /></label></br>
-					<label>Surface extérieur <input type="number" min="1" max="9999" /></label></br>
+					<label>Surface <input type="number" name="surfaceTotale" min="1" max="9999" /></label></br>
+					<label>Surface intérieur <input type="number" name="surfaceInterieure" min="1" max="9999" /></label></br>
+					<label>Surface extérieur <input type="number" name="surfaceExterieure" min="1" max="9999" /></label></br>
 				</fieldset>
 
 				<h4>Nombre de pièces</h4>
 				<fieldset>
-					<label>Nombre de pièces <input type="number" name="rooms" min="1" max="50" ></label>
+					<label>Nombre de pièces <input type="number" name="nombrePieces" name="rooms" min="1" max="50" ></label>
 				</fieldset>
 				<h4>Note</h4>
 				<fieldset>
@@ -88,8 +88,8 @@
                         <label>Plantes <input type="checkbox" name="contrainte[plantes]" value="7"></label>
                     </fieldset>
 
-					<input type="submit" name="Rechercher" value="Rechercher" />
-					<input type="reset" name="Annuler" value="Annuler" />
+					<input type="submit" value="Rechercher" class="submit_button"/>
+					<input type="reset" value="Annuler" class="reset_button"/>
 			</form>
 			<?php include("footer.php"); ?>
 		</div>
