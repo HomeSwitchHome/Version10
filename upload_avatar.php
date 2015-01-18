@@ -6,8 +6,8 @@
 // Constantes
 //define('TARGET', '/files/'); // Repertoire cible
 define('MAX_SIZE', 1500000); // Taille max en octets du fichier
-define('WIDTH_MAX', 1800); // Largeur max de l'image en pixels
-define('HEIGHT_MAX', 1800); // Hauteur max de l'image en pixels
+define('WIDTH_MAX', 1000); // Largeur max de l'image en pixels
+define('HEIGHT_MAX', 1000); // Hauteur max de l'image en pixels
 // Tableaux de donnees
 $tabExt = array('jpg'/*,'gif','png','jpeg'*/); // Extensions autorisees
 $infosImg = array();
@@ -95,7 +95,7 @@ if(!empty($_POST)) {
 				<!-- Debut du formulaire -->
 				<form enctype="multipart/form-data" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
 					<fieldset>
-						<legend>Formulaire</legend>
+						<legend>Formulaire (taille max: 1.5Mo, 1000x1000px max)</legend>
 						<p>
 							<label for="fichier_a_uploader" title="Recherchez le fichier à uploader !">Envoyer le fichier :</label>
 							<input type="hidden" name="MAX_FILE_SIZE" value="<?php echo MAX_SIZE; ?>" />

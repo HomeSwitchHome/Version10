@@ -6,9 +6,9 @@
 *************************************************************/
 // Constantes
 $target= dirname(__FILE__).'/img/'.$ajoutPhoto.'/'; // Repertoire cible
-define('MAX_SIZE', 1500000); // Taille max en octets du fichier
-define('WIDTH_MAX', 1800); // Largeur max de l'image en pixels
-define('HEIGHT_MAX', 1800); // Hauteur max de l'image en pixels
+define('MAX_SIZE', 2000000); // Taille max en octets du fichier
+define('WIDTH_MAX', 3200); // Largeur max de l'image en pixels
+define('HEIGHT_MAX', 2400); // Hauteur max de l'image en pixels
 // Tableaux de donnees
 $tabExt = array('jpg'/*,'gif','png','jpeg'*/); // Extensions autorisees
 $infosImg = array();
@@ -99,7 +99,7 @@ if(!empty($_POST)) {
 				<!-- Debut du formulaire -->
 				<form enctype="multipart/form-data" action="upload_more_photos.php?idlog=<?php echo ($ajoutPhoto); ?>" method="post">
 					<fieldset>
-						<legend>Formulaire</legend>
+						<legend>Formulaire (taille max: 2.0Mo, 3200x2400px max)</legend>
 						<p>
 							<label for="fichier_a_uploader" title="Recherchez le fichier à uploader !">Envoyer le fichier :</label>
 							<input type="hidden" name="MAX_FILE_SIZE" value="<?php echo MAX_SIZE; ?>" />
