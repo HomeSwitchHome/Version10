@@ -28,7 +28,7 @@ $user = $user_name->fetch();
 
 			echo('<form method="post" class="register" action="new-mdp.php">
 				<input type="hidden" id="email" name="email" value="'.$mail.'"> 
-				<label for="mdp">Mot de passe *</label>
+				<label for="mdp">Nouveau mot de passe</label>
 				<input type="password" id="mdp" name="mdp">
 				<input type="submit" class="submit_button" value="Envoyer">
 			</form>');	

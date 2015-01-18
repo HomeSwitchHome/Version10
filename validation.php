@@ -22,7 +22,7 @@ $user = $user_name->fetch();
 		<div id="wrapper">
 				
 			<?php include("header.php") ?>
-			<br/><br/><br/><br/>
+			<div id="user_list">
 			
 			<?php if ($user['clefCompte'] == $clefCompte) { 
 				echo("<p>Votre compte a bien été activé.</p>
@@ -33,7 +33,7 @@ $user = $user_name->fetch();
 			else {echo("<p>Votre compte n'a pas été activé.</p><div align=\"center\"><h2><a href=\"index.php\">Retourner à la page d'accueil/a></h2></div>");}
 				?>
 
-			
+			</div>
 
 
 

@@ -45,9 +45,9 @@ if (isset($user['email'])&&!empty($user['email'])) {
 	<body>
 		<div id="wrapper">
 			<?php include("header.php"); ?>
-			<br/><br/><br/><br/>
+			<div id="user_list">
 			<h3>Veuillez cliquer sur le lien recu par mail.</h3>
-		
+			</div>
 		<div id="footer">
 		    <?php include("footer.php"); ?>
 		</div>

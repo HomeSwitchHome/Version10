@@ -21,10 +21,11 @@ $user_mdp -> execute();
 		<div id="wrapper">
 				
 			<?php include("header.php") ?>
-			<br/><br/><br/><br/>
 			
-			<h2>Votre mot de passe a été modifié.</h2>
-
+		<div id="user_list">
+			<h3>Votre mot de passe a été modifié.</h3>
+			<h2><a href="login.php">Connexion</a></h2>
+		</div>
 			
 
 
