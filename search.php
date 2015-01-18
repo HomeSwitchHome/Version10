@@ -20,8 +20,8 @@
     $req = $bdd -> prepare($sql);
     $req ->execute();
 
-    $nb = mysql_num_rows($req);
 	$ligne = $req-> fetch();
+    $nb = $req->rowCount();
 
 ?>
 
@@ -71,7 +71,7 @@
                                 <h2><?php echo ($ligne['titre_annonce']);?></h2>
                                 <p><?php echo ($ligne['descriptionSuccincte']);?></p>
                                 <a href="page-logement.php?idLogement=<?php echo($ligne['id']);?>" class="button">Plus d'informations</a>
-                                            <?php $ligne = $q-> fetch();?>
+                                            <?php $ligne = $req-> fetch();?>
                             </div>
             
                         </div>
@@ -91,7 +91,7 @@
                                 <h2><?php echo ($ligne['titre_annonce']);?></h2>
                                 <p><?php echo ($ligne['descriptionSuccincte']);?></p>
                                 <a href="page-logement.php?idLogement=<?php echo($ligne['id']);?>" class="button">Plus d'informations</a>
-                                            <?php $ligne = $q-> fetch();?>
+                                            <?php $ligne = $req-> fetch();?>
                             </div>
             
                         </div>
@@ -111,7 +111,7 @@
                                 <h2><?php echo ($ligne['titre_annonce']);?></h2>
                                 <p><?php echo ($ligne['descriptionSuccincte']);?></p>
                                 <a href="page-logement.php?idLogement=<?php echo($ligne['id']);?>" class="button">Plus d'informations</a>
-                                            <?php $ligne = $q-> fetch();?>
+                                            <?php $ligne = $req-> fetch();?>
                             </div>
             
                         </div>
