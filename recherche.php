@@ -9,7 +9,7 @@
 		<div id="wrapper">
 			<?php include("header.php"); ?>
 			<h1>Recherchez un logement</h1>
-			<form method="post" action="" >
+			<form method="post" action="resultat-recherche.php" >
 				<h4>Mots clefs</h4>
 				<fieldset>
 					<label><input type="search" name="recherche" placeholder="Tapez votre recherche" <?php if (empty($_SESSION)) echo 'disabled'; ?>/></label>
