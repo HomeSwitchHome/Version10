@@ -1,8 +1,30 @@
 <?php
 	session_start();
 
-	$bdd = new PDO('mysql:host=localhost;dbname=hsh', 'root', 'root', [PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8']);
-	$bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+	$databases =array(
+
+		'default' => array(
+			'host'		=> 'localhost',
+			'database'	=> 'hsh',
+			'login'		=> 'root',
+			'password'	=> '',
+		)
+	);
+
+	$thisConf = 'default';
+	$conf = $databases[$thisConf];
+
+	try{
+		$bdd = new PDO(
+			'mysql:host='.$conf['host'].';dbname='.$conf['database'].';',
+			$conf['login'],
+			$conf['password'],
+			array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8')
+		);
+		$bdd->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_WARNING);
+	}catch(PDOException $e){
+		die($e->getMessage());
+	}
 
 	define('BASE_URL', dirname(dirname($_SERVER['SCRIPT_NAME'])));
 
@@ -42,7 +64,7 @@
 
 	function isadmin()
 	{ 
-		$bdd = new PDO('mysql:host=localhost;dbname=hsh', 'root', 'root', [PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8']);
+		$bdd = new PDO('mysql:host=localhost;dbname=hsh', 'root', '', [PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8']);
 		$bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		if (!empty($_SESSION["userID"])) {
 		$verifadmin = $bdd -> prepare("SELECT admin FROM membres WHERE id =".$_SESSION["userID"]);
@@ -56,7 +78,7 @@
 
 	function isverified()
 	{ 
-		$bdd = new PDO('mysql:host=localhost;dbname=hsh', 'root', 'root', [PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8']);
+		$bdd = new PDO('mysql:host=localhost;dbname=hsh', 'root', '', [PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8']);
 		$bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		if (!empty($_SESSION["userID"])) {
 		$verif = $bdd -> prepare("SELECT compteActif FROM membres WHERE id =".$_SESSION["userID"]);
