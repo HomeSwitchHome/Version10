@@ -67,7 +67,7 @@ $membrelog=$result['membres_idMembres'];
 	                		<br/>
 	                	</div>");
 	                	}
-	                	if (isverified()) {
+	                	elseif (isverified() && !isadmin()) {
 	                		echo ("<div align=\"center\">
 	                		<a href=\"#\" onClick=\"confirme2(".$idLogement.")\">Je suis intéressé par cette annonce !</a>
 	                		<br/>
