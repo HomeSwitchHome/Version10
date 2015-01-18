@@ -7,9 +7,9 @@
         <meta charset="utf-8">
         <title>Home Switch Home</title>
         <link href="style.css" rel="stylesheet" />
-        <link rel="stylesheet" href="jquery-ui.min.css">
-        <script src="external/jquery/jquery.js"></script>
-        <script src="jquery-ui.min.js"></script>
+        <link rel="stylesheet" href="js/jquery-ui/jquery-ui.min.css">
+        <script src="js/jquery-ui/external/jquery/jquery.js"></script>
+        <script src="js/jquery-ui/jquery-ui.min.js"></script>
     </head>
 
     <body>
