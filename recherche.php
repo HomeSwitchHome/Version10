@@ -56,8 +56,8 @@
 				<h4>Surface</h4>
 				<fieldset>
 					<label>Surface <input type="number" name="surfaceTotale" min="1" max="9999" /></label></br>
-					<label>Surface intérieur <input type="number" name="surfaceInterieure" min="1" max="9999" /></label></br>
-					<label>Surface extérieur <input type="number" name="surfaceExterieure" min="1" max="9999" /></label></br>
+					<label><input type="number" name="" value="" placeholder=""> < Surface intérieur < <input type="number" name="surfaceInterieure" min="1" max="9999" /></label></br>
+					<label><input type="number" name="" value="" placeholder=""> < Surface extérieur < <input type="number" name="surfaceExterieure" min="1" max="9999" /></label></br>
 				</fieldset>
 
 				<h4>Nombre de pièces</h4>

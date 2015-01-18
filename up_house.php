@@ -7,6 +7,9 @@
         <meta charset="utf-8">
         <title>Home Switch Home</title>
         <link href="style.css" rel="stylesheet" />
+        <link rel="stylesheet" href="jquery-ui.min.css">
+        <script src="external/jquery/jquery.js"></script>
+        <script src="jquery-ui.min.js"></script>
     </head>
 
     <body>
@@ -31,7 +34,7 @@
 
                     <div>
                         <label for="ville">Ville :</label><br/>
-                        <input type="text" name="ville" required/>
+                        <input type="text" name="ville" id="" required/>
                     </div>
 
                     <div>
