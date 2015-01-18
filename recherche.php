@@ -63,9 +63,9 @@
 				<fieldset>
 					<label>Nombre de pièces > <input type="number" name="nombrePieces" /></label>
 				</fieldset>
-				<h4>Note</h4>
+				<h4>Popularité</h4>
 				<fieldset>
-					<label>Note supérieur à <input type="number" name="nombreClick" /></label>
+					<label>Nombre de demande supérieur <input type="number" name="nombreClick" /></label>
 				</fieldset>
 
 				<h4>Equipements</h4>
