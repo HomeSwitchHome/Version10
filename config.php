@@ -1,33 +1,38 @@
 <?php
 	session_start();
 
-	$databases =array(
-
-		'default' => array(
-			'host'		=> 'localhost',
-			'database'	=> 'hsh',
-			'login'		=> 'root',
-			'password'	=> '',
-		)
-	);
-
-	$thisConf = 'default';
-	$conf = $databases[$thisConf];
-
-	try{
-		$bdd = new PDO(
-			'mysql:host='.$conf['host'].';dbname='.$conf['database'].';',
-			$conf['login'],
-			$conf['password'],
-			array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8')
-		);
-		$bdd->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_WARNING);
-	}catch(PDOException $e){
-		die($e->getMessage());
-	}
-
 	define('BASE_URL', dirname(dirname($_SERVER['SCRIPT_NAME'])));
 
+	function bddConnect(){
+
+		$databases =array(
+
+			'default' => array(
+				'host'		=> 'localhost',
+				'database'	=> 'hsh',
+				'login'		=> 'root',
+				'password'	=> '',
+			)
+		);
+
+		$thisConf = 'default';
+		$conf = $databases[$thisConf];
+
+		try{
+			global $bdd;
+			$bdd = new PDO(
+				'mysql:host='.$conf['host'].';dbname='.$conf['database'].';',
+				$conf['login'],
+				$conf['password'],
+				array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8')
+			);
+			$bdd->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_WARNING);
+		}catch(PDOException $e){
+			die($e->getMessage());
+		}
+	}
+
+	bddConnect();
 /*----------------------------------------------------------------------------------------------------------------------------*/
 
 	function escape($text)
@@ -62,6 +67,8 @@
 		return isset($_SESSION["userID"]) && $_SESSION["userID"];
 		}
 
+/*----------------------------------------------------------------------------------------------------------------------------*/
+
 	function isadmin()
 	{ 
 		$bdd = new PDO('mysql:host=localhost;dbname=hsh', 'root', '', [PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8']);
@@ -75,6 +82,8 @@
         	return false;
         } 
 	}
+
+/*----------------------------------------------------------------------------------------------------------------------------*/
 
 	function isverified()
 	{ 
@@ -90,6 +99,8 @@
         } 
 	}
 
+/*----------------------------------------------------------------------------------------------------------------------------*/
+
 	function rrmdir($dir) {
    		if (is_dir($dir)) {
      	$objects = scandir($dir);
@@ -103,10 +114,14 @@
    		}
  	}
 
+/*----------------------------------------------------------------------------------------------------------------------------*/
+
  	function webroot($url) {
 		trim($url,'/');
 		return BASE_URL.'/'.$url;
 	}
+
+/*----------------------------------------------------------------------------------------------------------------------------*/
 
 	
 
