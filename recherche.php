@@ -10,7 +10,7 @@
 			<?php include("header.php"); ?>
 
 			<h1>Recherchez un logement</h1>
-			<form method="post" action="resultat-recherche.php" >
+			<form method="post" action="resultat-recherche.php" class="recherche">
 
 				<h4>Mots clefs</h4>
 				<fieldset>
