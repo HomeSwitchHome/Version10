@@ -8,15 +8,17 @@
 	<body>
 		<div id="wrapper">
 			<?php include("header.php"); ?>
-
-			<h1>Recherchez un logement</h1>
-			<form method="post" action="resultat-recherche.php" class="recherche">
+			<br/><br/><br/>
+			<h1 align="center">Recherchez un logement</h1>
+				<form method="post" action="search.php" class="recherche">
 
 				<h4>Mots clefs</h4>
 				<fieldset>
 					<label><input type="search" name="recherche" placeholder="Tapez votre recherche" <?php if (empty($_SESSION)) echo 'disabled'; ?>/></label>
 				</fieldset>
+				</form>
 
+				<form method="post" action="resultat-recherche.php" class="recherche">
 				<h4>Choisissez un lieu</h4>
 				<fieldset>
 					<label>Pays </label><select name="pays">
