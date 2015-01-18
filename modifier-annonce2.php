@@ -1,19 +1,6 @@
 <?php require_once("config.php");
 require 'functions.php';
 $idLogement  = $_GET["idLogement"] ;
-// Connexion à la base de données
-
-try{
-	$bdd2 = new PDO(
-	    'mysql:host=localhost;dbname=hsh',
-	    'root',
-	    'root',
-	    array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8')
-	);
-	$bdd2->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_WARNING);
-}catch(Exception $e){
-        die('Erreur : '.$e->getMessage());
-}
 
 $sql = 'SELECT id FROM villes WHERE ville = :ville';
 $sql2 = "UPDATE logements SET nombrePieces = :nombrePieces, adresse = :adresse, description = :description, descriptionSuccincte = :descriptionSuccincte, villes_id = :villes_id, titre_annonce = :titre_annonce, surfaceInterieure = :surfaceInterieure, surfaceExterieure = :surfaceExterieure, nombreLitsSimples = :nombreLitsSimples, nombreLitsDoubles = :nombreLitsDoubles, descriptionProximite = :descriptionProximite, membres_idMembres = :membres_idMembres, types_idTypes = :types_idTypes WHERE id = :logements_id";
@@ -23,12 +10,12 @@ $sql5 = "INSERT INTO equipe (logements_id, equipements_id) VALUES (:logements_id
 $sql6 = "INSERT INTO contraint (logements_id, contraintes_id) VALUES (:logements_id, :contraintes_id)";
 
 
-$stmt = $bdd2->prepare($sql);
-$stmt2 = $bdd2->prepare($sql2);
-$stmt3 = $bdd2->prepare($sql3);
-$stmt4 = $bdd2->prepare($sql4);
-$stmt5 = $bdd2->prepare($sql5);
-$stmt6 = $bdd2->prepare($sql6);
+$stmt = $bdd->prepare($sql);
+$stmt2 = $bdd->prepare($sql2);
+$stmt3 = $bdd->prepare($sql3);
+$stmt4 = $bdd->prepare($sql4);
+$stmt5 = $bdd->prepare($sql5);
+$stmt6 = $bdd->prepare($sql6);
 
 
 try {
