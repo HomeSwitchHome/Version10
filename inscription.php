@@ -61,7 +61,7 @@ if(!empty($_POST))
     	//Check fini, si l'array $message est vide, aucun problème, sinon j'en ai une ou plusieurs.
     	if(count($messages) === 0)
     		{
-    	    $mdp = sha1($mdp);
+    	    $mdp = sha1($mdp);//on crypte le mdp rentré par sha1 afin de le rentrer en BDD
     
 			try
                 {

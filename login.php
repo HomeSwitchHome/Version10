@@ -90,7 +90,7 @@ if(!empty($_POST)) {
             </div>
 
             <div class="login-help">
-                <a href="#">Vous avez oublié votre mot de passe ?</a>
+                <a href="mdp_oublie.php">Vous avez oublié votre mot de passe ?</a>
             </div>
 
         </div>
