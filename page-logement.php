@@ -76,7 +76,7 @@ $membrelog=$result['membres_idMembres'];
 	                	}
 	                	else {
 	                		echo ("<div align=\"center\">
-	                		<p>Votre compte n'est pas activé</p>
+	                		<p>Veuillez vous inscrire et activer votre compte afin d'interagir avec cette annonce</p>
 	                		<br/>
 	                		
 	                	</div>");

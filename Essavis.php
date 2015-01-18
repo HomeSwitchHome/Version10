@@ -65,7 +65,7 @@ $req->closeCursor();
 	<p>
 
 		<label for="Votre pseudo"></label>
-		<input type="text" name="pseudo" id="pseudo" placeholder="Ex : Mon Prénom" size="30" maxlength="30"  <?php if(empty($_SESSION))echo'disabled';if(!isverified())echo'disabled'; ?> /><br>
+		<input type="text" name="pseudo" id="pseudo" placeholder="Ex : Mon Prénom" size="30" maxlength="30"  <?php if(empty($_SESSION) || !isverified())echo'disabled';?> /><br>
 
 	</p>
 	<p>Message :</p>
