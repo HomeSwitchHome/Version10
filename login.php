@@ -76,10 +76,7 @@ if(!empty($_POST)) {
                 </div>
                 <br/>
 
-                <div class="remember_me">
-                    <label for="remember_me">Se souvenir de cet ordinateur ?</label>
-                    <input type="checkbox" id="remember_me" name="remember_me">
-                </div>
+                
 
                 <input type="submit" class="login_submit_button" value="Envoyer">
 
