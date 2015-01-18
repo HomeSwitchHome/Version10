@@ -58,7 +58,7 @@
 
 				<h4>Nombre de pièces</h4>
 				<fieldset>
-					<label>Nombre de pièces <input type="number" name="nombrePieces" name="rooms" min="1" max="50" ></label>
+					<label>Nombre de pièces <input type="number" name="nombrePieces" min="1" max="50" ></label>
 				</fieldset>
 				<h4>Note</h4>
 				<fieldset>
