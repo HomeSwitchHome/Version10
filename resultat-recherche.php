@@ -3,7 +3,7 @@
 
     debug($_POST);
 
-    $sql = "SELECT id FROM logements WHERE adresse= :adresse AND nombreLitsDoubles + nombreLitsSimples = :capaciteTotale AND nombreLitsDoubles = :nombreLitsDoubles AND nombreLitsSimples = :nombreLitsSimples AND surfaceInterieure + surfaceExterieure = :surfaceTotale AND surfaceInterieure = :surfaceInterieure AND surfaceExterieure = :surfaceExterieure AND nombrePieces = :nombrePieces AND types_idTypes = :type ORDER BY id desc";
+    $sql = "SELECT id, count(id) AS nb FROM logements WHERE adresse= :adresse AND nombreLitsDoubles + nombreLitsSimples = :capaciteTotale AND nombreLitsDoubles = :nombreLitsDoubles AND nombreLitsSimples = :nombreLitsSimples AND surfaceInterieure + surfaceExterieure = :surfaceTotale AND surfaceInterieure = :surfaceInterieure AND surfaceExterieure = :surfaceExterieure AND nombrePieces = :nombrePieces AND types_idTypes = :type ORDER BY id desc";
 
     try{    
         $stmt = $bdd->prepare($sql);
@@ -16,7 +16,7 @@
     }
 
     debug($ligne);
-    die();
+
 
 ?>
 
