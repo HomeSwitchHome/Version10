@@ -1,7 +1,7 @@
 <?php
 	require_once("config.php");
 
-    debug($_POST);
+
 
     $sql = "SELECT * FROM logements";
 
@@ -113,7 +113,7 @@
 
     $sql .= " ORDER BY nombreClick desc";
 
-    debug($sql);
+
 
     try{
         $stmt = $bdd->prepare($sql);
@@ -126,8 +126,7 @@
     $ligne = $stmt-> fetch();
     $nb = $stmt->rowCount();
 
-    debug($nb);
-    debug($ligne);
+
 
     if($nb==0){
         include('resultat-recherche4.php');
