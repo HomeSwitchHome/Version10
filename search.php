@@ -1,8 +1,7 @@
 <?php
 	require_once("config.php"); 
-    require("functions.php");
-    debug($_GET['q']);
-	$q=$_GET['q'];
+    debug($_GET);
+	$q=$_GET['recherche'];
 
     $s=explode(" ", $q);
     $sql="SELECT * FROM logements";
@@ -16,7 +15,7 @@
                 $sql.=" OR ";
             }
             $sql.="titre_annonce, descriptionSuccincte, description LIKE '%$mot%'";
-            $ii+;
+            $i++;
         }
     }
 
@@ -58,7 +57,7 @@
             ?>
             <div id="three-column" class="container">
 
-                <?php if(!empty($ligne) {?><div class="tbox1">
+                <?php if(!empty($ligne)) {?><div class="tbox1">
                 
                     <div class="box-style box-style01">
                         <?php if (isadmin()) { ?>
@@ -78,7 +77,7 @@
                     
                     </div><?php } ?>
         
-                <?php if(!empty($ligne) {?><div class="tbox2">
+                <?php if(!empty($ligne)) {?><div class="tbox2">
             
                     <div class="box-style box-style02">
                         <?php if (isadmin()) { ?>
@@ -98,7 +97,7 @@
                         
                     </div><?php } ?>
         
-                <?php if(!empty($ligne) {?><div class="tbox3">
+                <?php if(!empty($ligne)) {?><div class="tbox3">
             
                     <div class="box-style box-style03">
                         <?php if (isadmin()) { ?>
