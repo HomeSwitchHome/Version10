@@ -77,7 +77,6 @@ $user = $user_name -> fetch();
                         
                                 <li>Adresse e-mail : <?php echo $user["email"]; ?> </li>
                                 <li>Numéro de téléphone : <?php echo $user["telephone"]; ?> </li>
-                                <li>Skype : ... </li>
 
                             </ul>
             
@@ -89,6 +88,7 @@ $user = $user_name -> fetch();
                                 <li>Avis : ... </li>
 
                              </ul>
+
                     </div>
                 </div>
 

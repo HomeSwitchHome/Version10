@@ -5,7 +5,7 @@ $idLogement = $_GET['idLogement'];
 $user_name = $bdd -> prepare('SELECT prenom, nom, email, age, telephone FROM membres WHERE id = '.$_SESSION['userID']);
 $user_name -> execute();
 
-$proprietaire = $bdd -> prepare('SELECT logements.id,logements.membres_idMembres, membres.email FROM logements INNER JOIN membres ON logements.membres_idMembres=membres.id WHERE logements.id='.$idLogement);
+$proprietaire = $bdd -> prepare('SELECT logements.nombreClick, logements.id, logements.membres_idMembres, membres.email FROM logements INNER JOIN membres ON logements.membres_idMembres=membres.id WHERE logements.id='.$idLogement);
 $proprietaire -> execute();
 
 $result = $user_name -> fetch();
@@ -32,7 +32,7 @@ if (isverified()) {
 		$mail->Body = 
 					'Bonjour, <br/>
 	
-					Nous vous informons que '.$prenom.' '.$nom.' est intéressé(e) par votre <a href="'.$pageweb.'/Version10/page-logement.php?idLogement='.$idLogement.'">annonce</a>
+					Nous vous informons que '.$prenom.' '.$nom.' ('.$age.' ans) est intéressé(e) par votre <a href="'.$pageweb.'/Version10/page-logement.php?idLogement='.$idLogement.'">annonce</a>
 					Voici ses coordonnées : '.$email.' '.$telephone.'
 					<br/>Veuillez le contacter.';
 		$mail->AddAddress($sendto);
@@ -40,7 +40,9 @@ if (isverified()) {
 	    $mail->Send();
 	}
 	
-
+$nombreClick=$infoproprio['nombreClick']+1;
+$ajoutClick = $bdd -> prepare("UPDATE logements SET nombreClick='$nombreClick' WHERE logements.id='$idLogement'");
+$ajoutClick -> execute();
 
 
 ?>
