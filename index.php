@@ -480,7 +480,9 @@
 
 		<a href="#" onclick="popup('popUpDiv')" ><img src="cross.svg" width="15px" height="15px" id="boutonsuppr"></a>
 		<img src="images/popup.png" id="img-popup" >
+		<br/><br/><br/>
 		<p>Inscrivez vous sur Home Switch Home, communiquez avec les hôtes, définissez les termes de vos échanges et voyagez !</p>
+		<p><a href="faq.php">Cliquez ici pour en savoir plus sur le fonctionnement de Home Switch Home</a></p>
 	</div>
 	<?php if (!isverified() && isConnected()) { echo ('<script language="JavaScript" type="text/javascript">alert("Votre compte n\' est pas activé.\nVeuillez cliquer sur le lien de validation que vous avez reçu par mail.");</script>');}?>
 	

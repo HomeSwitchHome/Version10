@@ -978,4 +978,11 @@ margin-left: 93%;
 #popUpDiv p {
 	color:white;
 }
+#popUpDiv a {
+	font-size: 100%;
+	color:#FF5257;
+}
+#popUpDiv a:hover{
+	text-decoration: underline;
+}
 
