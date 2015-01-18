@@ -43,7 +43,9 @@
 
                     <div>
                         <label for="ville">Ville :</label><br/>
+                        <?php //function formajout(){ob_start(); ?>
                         <input type="text" name="ville" id="ville" required/>
+                        <?php //$formajout = ob_get_clean(); return $formajout; }?>
                     </div>
 
                     <div>
