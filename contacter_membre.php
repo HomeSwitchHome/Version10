@@ -12,31 +12,35 @@ $proprietaire -> execute();
 $result = $user_name -> fetch();
 $infoproprio = $proprietaire -> fetch();
 
-$email=$result['email'];
-$prenom=$result['prenom'];
-$nom=$result['nom'];
-$age=$result['age'];
-$telephone=$result['telephone'];
-
-$sendto=$infoproprio['email'];
-
-$pageweb=$_SERVER['SERVER_NAME'];
-	$mail = new PHPMailer();
-
-	$mail->IsHTML(true);
-	$mail->CharSet = "utf-8";
-	$mail->From = $email;
-	$mail->FromName = $prenom.' '.$nom;
-	$mail->Subject = $prenom.' '.$nom.' est intéressé par votre annonce';
-	$mail->Body = 
-				'Bonjour, <br/>
-
-				Nous vous informons que '.$prenom.' '.$nom.' est intéressé(e) par votre <a href="'.$pageweb.'/Version10/page-logement.php?idLogement='.$idLogement.'">annonce</a>
-				Voici ces coordonnées : '.$email.' '.$telephone.'
-				<br/>Veuillez le contacter.';
-	$mail->AddAddress($sendto);
+if (isverified()) {
+	$email=$result['email'];
+	$prenom=$result['prenom'];
+	$nom=$result['nom'];
+	$age=$result['age'];
+	$telephone=$result['telephone'];
 	
-    $mail->Send();
+	$sendto=$infoproprio['email'];
+	
+	$pageweb=$_SERVER['SERVER_NAME'];
+
+		$mail = new PHPMailer();
+	
+		$mail->IsHTML(true);
+		$mail->CharSet = "utf-8";
+		$mail->From = $email;
+		$mail->FromName = $prenom.' '.$nom;
+		$mail->Subject = $prenom.' '.$nom.' est intéressé par votre annonce';
+		$mail->Body = 
+					'Bonjour, <br/>
+	
+					Nous vous informons que '.$prenom.' '.$nom.' est intéressé(e) par votre <a href="'.$pageweb.'/Version10/page-logement.php?idLogement='.$idLogement.'">annonce</a>
+					Voici ces coordonnées : '.$email.' '.$telephone.'
+					<br/>Veuillez le contacter.';
+		$mail->AddAddress($sendto);
+		
+	    $mail->Send();
+	}
+	
 
 
 

@@ -1,5 +1,6 @@
-<?php require_once("config.php"); ?>
+<?php require_once("config.php"); 
 
+?>
 <!DOCTYPE>
 
 <html>
@@ -479,7 +480,9 @@
 
 		<a href="#" onclick="popup('popUpDiv')" ><img src="cross.svg" width="15px" height="15px" id="boutonsuppr"></a>
 		<p>Home Switch Home est un site d'échange de logement gratuits entre particulliers. Avez-vous déjà songé partir en vacances, 2 semaines, un mois, ou plus, et ce gratuitement ? Si oui, ce site est fait pour vous. Vous y trouverez toutes les raisons d'essayer un nouveau mode de vacances, celui de l'échange de maisons. Vous aimeriez voyager en étant chez vous tout en respectant votre budget? La formule d'échange d'appartement ou de maison vous conviendra...</p>
-	</div>	
+	</div>
+	<?php if (!isverified() && isConnected()) { echo ('<script language="JavaScript" type="text/javascript">alert("Votre compte n\' est pas activé.\nVeuillez cliquer sur le lien de validation que vous avez reçu par mail.");</script>');}?>
+	
 	</body>
 
 </html>
