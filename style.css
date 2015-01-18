@@ -584,7 +584,10 @@ margin-right: auto;
 	margin-bottom: 10px;
 	width: 90%;
 }
+#infosPersoTitre li {
 
+	max-width: 90%;
+}
 
 .profil {
 	margin-top: 5%;
