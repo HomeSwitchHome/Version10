@@ -986,3 +986,29 @@ margin-left: 93%;
 	text-decoration: underline;
 }
 
+#fondateurs{
+	margin-left: 250px;
+	padding: 1em;
+	max-width: 70em;	
+}
+#fondateurs img {
+	width :100px;
+	height :100px;
+}
+#fondateurs ul {
+	margin: 0;
+	padding: 0px 0px 0px 0px;
+	list-style: none;
+	line-height: normal;
+	text-align: center;
+}
+
+#fondateurs li {
+	margin-left: 3em;
+	display: inline-block;
+}
+#apropos {
+	margin-left: 250px;
+	padding: 1em;
+	max-width: 70em;
+}

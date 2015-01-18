@@ -25,7 +25,6 @@
 					<li>WESTERDYK Kévin : <a href="mailto:kevin.westerdyk@isep.fr">kevin.westerdyk@isep.fr</a></li>
 					<li>WILLEMS Henry : <a href="mailto:henry.willems@isep.fr">henry.willems@isep.fr</a></li>
 				</ul>
-				<p>Vous pouvez aussi nous contacter par le biais de la messagerie privée.</p>
 			</div>
 		</div>
 		<div id="footer">
