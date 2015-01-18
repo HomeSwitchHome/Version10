@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost:8889
--- Generation Time: Jan 18, 2015 at 03:54 PM
+-- Generation Time: Jan 18, 2015 at 10:24 PM
 -- Server version: 5.5.38
 -- PHP Version: 5.5.14
 
@@ -86,21 +86,22 @@ INSERT INTO `contraint` (`id`, `logements_id`, `contraintes_id`) VALUES
 
 CREATE TABLE `contraintes` (
 `id` int(11) NOT NULL,
-  `contrainte` varchar(45) DEFAULT NULL
+  `contrainte` varchar(45) DEFAULT NULL,
+  `slug` varchar(25) NOT NULL
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
 
 --
 -- Dumping data for table `contraintes`
 --
 
-INSERT INTO `contraintes` (`id`, `contrainte`) VALUES
-(1, 'Animaux autorisés'),
-(2, 'Animaux interdits'),
-(3, 'Bruit autorisé'),
-(4, 'Bruit interdit'),
-(5, 'Fumé autorisé'),
-(6, 'Fumé interdite'),
-(7, 'Plantes');
+INSERT INTO `contraintes` (`id`, `contrainte`, `slug`) VALUES
+(1, 'Animaux autorisés', 'animauxAutorises'),
+(2, 'Animaux interdits', 'animauxInterdits'),
+(3, 'Bruit autorisé', 'bruitAutorise'),
+(4, 'Bruit interdit', 'bruitInterdit'),
+(5, 'Fumé autorisé', 'fumeAutorise'),
+(6, 'Fumé interdite', 'fumeInterdite'),
+(7, 'Plantes', 'plantes');
 
 -- --------------------------------------------------------
 
@@ -307,23 +308,24 @@ INSERT INTO `equipe` (`id`, `logements_id`, `equipements_id`) VALUES
 
 CREATE TABLE `equipements` (
 `id` int(11) NOT NULL,
-  `equipement` varchar(25) DEFAULT NULL
+  `equipement` varchar(25) DEFAULT NULL,
+  `slug` varchar(25) NOT NULL
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
 
 --
 -- Dumping data for table `equipements`
 --
 
-INSERT INTO `equipements` (`id`, `equipement`) VALUES
-(1, 'Garage'),
-(2, 'Jardin'),
-(3, 'Piscine'),
-(4, 'Télévision'),
-(5, 'Train'),
-(6, 'Handicap'),
-(7, 'Wifi'),
-(8, 'Cuisine'),
-(9, 'Aéroport');
+INSERT INTO `equipements` (`id`, `equipement`, `slug`) VALUES
+(1, 'Garage', 'garage'),
+(2, 'Jardin', 'jardin'),
+(3, 'Piscine', 'piscine'),
+(4, 'Télévision', 'television'),
+(5, 'Train', 'train'),
+(6, 'Handicap', 'handicap'),
+(7, 'Wifi', 'wifi'),
+(8, 'Cuisine', 'cuisine'),
+(9, 'Aéroport', 'aeroport');
 
 -- --------------------------------------------------------
 
@@ -368,22 +370,12 @@ CREATE TABLE `logements` (
 --
 
 INSERT INTO `logements` (`id`, `titre_annonce`, `adresse`, `surfaceInterieure`, `surfaceExterieure`, `nombrePieces`, `descriptionSuccincte`, `description`, `nombreLitsSimples`, `nombreLitsDoubles`, `descriptionProximite`, `membres_idMembres`, `types_idTypes`, `villes_id`, `nombreClick`) VALUES
-(4, 'Chez Marco', 'Adresse', 47, 2, 12, 'Magnifique appartement avec vue sur la Seine.', 'Magnifique appartement avec vue sur la Seine.', 2, 2, '...', 5, 1, 30438, 1),
-(5, 'Chez Marco', 'Adresse', 47, 2, 12, 'Magnifique appartement avec vue sur la Seine.', 'Magnifique appartement avec vue sur la Seine.', 2, 2, '...', 5, 1, 30438, 0),
-(17, 'Chez Marco', 'Adresse', 47, 2, 12, '', 'Magnifique appartement avec vue sur la Seine.', 2, 2, '...', 5, 1, 30438, 0),
-(18, 'Chez Marco', 'Adresse', 47, 2, 12, '', 'Magnifique appartement avec vue sur la Seine.', 2, 2, '...', 5, 1, 30438, 0),
-(19, 'Chez Marco', 'Adresse', 47, 2, 12, '', 'Magnifique appartement avec vue sur la Seine.', 2, 2, '...', 5, 1, 30438, 0),
-(20, 'Chez Marco', 'Adresse', 47, 2, 12, '', 'Magnifique appartement avec vue sur la Seine.', 2, 2, '...', 5, 1, 30438, 0),
-(21, 'Chez Marco', 'Adresse', 47, 2, 12, '', 'Magnifique appartement avec vue sur la Seine.', 2, 2, '...', 5, 1, 30438, 0),
-(36, 'Chez Marco', 'Adresse', 47, 2, 12, '', 'Magnifique appartement avec vue sur la Seine.', 2, 2, '...', 5, 1, 30438, 0),
-(37, 'Chez Marco', 'Adresse', 47, 2, 12, '', 'Magnifique appartement avec vue sur la Seine.', 2, 2, '...', 5, 1, 30438, 0),
-(38, 'Chez Marco', 'Adresse', 47, 2, 12, '', 'Magnifique appartement avec vue sur la Seine.', 2, 2, '...', 5, 1, 30438, 0),
-(42, 'Chez Marco', 'Adresse', 47, 2, 12, 'Magnifique appartement avec vue sur la Seine.', 'Magnifique appartement avec vue sur la Seine.', 2, 2, '...', 5, 1, 30438, 0),
-(43, 'Chez Marco', 'Adresse', 47, 2, 12, 'Magnifique appartement avec vue sur la Seine.', 'Magnifique appartement avec vue sur la Seine.', 2, 2, '...', 5, 1, 30438, 0),
-(44, 'Chez Marc', 'Rue de l''Abbé Groult', 80, 4, 4, 'Appartement dans le 15e arrondissement de Paris, avec vue sur la Tour Eiffel.', 'Chez Marc ! ', 2, 2, 'Pas grand chose.', 6, 2, 30438, 0),
-(45, 'Chez Bob', 'Rue Bob', 123, 2, 2, 'Chez Bob !', 'AZ', 2, 2, 'ZA', 1, 1, 30438, 0),
-(46, 'Ajout Plusieurs phot', 'AZE', 123, 1, 1, 'Test', 'A', 1, 1, '1', 5, 1, 30438, 0),
-(47, 'Ajout', 'AZE', 123, 1, 1, 'AZE', 'AZE', 1, 1, 'AZE', 5, 1, 30438, 0),
+(37, 'Chez Marco', 'Adresse', 47, 2, 12, '', 'Magnifique appartement avec vue sur la Seine.', 2, 2, '...', 5, 1, 30438, 4),
+(42, 'Chez Marco', 'Adresse', 47, 2, 12, 'Magnifique appartement avec vue sur la Seine.', 'Magnifique appartement avec vue sur la Seine.', 2, 2, '...', 5, 1, 30438, 5),
+(44, 'Chez Marc', 'Rue de l''Abbé Groult', 80, 4, 4, 'Appartement dans le 15e arrondissement de Paris, avec vue sur la Tour Eiffel.', 'Appartemment situé au 7 étages, en plein 15e arrondissement. Avec une vue imprenable sur la Tour Eiffel.', 2, 2, 'Pas grand chose.', 6, 2, 30438, 0),
+(45, 'Chez Bob', 'Rue de la Paix', 123, 2, 2, 'Magnifique 2 pièces en plein coeur de Paris', 'Idéalement situé entre Port Royal et les Gobelins, tout le charme dans l''ancien pour ce bien traversant avec balcon filant bénéficiant d''une vue imprenable. Lumière, calme, double séjour, cuisine équipée, cave et possibilité de parking. Rare, à voir absolument!', 2, 2, 'ZA', 1, 1, 30438, 0),
+(46, 'Duplex', 'AZE', 123, 1, 1, 'Test', '...', 1, 1, '1', 5, 1, 30438, 0),
+(47, 'Ajout', 'AZE', 123, 1, 1, 'AZE', '...', 1, 1, 'AZE', 5, 1, 30438, 0),
 (48, 'Chez Benoit !', 'Rue Pierre Poli', 150, 40, 10, 'Maison sur une ile !', '...', 2, 2, '...', 14, 1, 30438, 0);
 
 -- --------------------------------------------------------
@@ -410,17 +402,12 @@ CREATE TABLE `membres` (
 --
 
 INSERT INTO `membres` (`id`, `admin`, `nom`, `prenom`, `email`, `mdp`, `age`, `telephone`, `compteActif`, `clefCompte`) VALUES
-(1, 0, 'bidule', 'Bob', 'danny.canaan@hotmail.fr', '778edab28e9af6227a8bf98721fc4d5141b22f0a', 20, '0234567892', 0, ''),
-(2, 0, 'Westerdyk', 'Kevin', 'westerdyk.kevin@gmail.com', 'ab33ba565638181e6eb2cf44ac0e14cce3c88b1f', 20, '', 0, ''),
-(3, 0, 'Menache', 'Jordan', 'jordan.menache@gmail.com', 'b480c074d6b75947c02681f31c90c668c46bf6b8', 21, '', 0, ''),
+(2, 0, 'Westerdyk', 'Kevin', 'westerdyk.kevin@gmail.com', 'ab33ba565638181e6eb2cf44ac0e14cce3c88b1f', 20, '0987654321', 0, ''),
+(3, 0, 'Menache', 'Jordan', 'jordan.menache@gmail.com', 'b480c074d6b75947c02681f31c90c668c46bf6b8', 21, '0123456789', 0, ''),
 (5, 1, 'Canaan', 'Danny', 'danny.canaan@gmail.com', 'c519b0869bd1e9a41fd8caa349072c7343f3bc57', 20, '0618112849', 1, ''),
-(6, 0, 'Martin Siegfried', 'Marc', 'marc.martin-siegfried2@orange.fr', '8927b12bd34b5ac19381131e8bd22550c2cef120', 20, '', 0, ''),
-(8, 0, 'Machin', 'Bob', 'bobmachin@gmail.com', 'f7c3bc1d808e04732adf679965ccc34ca7ae3441', 23, '0123456789', 0, ''),
-(13, 1, 'me', 'jo', 'jariane@noos.fr', '87acec17cd9dcd20a716cc2cf67417b71c8a7016', 21, '0123456789', 0, ''),
-(14, 0, 'Dufour', 'Benoit', 'benoit.dufour.94@gmail.com', 'f2c5eb27f54a2e6dea2b7ccddc0e8d4019cc3688', 21, '0123456789', 0, ''),
-(15, 0, 'machin', 'Truc', 'titi@toto.com', 'd52b958b59e0bbc5856a5660b7d86989b7a18d00', 23, '0123456789', 0, 'fe185ecff15933d6e31f'),
-(17, 0, 'machin', 'Truc', 'danny.canaan@yahoo.com', '2350a05ea783e1b23738e3f47dd6798e36afe145', 23, '0123456789', 0, 'dafa79d1cd3afd2ac021'),
-(18, 0, 'machin', 'Truc', 'maurice.sarasin@gmail.com', '2a1be199a1d82c5994e1286ff0fd6b0de7ff5602', 23, '0123456789', 1, 'c6aad1181250a4c8f47d');
+(6, 0, 'Martin Siegfried', 'Marc', 'marc.martin-siegfried2@orange.fr', '8927b12bd34b5ac19381131e8bd22550c2cef120', 20, '0123456789', 0, ''),
+(13, 1, 'Menache', 'Jordan', 'jariane@noos.fr', '87acec17cd9dcd20a716cc2cf67417b71c8a7016', 21, '0123456789', 0, ''),
+(14, 0, 'Dufour', 'Benoit', 'benoit.dufour.94@gmail.com', 'f2c5eb27f54a2e6dea2b7ccddc0e8d4019cc3688', 21, '0123456789', 0, '');
 
 -- --------------------------------------------------------
 
@@ -449,15 +436,16 @@ CREATE TABLE `minichat` (
   `message` text NOT NULL,
   `dateAjout` datetime NOT NULL,
   `idLogement` int(11) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `minichat`
 --
 
 INSERT INTO `minichat` (`id`, `pseudo`, `message`, `dateAjout`, `idLogement`) VALUES
-(1, 'test', 'tset', '2015-01-17 10:57:39', 32),
-(2, 'Raph', 'Je m''emmerde', '2015-01-17 14:45:18', 36);
+(1, 'Marc', 'Test', '2015-01-17 10:57:39', 43),
+(2, 'Raph', 'Coucou, ceci est un test', '2015-01-17 14:45:18', 36),
+(3, 'Danny', 'Test final', '2015-01-18 21:44:49', 43);
 
 -- --------------------------------------------------------
 
@@ -37553,7 +37541,7 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 -- AUTO_INCREMENT for table `minichat`
 --
 ALTER TABLE `minichat`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `note`
 --
@@ -37606,8 +37594,8 @@ ADD CONSTRAINT `fk_communique_membres2` FOREIGN KEY (`membres_idMembres1`) REFER
 -- Constraints for table `contraint`
 --
 ALTER TABLE `contraint`
-ADD CONSTRAINT `fk_contraint_logements1` FOREIGN KEY (`logements_id`) REFERENCES `logements` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-ADD CONSTRAINT `fk_contraint_contraintes1` FOREIGN KEY (`contraintes_id`) REFERENCES `contraintes` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+ADD CONSTRAINT `fk_contraint_contraintes1` FOREIGN KEY (`contraintes_id`) REFERENCES `contraintes` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+ADD CONSTRAINT `fk_contraint_logements1` FOREIGN KEY (`logements_id`) REFERENCES `logements` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `departements`
@@ -37633,8 +37621,8 @@ ADD CONSTRAINT `fk_echanges_logements2` FOREIGN KEY (`logements_idLogements1`) R
 -- Constraints for table `equipe`
 --
 ALTER TABLE `equipe`
-ADD CONSTRAINT `fk_equipe_logements1` FOREIGN KEY (`logements_id`) REFERENCES `logements` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-ADD CONSTRAINT `fk_equipe_equipements1` FOREIGN KEY (`equipements_id`) REFERENCES `equipements` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+ADD CONSTRAINT `fk_equipe_equipements1` FOREIGN KEY (`equipements_id`) REFERENCES `equipements` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+ADD CONSTRAINT `fk_equipe_logements1` FOREIGN KEY (`logements_id`) REFERENCES `logements` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `evalue`
