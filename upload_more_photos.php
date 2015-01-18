@@ -99,7 +99,7 @@ if(!empty($_POST)) {
 				<!-- Debut du formulaire -->
 				<form enctype="multipart/form-data" action="upload_more_photos.php?idlog=<?php echo ($ajoutPhoto); ?>" method="post">
 					<fieldset>
-						<legend>Formulaire <?php echo('/img/'.$ajoutPhoto);?></legend>
+						<legend>Formulaire</legend>
 						<p>
 							<label for="fichier_a_uploader" title="Recherchez le fichier à uploader !">Envoyer le fichier :</label>
 							<input type="hidden" name="MAX_FILE_SIZE" value="<?php echo MAX_SIZE; ?>" />

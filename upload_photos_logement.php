@@ -29,7 +29,7 @@ require("up_house_post.php"); ?>
 				<!-- Debut du formulaire -->
 				<form enctype="multipart/form-data" action="upload_photos_logement2.php?idlog=<?php echo ($id_logement_photo); ?>" method="post">
 					<fieldset>
-						<legend>Formulaire <?php echo('/img/'.$id_logement_photo);?></legend>
+						<legend>Formulaire</legend>
 						<p>
 							<label for="fichier_a_uploader" title="Recherchez le fichier à uploader !">Envoyer le fichier :</label>
 							<input type="hidden" name="MAX_FILE_SIZE"  />
