@@ -11,6 +11,12 @@
         <script src="js/jquery-ui/external/jquery/jquery.js"></script>
         <script src="js/jquery-ui/jquery-ui.min.js"></script>
     </head>
+    <script type="text/javascript" >
+        $(function() {
+            $("#autocomplete1").autocomplete({
+                source: data
+        });
+    </script>
 
     <body>
         <div id="wrapper">

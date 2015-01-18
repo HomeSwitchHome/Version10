@@ -21,8 +21,8 @@ $user_name -> execute();
     	</script>
     </head>
 	<body>
-		<?php include("header.php"); ?>
 	    <div id="wrapper">
+		<?php include("header.php"); ?>
 	        <div id="user_list">
 		            
 		    	<?php	    
