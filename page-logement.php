@@ -2,7 +2,7 @@
 require 'functions.php';
 $idLogement  = $_GET["idLogement"] ;
 //$idLogement = 4;
-$logement_info = $bdd -> prepare('SELECT nombrePieces, description, titre_annonce, surfaceInterieure, surfaceExterieure, nombreLitsSimples, nombreLitsDoubles, descriptionProximite, membres_idMembres, types_idTypes
+$logement_info = $bdd -> prepare('SELECT nombrePieces, description, descriptionSuccincte, titre_annonce, surfaceInterieure, surfaceExterieure, nombreLitsSimples, nombreLitsDoubles, descriptionProximite, membres_idMembres, types_idTypes
                                     FROM logements WHERE id = '.$idLogement);
 $logement_info -> execute();
 
@@ -47,7 +47,7 @@ $membrelog=$result['membres_idMembres'];
                 <div id="photo-logement">
                     <img src="img/<?php echo($idLogement);?>/1.jpg" class="home-image">
                     <h1 id="titreannonce"><?php echo $result['titre_annonce'];?></h1>
-                    <p id="descriptifannonce"><?php echo $result['description'];?></p>
+                    <p id="descriptifannonce"><?php echo $result['descriptionSuccincte'];?></p>
                     <a href="#ancre"><img src="fleche2.png" class="arrowdown"></a>
                 </div>
         </div>
@@ -126,7 +126,7 @@ $membrelog=$result['membres_idMembres'];
 
 	                            <ul class="infosPerso">
 	                        
-	                                <li><?php echo $result['description'];?></li>
+	                                <li><?php echo $result['descriptionSuccincte'];?></li>
 
 	                            </ul>
 	        
@@ -154,7 +154,7 @@ $membrelog=$result['membres_idMembres'];
 	                        <h1><strong>Description</strong></h1>
 
 	                            <ul class="infosPerso">
-	                        
+	                        		<li>Le logement : <?php echo $result['description'];?></li>
 	                                <li>A proximité : <?php echo $result['descriptionProximite'];?></li>
 	 
 	                             </ul>
