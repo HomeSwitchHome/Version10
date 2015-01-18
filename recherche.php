@@ -12,8 +12,7 @@
 			<h1 align="center">Recherche</h1>
 				<form method="get" action="search.php" class="recherche">
 
-				
-					<label><input type="text" id="recherche-simple" name="q" placeholder="Tapez votre recherche"/></label>
+					<label><input type="text" id="recherche-simple" name="q" placeholder="Tapez votre recherche" /></label>
 				
 				<input type="submit" value="Rechercher" class="submit_button"/>
 				</form>
@@ -56,8 +55,8 @@
 				<h4>Surface</h4>
 				<fieldset>
 					<label>Surface <input type="number" name="surfaceTotale" min="1" max="9999" /></label></br>
-					<label><input type="number" name="surfaceInterieureMin" min="1" max="9999" > < Surface intérieur < <input type="number" name="surfaceInterieureMax" min="1" max="9999" /></label></br>
-					<label><input type="number" name="surfaceExterieureMin"  min="1" max="9999" > < Surface extérieur < <input type="number" name="surfaceExterieureMax" min="1" max="9999" /></label></br>
+					<label><input type="number" name="surfaceInterieure[Min]" min="1" max="9999" > < Surface intérieur < <input type="number" name="surfaceInterieure[Max]" min="1" max="9999" /></label></br>
+					<label><input type="number" name="surfaceExterieure[Min]"  min="1" max="9999" > < Surface extérieur < <input type="number" name="surfaceExterieure[Max]" min="1" max="9999" /></label></br>
 				</fieldset>
 
 				<h4>Nombre de pièces</h4>

@@ -23,7 +23,11 @@
 	$ligne = $req-> fetch();
     $nb = $req->rowCount();
 
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> 9807f8f4c006391615acfad66a6328bf6a64c64e
 ?>
 
 <!DOCTYPE html>

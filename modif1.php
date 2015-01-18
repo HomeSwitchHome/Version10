@@ -21,8 +21,14 @@ $user_name -> execute();
     	</script>
     </head>
 	<body>
+<<<<<<< HEAD
 	    <div id="wrapper">
 		<?php include("header.php"); ?>
+=======
+
+	    <div id="wrapper">
+	    	<?php include("header.php"); ?>
+>>>>>>> 9807f8f4c006391615acfad66a6328bf6a64c64e
 	        <div id="user_list">
 		            
 		    	<?php	    

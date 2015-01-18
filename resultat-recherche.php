@@ -38,12 +38,15 @@
 
     $sql = "SELECT * FROM logements";
 
-    global$i; $i=0;
-    // if(isset($_POST['equipement'])){
-    //     $sql .= " INNER JOIN equipe ON logements.id = equipe.logements_id";
-    // }if(isset($_POST['contrainte'])){
-    //     $sql .= " INNER JOIN contraint ON logements.id = contraint.logements_id";
-    // }
+    $i=0;
+    $j=0;
+    if(isset($_POST['equipement'])){
+        $sql .= " INNER JOIN equipe ON logements.id = equipe.logements_id";
+    $j++;
+    }if(isset($_POST['contrainte'])){
+        $sql .= " INNER JOIN contraint ON logements.id = contraint.logements_id";
+    $j++;
+    }
     foreach($_POST as $k => $v){
         if(!is_array($v)){
             if (!empty($v)){
@@ -53,24 +56,38 @@
                     $sql .= " AND";
                 }
                 $sql .= " $k = $v";
+                $i++;
             }
-        }
-        $i++;
+        }else{
+            if($j>0){
+                foreach ($v as $m => $w){
+                    if($i==0){
+                        $sql .= " WHERE";
+                    }else{
+                        $sql .= " AND";
+                    }
+                    $sql .= " $m = $w";
+                    $i++;
+                }
+            }
+
+        }  
     }
 
     debug($sql);
 
     try{
         $stmt = $bdd->prepare($sql);
-
         $stmt->execute();
 
     }catch (PDOException $e) {
         echo $e->getMessage();
     }
 
-    $ligne = $stmt-> fetchAll();
+    $ligne = $stmt-> fetch();
+    $nb = $stmt->rowCount();
 
+    debug($nb);
     debug($ligne);
 
 
