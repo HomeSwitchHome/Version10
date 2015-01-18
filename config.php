@@ -71,8 +71,7 @@
 
 	function isadmin()
 	{ 
-		$bdd = new PDO('mysql:host=localhost;dbname=hsh', 'root', '', [PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8']);
-		$bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		bddConnect();
 		if (!empty($_SESSION["userID"])) {
 		$verifadmin = $bdd -> prepare("SELECT admin FROM membres WHERE id =".$_SESSION["userID"]);
                 $verifadmin -> execute();
@@ -87,8 +86,7 @@
 
 	function isverified()
 	{ 
-		$bdd = new PDO('mysql:host=localhost;dbname=hsh', 'root', '', [PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8']);
-		$bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		bddConnect();
 		if (!empty($_SESSION["userID"])) {
 		$verif = $bdd -> prepare("SELECT compteActif FROM membres WHERE id =".$_SESSION["userID"]);
                 $verif -> execute();
@@ -129,8 +127,7 @@
 	/*function isadmin2()
 	{
 		ob_start();
-		$bdd = new PDO('mysql:host=localhost;dbname=hsh', 'root', '', [PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8']);
-	$bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		bddConnect();
 		$reponse = 'FALSE';
 		$verifadmin = $bdd -> prepare("SELECT admin FROM membres WHERE id =".$_SESSION["userID"]);
                 $verifadmin -> execute();
@@ -145,8 +142,7 @@
 
 	/*function annonceProfil()
 		{
-			$bdd = new PDO('mysql:host=localhost;dbname=hsh', 'root', 'root', [PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8']);
-			$bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+			bddConnect();
 			$profil = $bdd -> prepare("SELECT id, membres_idMembres FROM logements WHERE membres_idMembres=".$_SESSION['userID']);
 			$profil -> execute();
 			while ($photoLogements = $profil -> fetch())
@@ -157,8 +153,7 @@
 	
 	/*function annonceProfil($identifiant)
 	{
-		$bdd = new PDO('mysql:host=localhost;dbname=hsh', 'root', 'root', [PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8']);
-		$bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		bddConnect();
 		$profil = $bdd -> prepare("SELECT id, membres_idMembres FROM logements WHERE membres_idMembres=".$id);
         $profil -> execute();
         while ($photoLogements = $profil -> fetch())
