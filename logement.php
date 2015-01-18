@@ -2,6 +2,7 @@
 	require_once("config.php"); 
 	$q=$bdd->query("SELECT * FROM logements ORDER BY id desc");
 	$ligne = $q-> fetch();
+    debug($ligne);
 ?>
 
 <!DOCTYPE html>

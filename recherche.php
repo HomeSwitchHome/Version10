@@ -31,7 +31,6 @@
 					<label>Ville </label><select name="ville">
 					<option value="">Levallois-Perret</option>
 					</select></br>
-					<label>Adresse<input type="text" name="adresse" ></label>
 				</fieldset>
 
 				<h4>Type de logement</h4>

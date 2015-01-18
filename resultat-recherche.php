@@ -3,19 +3,23 @@
 
     debug($_POST);
 
-    $sql = "SELECT id, count(id) AS nb FROM logements WHERE adresse= :adresse AND nombreLitsDoubles + nombreLitsSimples = :capaciteTotale AND nombreLitsDoubles = :nombreLitsDoubles AND nombreLitsSimples = :nombreLitsSimples AND surfaceInterieure + surfaceExterieure = :surfaceTotale AND surfaceInterieure = :surfaceInterieure AND surfaceExterieure = :surfaceExterieure AND nombrePieces = :nombrePieces AND types_idTypes = :type ORDER BY id desc";
+    $sql = "SELECT id FROM logements WHERE nombreLitsDoubles + nombreLitsSimples = :capaciteTotale AND nombreLitsDoubles = :nombreLitsDoubles AND nombreLitsSimples = :nombreLitsSimples AND surfaceInterieure + surfaceExterieure = :surfaceTotale AND surfaceInterieure = :surfaceInterieure AND surfaceExterieure = :surfaceExterieure AND nombrePieces = :nombrePieces AND types_idTypes = :type ORDER BY id desc";
 
     try{    
         $stmt = $bdd->prepare($sql);
 
-        $stmt->execute(['nombrePieces' => $_POST['nombrePieces'], 'adresse' => $_POST['adresse'], 'surfaceInterieure' => $_POST['surfaceInterieure'], 'surfaceExterieure' => $_POST['surfaceExterieure'], 'surfaceTotale' => $_POST['surfaceInterieure'] + $_POST['surfaceExterieure'], 'nombreLitsSimples' => $_POST['nombreLitsSimples'], 'nombreLitsDoubles' => $_POST['nombreLitsDoubles'], 'capaciteTotale' => $_POST['nombreLitsSimples'] + $_POST['nombreLitsDoubles'], 'type' => $_POST['type']]);
+        $stmt->execute(['nombrePieces' => $_POST['nombrePieces'], 'surfaceInterieure' => $_POST['surfaceInterieure'], 'surfaceExterieure' => $_POST['surfaceExterieure'], 'surfaceTotale' => $_POST['surfaceInterieure'] + $_POST['surfaceExterieure'], 'nombreLitsSimples' => $_POST['nombreLitsSimples'], 'nombreLitsDoubles' => $_POST['nombreLitsDoubles'], 'capaciteTotale' => $_POST['nombreLitsSimples'] + $_POST['nombreLitsDoubles'], 'type' => $_POST['type']]);
 
     	$ligne = $stmt-> fetchAll();
     }catch (PDOException $e) {
         echo $e->getMessage();
     }
 
+    $keys = array_keys($ligne);
+    $nb = array_pop($keys);
+    $nb++;
     debug($ligne);
+    debug($nb);
 
 
 ?>
@@ -46,9 +50,6 @@
             <?php include("header.php"); ?>
 
             <div id="logements">
-                <?php $sql = $bdd->query("SELECT count(*) as nb from logements");
-                    $data = $sql->fetch();
-                    $nb = $data['nb'];?>
             <?php 
             	$i = 0;
             	while ($i < $nb){
