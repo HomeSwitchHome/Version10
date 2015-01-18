@@ -23,8 +23,7 @@
 	$ligne = $req-> fetch();
     $nb = $req->rowCount();
 
-    debug($sql);
-
+    
 ?>
 
 <!DOCTYPE html>

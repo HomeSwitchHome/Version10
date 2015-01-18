@@ -13,7 +13,7 @@
 				<form method="get" action="search.php" class="recherche">
 
 				
-					<label><input type="text" id="recherche-simple" name="q" placeholder="Tapez votre recherche" <?php if (empty($_SESSION)) echo 'disabled'; ?>/></label>
+					<label><input type="text" id="recherche-simple" name="q" placeholder="Tapez votre recherche" /></label>
 				
 				<input type="submit" value="Rechercher" class="submit_button"/>
 				</form>

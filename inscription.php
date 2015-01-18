@@ -122,12 +122,12 @@ if(!empty($_POST))
 	<body>
 		<div id="wrapper">
 			<?php include("header.php"); ?>
-
-			<h3 class="register-title">INFORMATIONS PERSONNELLES</h3>
+			<br/><br/><br/>
+			<h3 id="register-title">INFORMATIONS PERSONNELLES</h3>
 			
-			<form method="post" class="register">
+			<form method="post" id="register">
 
-				<div class="register-left-grid">
+				<div id="register-left-grid">
 					<div>
 						<label for="prenom">Prénom *</label>
 						<input type="text" id="prenom" name="prenom" value="<?= escape($prenom); ?>"> 
@@ -154,7 +154,7 @@ if(!empty($_POST))
 					</div>
 				</div>
 
-				<div class="register-right-grid">
+				<div id="register-right-grid">
 					<div>
 						<label for="mdp">Mot de passe *</label>
 						<input type="password" id="mdp" name="mdp" value="<?= escape($mdp); ?>">
@@ -166,10 +166,10 @@ if(!empty($_POST))
 					</div>
 				</div>
 
-				<input type="submit" class="submit_button" value="Envoyer">
+				<input type="submit" id="submit_button" value="Envoyer">
 			</form>	
 
-			<div class="register_errors">
+			<div id="register_errors">
 				<?php showErrors($messages) ?>
 			</div>
 
