@@ -115,7 +115,7 @@
 
 				<h4>Surface</h4>
 				<fieldset>
-					<label>Surface supérieur à <input type="number" name="surfaceTotale" min="1" max="9999" /></label></br>
+					<label>Surface total supérieur à <input type="number" name="surfaceTotale" min="1" max="9999" /></label></br>
 					<label><input type="number" name="surfaceInterieure[Min]" min="0" max="9999" > < Surface intérieur < <input type="number" name="surfaceInterieure[Max]" min="1" max="9999" /></label></br>
 					<label><input type="number" name="surfaceExterieure[Min]"  min="0" max="9999" > < Surface extérieur < <input type="number" name="surfaceExterieure[Max]" min="1" max="9999" /></label></br>
 				</fieldset>

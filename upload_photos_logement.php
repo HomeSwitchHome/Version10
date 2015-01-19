@@ -13,6 +13,9 @@ if(empty($res)){
 	$host  = $_SERVER['HTTP_HOST'];
 	$uri   = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
 	$extra = 'up_house.php';
+
+	$save = $_POST;
+	$_SESSION['save'] = $save;
 header("Location: http://$host$uri/$extra");
 }
 ?>
