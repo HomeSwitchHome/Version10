@@ -5,9 +5,13 @@ $logement_info = $bdd -> prepare('SELECT nombrePieces, adresse, description, des
                                     FROM logements WHERE id = '.$idLogement);
 $logement_info -> execute();
 
-$commentaire = $bdd ->prepare("SELECT nom, prenom FROM membres WHERE id=".$_SESSION['userID']);
-$commentaire -> execute();
-$comments = $commentaire -> fetch();
+if(!empty($_SESSION['userID'])){
+	$commentaire = $bdd ->prepare("SELECT nom, prenom FROM membres WHERE id=".$_SESSION['userID']);
+	$commentaire -> execute();
+	$comments = $commentaire -> fetch();
+}else{
+	$comments = array('statut' => 'deconnecter');
+}
 
 $logement_contrainte = $bdd -> prepare('SELECT contraint.logements_id, contraint.contraintes_id, contraintes.contrainte, contraintes.id FROM contraint INNER JOIN contraintes ON contraint.contraintes_id=contraintes.id WHERE contraint.logements_id='.$idLogement);
 $logement_contrainte -> execute();
@@ -60,7 +64,7 @@ $membrelog=$result['membres_idMembres'];
             <div class="annonce">
 	            <div class="profil">
 	                <div class="colonne_gauche_profil">
-	                	<?php if ($membrelog == $_SESSION['userID'] || isadmin()) {
+	                	<?php if(!empty($_SESSION['userID'])){if ($membrelog == $_SESSION['userID'] || isadmin()) {
 	                	echo ("<div align=\"center\">
 	                		<a href=\"#\" onClick=\"confirme2(".$idLogement.")\">Je suis intéressé par cette annonce !</a>
 	                		<br/>
@@ -76,7 +80,7 @@ $membrelog=$result['membres_idMembres'];
 	                		<br/>
 	                		
 	                	</div>");
-	                	}
+	                	}}
 	                	else {
 	                		echo ("<div align=\"center\">
 	                		<p>Veuillez vous inscrire et activer votre compte afin d'interagir avec cette annonce</p>
