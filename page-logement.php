@@ -5,6 +5,10 @@ $logement_info = $bdd -> prepare('SELECT nombrePieces, adresse, description, des
                                     FROM logements WHERE id = '.$idLogement);
 $logement_info -> execute();
 
+$commentaire = $bdd ->prepare("SELECT nom, prenom FROM membres WHERE id=".$_SESSION['userID']);
+$commentaire -> execute();
+$comments = $commentaire -> fetch();
+
 $logement_contrainte = $bdd -> prepare('SELECT contraint.logements_id, contraint.contraintes_id, contraintes.contrainte, contraintes.id FROM contraint INNER JOIN contraintes ON contraint.contraintes_id=contraintes.id WHERE contraint.logements_id='.$idLogement);
 $logement_contrainte -> execute();
 

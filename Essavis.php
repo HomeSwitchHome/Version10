@@ -12,20 +12,18 @@
 	if (!empty($_POST)){
 		$form = array();
 		$errors = array();
-		if(!empty($_POST['pseudo'])){
+		$pseudo=$comments['prenom']." ".$comments['nom'];
 			if(!empty($_POST['message'])){
 				if(empty($errors)){
 
 					
-					$req = $bdd->prepare('INSERT INTO minichat (pseudo, message, dateAjout, IDLogement) VALUES ("'.$_POST['pseudo'].'","'.$_POST['message'].'", NOW(), "'.$idLogement.'")');
+					$req = $bdd->prepare('INSERT INTO minichat (pseudo, message, dateAjout, IDLogement) VALUES ("'.$pseudo.'","'.$_POST['message'].'", NOW(), "'.$idLogement.'")');
 					$req->execute();
 				}
 			}else{
 				$errors['message'] = message('Votre message doit être rempli.', 'error');
 			}
-		}else{
-			$errors['pseudo'] = message('Votre pseudo doit être rempli.', 'error');
-		}
+		
 	}
 ?>
 
@@ -61,16 +59,10 @@ $req->closeCursor();
 
 <h3> Ajouter un commentaire: </h3><br />
 <form method="post" action="#commentaires">
-	<p>Pseudo : </p>
-	<p>
-
-		<label for="Votre pseudo"></label>
-		<input type="text" name="pseudo" id="pseudo" placeholder="Ex : Mon Prénom" size="30" maxlength="30"  <?php if(empty($_SESSION) || !isverified())echo'disabled';?> /><br>
-
-	</p>
+	
 	<p>Message :</p>
 	<p>
-		<textarea name="message" id="message"></textarea><br>
+		<textarea name="message" id="message" <?php if(empty($_SESSION) || !isverified())echo'disabled';?>></textarea><br>
 		<?php echo(isset($errors['message']) ? $errors['message'] : ''); ?>
 	</p>
 	<p>
