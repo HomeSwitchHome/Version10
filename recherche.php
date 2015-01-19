@@ -87,20 +87,20 @@
 				</fieldset>-->
 
 				<fieldset>
-					<label>Région <input type="text" name="region" list="listeRegion" /></label>
+					<input type="text" name="region" list="listeRegion" placeholder="Région" />
 				</fieldset>
 
 				<fieldset>
-					<label>Département <input type="text" name="departement" list="listeDepartement" /></label>
+					<input type="text" name="departement" list="listeDepartement" placeholder="Département" />
 				</fieldset>
 
 				<fieldset>
-					<label>Ville <input type="text" name="ville" list="listeVille" /></label>
+					<input type="text" name="ville" list="listeVille" placeholder="Ville" />
 				</fieldset>
 
 				<h4>Type de logement</h4>
 				<fieldset>
-					<label>Type </label><select name="types_idTypes">
+					<select name="types_idTypes">
 					<option value="1">Maison</option>
 					<option value="2">Appartement</option>
 					</select></br>

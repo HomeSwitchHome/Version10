@@ -1,5 +1,7 @@
-<?php require_once("config.php");
+<?php
+require_once("config.php");
 require_once('PHPMailer/class.phpmailer.php');
+
 $idLogement = $_GET['idLogement'];
 
 $user_name = $bdd -> prepare('SELECT prenom, nom, email, age, telephone FROM membres WHERE id = '.$_SESSION['userID']);
