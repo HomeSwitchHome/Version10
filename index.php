@@ -1,6 +1,4 @@
-<?php require_once("config.php"); 
-
-?>
+<?php require_once("config.php"); ?>
 <!DOCTYPE>
 
 <html>
@@ -55,14 +53,7 @@
 				<p>Le site d'échange de logement entre particuliers</p>
 				<a href="#html2" id="lien_button_transparent" onClick="popup('popUpDiv')"><p><div id="button_transparent">Comment ça marche ?</div></p></a>	
 			</div>
-			<!--<div id="masquer" class="ccmarche" style="display: none;">
-					<img src="images/logoccm.png" onclick="disparaitre();" id="ccmar">
-			</div>-->
 			</section>			
-			<!--<div id="masquer" class="ccmarche" style="display: none;">
-					<img src="images/logoccm.png" onclick="disparaitre();">
-			</div>-->
-			
 			<div id="page" class="container">
 		
 				<div class="entry">
@@ -366,128 +357,7 @@
 					</div>							
 					</article>
 			</section>
-
-
-
-
-			<!--<div id="three-column" class="container">
-				
-				<div class="tbox1">
-				
-					<div class="box-style">
-				
-						<div class="content">
-				
-							<div class="image"><img src="images/maison1.jpg" width="324" height="200" alt="" /></div>
-								
-								<h2>Fusce ultrices fringilla</h2>
-								<p>Aliquam erat volutpat. Pellentesque tristique ante ut risus. Quisque dictum. Integer nisl risus, sagittis convallis, rutrum id, elementum congue, nibh. </p>
-								<a href="#" class="button">Plus d'informations</a>
-				
-							</div>
-			
-						</div>
-		
-					</div>
-		
-				<div class="tbox2">
-			
-					<div class="box-style">
-				
-						<div class="content">
-					
-							<div class="image"><img src="images/maison1.jpg" width="324" height="200" alt="" /></div>
-					
-								<h2>Mauris vulputate dolor</h2>
-								<p>Aliquam erat volutpat. Pellentesque tristique ante ut risus. Quisque dictum. Integer nisl risus, sagittis convallis, rutrum id, elementum congue, nibh. </p>
-								<a href="#" class="button">Plus d'informations</a>
-				
-							</div>
-			
-						</div>
-		
-					</div>
-		
-				<div class="tbox3">
-			
-					<div class="box-style">
-				
-						<div class="content">
-					
-							<div class="image"><img src="images/maison1.jpg" width="324" height="200" alt="" /></div>
-					
-								<h2>Nulla luctus eleifend </h2>
-								<p>Aliquam erat volutpat. Pellentesque tristique ante ut risus. Quisque dictum. Integer nisl risus, sagittis convallis, rutrum id, elementum congue, nibh.</p>
-								<a href="#" class="button">Plus d'informations</a>
-				
-							</div>
-			
-						</div>
-		
-					</div>
-	
-				</div>
-	
-			<div id="three-column" class="container">
-		
-				<div class="tbox1">
-			
-					<div class="box-style">
-				
-						<div class="content">
-					
-							<div class="image"><img src="images/maison1.jpg" width="324" height="200" alt="" /></div>
-				
-								<h2>Fusce ultrices fringilla</h2>
-								<p>Aliquam erat volutpat. Pellentesque tristique ante ut risus. Quisque dictum. Integer nisl risus, sagittis convallis, rutrum id, elementum congue, nibh. </p>
-								<a href="#" class="button">Plus d'informations</a>
-				
-							</div>
-			
-						</div>
-		
-					</div>
-		
-				<div class="tbox2">
-			
-					<div class="box-style">
-			
-						<div class="content">
-					
-							<div class="image"><img src="images/maison1.jpg" width="324" height="200" alt="" /></div>
-					
-								<h2>Mauris vulputate dolor</h2>
-								<p>Aliquam erat volutpat. Pellentesque tristique ante ut risus. Quisque dictum. Integer nisl risus, sagittis convallis, rutrum id, elementum congue, nibh. </p>
-								<a href="#" class="button">Plus d'informations</a>
-
-							</div>
-			
-						</div>
-		
-					</div>
-		
-				<div class="tbox3">
-			
-					<div class="box-style">
-				
-						<div class="content">
-					
-							<div class="image"><img src="images/maison1.jpg" width="324" height="200" alt="" /></div>
-					
-								<h2>Nulla luctus eleifend </h2>
-								<p>Aliquam erat volutpat. Pellentesque tristique ante ut risus. Quisque dictum. Integer nisl risus, sagittis convallis, rutrum id, elementum congue, nibh.</p>
-								<a href="#" class="button">Plus d'informations</a>
-
-							</div>
-			
-						</div>
-		
-					</div>
-
-				</div> 
-
-			</div> -->
-		</br>
+			</br>
 		</div>	
 		<div id="footer">
 

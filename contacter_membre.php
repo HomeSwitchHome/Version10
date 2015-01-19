@@ -61,10 +61,9 @@ $ajoutClick -> execute();
 			<?php include("header.php") ?>
 			<br/><br/><br/><br/>
 			<p>Le propriétaire de l'annonce sait désormais que vous êtes intéressé par cette annonce, il prendra contact avec vous afin d'établir les termes d'un échange.</p>
-			<div align="center"><h2><a href="index.php">Retourner à la page d'accueil</a></h2></div>
-
-
-
+			<div align="center">
+				<h2><a href="index.php">Retourner à la page d'accueil</a></h2>
+			</div>
 		</div>
 		<?php include("footer.php") ?>
 	</body>

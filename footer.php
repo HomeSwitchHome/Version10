@@ -1,4 +1,3 @@
-
 <div id="footer">
 	<a href="index.php">Accueil</a> - 
 	<a href="faq.php">Aide/FAQ</a> - 

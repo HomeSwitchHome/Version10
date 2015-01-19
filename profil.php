@@ -8,7 +8,6 @@ $user_name -> execute([":id" => "$id"]);
 $user = $user_name -> fetch();
 
 ?>
-
 <!DOCTYPE html>
 
 <html>

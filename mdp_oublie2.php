@@ -25,13 +25,6 @@ if (isset($user['email'])&&!empty($user['email'])) {
     			$mail->Send();
 
 }
-
-
-
-
-                
-                   	
-
 ?>
 <!DOCTYPE html>
 

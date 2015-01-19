@@ -1,12 +1,11 @@
-<?php require_once("config.php");
+<?php
+require_once("config.php");
 $mail=$_GET['mail'];
 $clefCompte=$_GET['clefCompte'];
 
 $user_name = $bdd -> prepare("SELECT clefCompte, email FROM membres WHERE email ='$mail'");
 $user_name -> execute();
 $user = $user_name->fetch();
-
-
 ?>
 
 <!DOCTYPE html>

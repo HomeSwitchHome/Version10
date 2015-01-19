@@ -8,7 +8,6 @@ $user = $user_name->fetch();
 
 
 ?>
-
 <!DOCTYPE html>
 
 <html>
@@ -34,11 +33,6 @@ $user = $user_name->fetch();
 			}
 			else {echo("<p>Votre compte n'a pas été reconnu.</p><div align=\"center\"><h2><a href=\"index.php\">Retourner à la page d'accueil/a></h2></div>");}
 				?>
-
-			
-
-
-
 		</div>
 		<?php include("footer.php") ?>
 	</body>

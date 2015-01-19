@@ -5,7 +5,6 @@ $mail=$_POST['email'];
 $user_mdp = $bdd -> prepare("UPDATE membres SET mdp='$mdp' WHERE email ='$mail'");
 $user_mdp -> execute();
 
-
 ?>
 
 <!DOCTYPE html>

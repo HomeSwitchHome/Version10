@@ -1,8 +1,8 @@
-<?php require_once("config.php"); 
+<?php
+require_once("config.php"); 
 $id  = $_GET["idPersonne"];
-
- ?>
-
+?>
+<!DOCTYPE html>
 
 <html>
 

@@ -1,12 +1,13 @@
-<?php require_once("config.php"); 
+<?php
+require_once("config.php"); 
 $idlog = $_GET["idLogement"];
 $logement_info = $bdd -> prepare('SELECT membres_idMembres
                                     FROM logements WHERE id = '.$idlog);
 $logement_info -> execute();
 
 $result = $logement_info -> fetch();
- ?>
-
+?>
+<!DOCTYPE html>
 
 <html>
     <head>

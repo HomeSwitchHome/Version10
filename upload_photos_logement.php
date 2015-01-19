@@ -1,8 +1,21 @@
-<?php
-require("up_house_post.php"); ?>
+<?php 
+require_once("config.php");
 
-
-
+$sql = 'SELECT id FROM villes WHERE ville = :ville';
+$stmt = $bdd->prepare($sql);
+try{
+	$stmt->execute(['ville' => $_POST['ville']]);
+	$res = $stmt->fetch();
+}catch (PDOException $e) {
+	echo $e->getMessage();
+}
+if(empty($res)){
+	$host  = $_SERVER['HTTP_HOST'];
+	$uri   = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
+	$extra = 'up_house.php';
+header("Location: http://$host$uri/$extra");
+}
+?>
 
 <!DOCTYPE html>
 
@@ -13,6 +26,7 @@ require("up_house_post.php"); ?>
 		<link href="style.css" rel="stylesheet" />
 	</head>
 	<body>
+		<?php require("up_house_post.php"); ?>
 		<div id="wrapper">
 				
 			<?php include("header.php") ?>
@@ -27,7 +41,7 @@ require("up_house_post.php"); ?>
 				}
 				?>
 				<!-- Debut du formulaire -->
-				<form enctype="multipart/form-data" action="upload_photos_logement2.php?idlog=<?php echo ($id_logement_photo); ?>" method="post">
+				<form enctype="multipart/form-data" action="upload_photos_logement2.php?idlog=<?php if(isset($id_logement_photo))echo ($id_logement_photo); ?>" method="post">
 					<fieldset>
 						<legend>Formulaire (taille max: 2.0Mo, 3200x2400px max)</legend>
 						<p>

@@ -4,9 +4,9 @@ $user_name = $bdd -> prepare('SELECT prenom, nom, email, age, telephone FROM mem
 $user_name -> execute();
 
 $result = $user_name -> fetch();
-
- ?>
-
+?>
+s
+<!DOCTYPE html>
 
 <html>
     <head>

@@ -1,8 +1,9 @@
 <?php require_once("config.php"); 
 $user_name = $bdd -> prepare('SELECT nom, id FROM membres ORDER BY id ASC');
 $user_name -> execute();
- ?>
+?>
 
+<!DOCTYPE html>
 
 <html>
 
@@ -32,25 +33,7 @@ $user_name -> execute();
 	        <div id="user_list">
 		            
 		    	<?php	    
-				//echo $req['nom'];
-				//exécution de la requête:
-
-
-				//affichage des données:
-				/* while( !empty($req) ){
-					echo(
-						"<div align=\"center\">"
-						.$req['nom']." ".$req['id']
-						." <a href=\"modification2.php?idPersonne=".$req['id']."\">modifier</a></div>\n"
-					) ;
-				}*/
-
-
-				//$result = $user_name->fetchAll();
-				//print_r($result);
-		    
-		    
-			    $verifadmin = $bdd -> prepare("SELECT admin FROM membres WHERE id =".$_SESSION["userID"]);
+				$verifadmin = $bdd -> prepare("SELECT admin FROM membres WHERE id =".$_SESSION["userID"]);
 			    $verifadmin -> execute();
 			    $numadmin = $verifadmin->fetch();
 			    if ($numadmin['admin'] == 1){
@@ -69,22 +52,6 @@ $user_name -> execute();
 				}else {
 					echo ("<div align=\"center\">Vous n'avez pas accès à cette page, <a href=\"index.php\">retour à la page d'accueil</a></div>");
 				}
-			    
-
-			    /*$verifadmin = $bdd -> prepare("SELECT admin FROM membres WHERE id =".$_SESSION["userID"]);
-			    $verifadmin -> execute();
-			    $numadmin = $verifadmin->fetch();
-			    if ($numadmin['admin'] == 1) {echo ("admin");}
-			    else {echo ("non admin");}*/
-
-
-
-			    /*if($numadmin == "1") {
-			      echo 'admin';
-			    }
-			    else {
-			      echo 'non admin';
-			    }*/
 			    ?>
 			</div>
 		</div>

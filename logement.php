@@ -47,15 +47,17 @@
                         
                         <div class="content">
                 
-                            <div class="image"><img src="img/<?php echo($ligne['id']);?>/1.jpg" width="324" height="200" alt="" /></div>
-                                
-                                <h2><?php echo ($ligne['titre_annonce']);?></h2>
-                                <p><?php echo ($ligne['descriptionSuccincte']);?></p>
-                                <a href="page-logement.php?idLogement=<?php echo($ligne['id']);?>" class="button">Plus d'informations</a>
-                                            <?php $ligne = $q-> fetch();?>
+                            <div class="image">
+                            	<img src="img/<?php echo($ligne['id']);?>/1.jpg" width="324" height="200" alt="" />
                             </div>
-            
+                                
+                            <h2><?php echo ($ligne['titre_annonce']);?></h2>
+                            <p><?php echo ($ligne['descriptionSuccincte']);?></p>
+                            <a href="page-logement.php?idLogement=<?php echo($ligne['id']);?>" class="button">Plus d'informations</a>
+                            <?php $ligne = $q-> fetch();?>
                         </div>
+            
+                    </div>
                     
                     </div><?php } ?><?php $i++ ?>
         
@@ -101,66 +103,9 @@
                 
                 </div><?php } ?><?php $i++ ?>
                 <?php } ?>
-    
-            <!--<div id="three-column" class="container">
-        
-                <div class="tbox1">
-            
-                    <div class="box-style box-style01">
-                
-                        <div class="content">
-                            <?php $ligne = $q-> fetch();?>
-                            <div class="image"><img src="images/maison1.jpg" width="324" height="200" alt="" /></div>
-                
-                                <h2><?php echo ($ligne['titre_annonce']);?></h2>
-                                <p><?php echo ($ligne['descriptionSuccincte']);?></p>
-                                <a href="page-logement.php?idLogement=<?php echo($ligne['id']);?>" class="button">Plus d'informations</a>
-                
-                            </div>
-            
-                        </div>
-        
-                    </div>
-        
-                <div class="tbox2">
-            
-                    <div class="box-style box-style02">
-            
-                        <div class="content">
-                    
-                            <div class="image"><img src="images/maison1.jpg" width="324" height="200" alt="" /></div>
-                                <?php $ligne = $q-> fetch();?>
-                                <h2><?php echo ($ligne['titre_annonce']);?></h2>
-                                <p><?php echo ($ligne['descriptionSuccincte']);?></p>
-                                <a href="page-logement.php?idLogement=<?php echo($ligne['id']);?>" class="button">Plus d'informations</a>
 
-                            </div>
-            
-                        </div>
-        
-                    </div>
-        
-                <div class="tbox3">
-            
-                    <div class="box-style box-style03">
-                
-                        <div class="content">
-                                <?php $ligne = $q-> fetch();?>
-                            <div class="image"><img src="images/maison1.jpg" width="324" height="200" alt="" /></div>
-                    
-                                <h2><?php echo ($ligne['titre_annonce']);?></h2>
-                                <p><?php echo ($ligne['descriptionSuccincte']);?></p>
-                                <a href="page-logement.php?idLogement=<?php echo($ligne['id']);?>" class="button">Plus d'informations</a>
-
-                            </div>
-            
-                        </div>
-        
-                    </div>
-
-                </div>
--->
             </div>
+
         </div>
 
         </div>

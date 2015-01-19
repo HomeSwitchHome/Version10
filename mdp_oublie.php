@@ -1,9 +1,4 @@
-<?php require_once("config.php");
-
-                   	
-
-?>
-<!DOCTYPE html>
+<?php require_once("config.php"); ?>
 
 <!DOCTYPE html>
 
@@ -37,10 +32,7 @@
 
                 <input type="submit" class="login_submit_button" value="Envoyer">
 
-            </form> 
-
-           
-            
+            </form>           
 
         </div>
 

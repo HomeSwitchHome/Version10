@@ -15,8 +15,6 @@ $logement_equipe -> execute();
 $result = $logement_info -> fetch();
 $membrelog=$result['membres_idMembres'];
 
-
-
 ?>
 
 <!DOCTYPE html>

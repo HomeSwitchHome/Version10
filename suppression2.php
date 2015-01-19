@@ -1,8 +1,8 @@
-<?php require_once("config.php"); 
+<?php
+require_once("config.php"); 
 $id  = $_GET["idPersonne"];
-
- ?>
-
+?>
+<!DOCTYPE html>
 
 <html>
     <head>
@@ -21,8 +21,7 @@ $id  = $_GET["idPersonne"];
 				    $numadmin = $verifadmin->fetch();
 				    if ($numadmin['admin'] == 1) {
 						$envoidelete = $bdd -> prepare("DELETE FROM membres WHERE id = '$id' ");
-						$envoidelete -> execute();
-						
+						$envoidelete -> execute();	
 					}
 				?>
 

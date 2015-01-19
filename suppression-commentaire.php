@@ -1,8 +1,9 @@
-<?php require_once("config.php"); 
+<?php
+require_once("config.php"); 
 $idCommentaire = $_GET["idCommentaire"];
 $idLogement = $_GET["idLogement"];
- ?>
-
+?>
+<!DOCTYPE html>
 
 <html>
     <head>

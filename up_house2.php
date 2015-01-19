@@ -1,6 +1,6 @@
-<?php require_once("config.php");
+<?php
+require_once("config.php");
 include("up_house_post.php");
-
 ?>
 
 <!DOCTYPE html>

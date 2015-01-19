@@ -5,14 +5,73 @@
 		<meta charset="utf-8" />
 		<link href="style.css" rel="stylesheet" />
 	</head>
+
 	<body>
+		<?php
+            require_once("config.php");
+
+            $sql = "SELECT * FROM villes";
+            $sql2 = "SELECT * FROM departements";
+            $sql3 = "SELECT * FROM regions";
+
+            $stmt = $bdd->prepare($sql);
+            $stmt2 = $bdd->prepare($sql2);
+            $stmt3 = $bdd->prepare($sql3);
+
+            try{
+                $stmt->execute();
+                $stmt2->execute();
+                $stmt3->execute();
+
+                $nb = $stmt->rowCount();
+                $nb2 = $stmt2->rowCount();
+                $nb3 = $stmt3->rowCount();
+
+                $res = $stmt->fetch();
+                $res2 = $stmt2->fetch();
+                $res3 = $stmt3->fetch();
+            }catch (PDOException $e) {
+                echo $e->getMessage();
+            }
+        ?>
+        <datalist id="listeRegion">
+            <?php 
+                $i = 0;
+                while ($i < $nb3){
+                    echo '<option value='.$res['region'].'>';
+                    $res3 = $stmt3->fetch();
+                    $i++;
+                }
+            ?>  
+        </datalist>
+        <datalist id="listeDepartement">
+            <?php 
+                $i = 0;
+                while ($i < $nb2){
+                    echo '<option value='.$res['departement'].'>';
+                    $res2 = $stmt2->fetch();
+                    $i++;
+                }
+            ?>  
+        </datalist>
+        <datalist id="listeVille">
+            <?php 
+                $i = 0;
+                while ($i < $nb){
+                    echo '<option value='.$res['ville'].'>';
+                    $res = $stmt->fetch();
+                    $i++;
+                }
+            ?>  
+        </datalist>
+	
 		<div id="wrapper">
 			<?php include("header.php"); ?>
 			<br/><br/><br/>
 			<h1 align="center">Recherche</h1>
 				<form method="get" action="search.php" class="recherche">
 
-					<label><input type="text" id="recherche-simple" name="q" placeholder="Tapez votre recherche" /></label>
+					<label><input type="text" id="recherche-simple" name="q" placeholder="Tapez votre recherche" autofocus/></label>
 				
 				<input type="submit" value="Rechercher" class="submit_button"/>
 				</form>
@@ -20,9 +79,27 @@
 
 				<br/><br/><h1 align="center">Recherche avancée</h1>
 				<form method="post" action="resultat-recherche.php" class="recherche">
+				
+				
+				<h4>Lieu</h4>
+				<!--<fieldset>
+					<label>Pays <input type="text" name="Pays" list="listePays" /></label>
+				</fieldset>-->
+
+				<fieldset>
+					<label>Région <input type="text" name="region" list="listeRegion" /></label>
+				</fieldset>
+
+				<fieldset>
+					<label>Département <input type="text" name="departement" list="listeDepartement" /></label>
+				</fieldset>
+
+				<fieldset>
+					<label>Ville <input type="text" name="ville" list="listeVille" /></label>
+				</fieldset>
+
 				<h4>Type de logement</h4>
 				<fieldset>
-
 					<label>Type </label><select name="types_idTypes">
 					<option value="1">Maison</option>
 					<option value="2">Appartement</option>

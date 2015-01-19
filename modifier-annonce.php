@@ -1,8 +1,5 @@
 <?php require_once("config.php");
 $idLogement  = $_GET["idLogement"] ;
-//$idLogement = 49;
-
-$f = array();
 
 try{
     $logement_info = $bdd -> prepare("SELECT nombrePieces, description, descriptionSuccincte, titre_annonce, surfaceInterieure, surfaceExterieure, nombreLitsSimples, nombreLitsDoubles, descriptionProximite, membres_idMembres, types_idTypes, adresse, villes_id
@@ -108,8 +105,6 @@ try{
                         <textarea name="descriptionProximite" rows="8" cols="45" ><?php echo $result['descriptionProximite']; ?></textarea>
                     </div>
 
-                
-
                 </div>
 
                 <div class="house-register-right-grid">
@@ -140,153 +135,6 @@ try{
                         <label>Fumé interdite <input type="checkbox" name="contrainte[fumeInterdite]" value="6" <?php foreach($result4 as $k => $v){if($v['contraintes_id']==6){echo 'checked';}} ?> ></label>
                         <label>Plantes <input type="checkbox" name="contrainte[plantes]" value="7" <?php foreach($result4 as $k => $v){if($v['contraintes_id']==7){echo 'checked';}} ?> ></label>
                     </fieldset>
-
-                    <!-- <div class="pictos">
-
-                        
-                        <p class="pictos"><img src="pictos/picto_fumer_interdit.png"/>Espace non fumeur ?</p>
-
-                        <label for="fumeur">Oui
-                        <input type="radio" name="fumeur" value="non" class="pictos" checked="checked"/>
-                        </label>
-
-                        <label for="fumeur">Non
-                        <input type="radio" name="fumeur" value="oui" class="pictos"/>
-                        </label>
-                        <br/>
-
-                        <img src="pictos/picto_animaux_interdit.png"/>
-                        <p class="pictos">Animaux interdits ?</p>
-
-                        <label for="animaux">Oui
-                        <input type="radio" name="animaux" value="non" class="pictos" checked="checked"/>
-                        </label>
-
-                        <label for="animaux">Non
-                        <input type="radio" name="animaux" value="oui" class="pictos"/>
-                        </label>
-                        <br/>
-
-                        <img src="pictos/picto_bruit_interdit.png"/>
-                        <p class="pictos">Bruit interdit ?</p>
-
-                        <label for="bruit">Oui
-                        <input type="radio" name="bruit" value="non" class="pictos" checked="checked"/>
-                        </label>
-
-                        <label for="bruit">Non
-                        <input type="radio" name="bruit" value="oui" class="pictos"/>
-                        </label>
-                        <br/>
-
-                        <img src="pictos/picto_handicap_auto.png"/>
-                        <p class="pictos">Adapté aux handicapés ?</p>
-
-                        <label for="handicap">Oui
-                        <input type="radio" name="handicap" value="oui" class="pictos" checked="checked"/>
-                        </label>
-
-                        <label for="handicap">Non
-                        <input type="radio" name="handicap" value="non" class="pictos"/>
-                        </label>
-                        <br/>
-
-                        <img src="pictos/pict_aeroport.png"/>
-                        <p class="pictos">Aéroport à proximité ?</p>
-
-                        <label for="aeroport">Oui
-                        <input type="radio" name="aeroport" value="oui" class="pictos" checked="checked"/>
-                        </label>
-
-                        <label for="aeroport">Non
-                        <input type="radio" name="aeroport" value="non" class="pictos"/>
-                        </label>
-                        <br/>
-
-                        <img src="pictos/pict_train.png"/>
-                        <p class="pictos">Gare à proximité ?</p>
-
-                        <label for="gare">Oui
-                        <input type="radio" name="gare" value="oui" class="pictos" checked="checked"/>
-                        </label>
-
-                        <label for="gare">Non
-                        <input type="radio" name="gare" value="non" class="pictos"/>
-                        </label>
-                        <br/>
-
-                        <img src="pictos/pict_garage.png"/>
-                        <p class="pictos">Garage disponible ?</p>
-
-                        <label for="garage">Oui
-                        <input type="radio" name="garage" value="oui" class="pictos" checked="checked"/>
-                        </label>
-
-                        <label for="garage">Non
-                        <input type="radio" name="garage" value="non" class="pictos"/>
-                        </label>
-                        <br/>
-
-                        <img src="pictos/picto_wifi.png"/>
-                        <p class="pictos">Wifi disponible ?</p>
-
-                        <label for="wifi">Oui
-                        <input type="radio" name="wifi" value="oui" class="pictos" checked="checked"/>
-                        </label>
-
-                        <label for="wifi">Non
-                        <input type="radio" name="wifi" value="non" class="pictos"/>
-                        </label>
-                        <br/>
-
-                        <img src="pictos/pict_jardin.png"/>
-                        <p class="pictos">Présence de jardin ?</p>
-
-                        <label for="jardin">Oui
-                        <input type="radio" name="jardin" value="oui" class="pictos" checked="checked"/>
-                        </label>
-
-                        <label for="jardin">Non
-                        <input type="radio" name="jardin" value="non" class="pictos"/>
-                        </label>
-                        <br/>
-
-                        <img src="pictos/pict_piscine.png"/>
-                        <p class="pictos">Présence de piscine ?</p>
-
-                        <label for="piscine">Oui
-                        <input type="radio" name="piscine" value="oui" class="pictos" checked="checked"/>
-                        </label>
-
-                        <label for="piscine">Non
-                        <input type="radio" name="piscine" value="non" class="pictos"/>
-                        </label>
-                        <br/>
-
-                        <img src="pictos/pict_television.png"/>
-                        <p class="pictos">Présence de TV ?</p>
-
-                        <label for="tv">Oui
-                        <input type="radio" name="tv" value="oui" class="pictos" checked="checked"/>
-                        </label>
-
-                        <label for="tv">Non
-                        <input type="radio" name="tv" value="non" class="pictos"/>
-                        </label>
-                        <br/>
-
-                        <img src="pictos/picto_plante.png"/>
-                        <p class="pictos">Besoin d'arroser des plantes ?</p>
-
-                        <label for="plante">Oui
-                        <input type="radio" name="plante" value="oui" class="pictos" checked="checked"/>
-                        </label>
-
-                        <label for="plante">Non
-                        <input type="radio" name="plante" value="non" class="pictos"/>
-                        </label>
-                    </div> -->
-
                 </div>
 
                 <input type="submit" value="Modifier" class="submit_button"/>
