@@ -71,7 +71,7 @@
 			<h1 align="center">Recherche</h1>
 				<form method="get" action="search.php" class="recherche">
 
-					<label><input type="text" id="recherche-simple" name="q" placeholder="Tapez votre recherche" autofocus/></label>
+					<label><input type="text" id="recherche-simple" name="q" placeholder="Tapez votre recherche (au minimum quatre caractères)" pattern=".{4,}" required title="4 caractères minimum" autofocus/></label>
 				
 				<input type="submit" value="Rechercher" class="submit_button"/>
 				</form>

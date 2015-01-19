@@ -103,7 +103,7 @@ if(isset($_SESSION['save'])){
 
                     <div>
                         <label for="descriptionSuccincte">Description succincte :</label>
-                        <textarea name="descriptionSuccincte" rows="3" cols="45" required><?php if(isset($save['descriptionSuccincte'])){echo $save['descriptionSuccincte'];} ?></textarea>
+                        <textarea name="descriptionSuccincte" rows="3" cols="45" maxlenght="120" required><?php if(isset($save['descriptionSuccincte'])){echo $save['descriptionSuccincte'];} ?></textarea>
                     </div>       
 
                     <div>
