@@ -95,7 +95,7 @@
 				</fieldset>
 
 				<fieldset>
-					<input type="text" name="villes_id" list="listeVille" placeholder="Ville" />
+					<input type="text" name="villes_id" list="listeVille" placeholder="Ville" id="liste_ville"/>
 				</fieldset>
 
 				<h4>Type de logement</h4>
