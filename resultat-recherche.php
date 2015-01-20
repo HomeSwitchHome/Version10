@@ -47,13 +47,13 @@
     $z=0;
     foreach($_POST['lieu'] as $k =>$v){
         if(!empty($v)){
-            $z=++;
+            $z++;
         }
-    };
+    }
     if(!empty($_POST['lieu']['region'])){
         $sql .= " INNER JOIN villes ON logements.villes_id = villes.id";
         $sql .= " INNER JOIN departements ON villes.departements_idDepartements = departements.id";
-        $sql .= " INNER JOIN regions ON regions.regions_idRegions = regions.id";
+        $sql .= " INNER JOIN regions ON departements.regions_idRegions = regions.id";
     }elseif(!empty($_POST['lieu']['departement'])){
         $sql .= " INNER JOIN villes ON logements.villes_id = villes.id";
         $sql .= " INNER JOIN departements ON villes.departements_idDepartements = departements.id";
@@ -128,7 +128,7 @@
                 }
                     $sql .= " $m =";
                     debug($z);
-                if($z 1){
+                if($z==1){
                     $sql .= " '".$_POST['lieu'][''.$m.'']."'";
                 }else{
                     $sql .= " $m.id";

@@ -22,8 +22,9 @@ $id  = $_GET["idPersonne"];
 				    $verifadmin -> execute();
 				    $numadmin = $verifadmin->fetch();
 				    if ($numadmin['admin'] == 1) {
-						$envoimodif = $bdd -> prepare("UPDATE membres SET admin = '0' WHERE id = '$id' ");
-						$envoimodif -> execute();
+				    	if ($_SESSION['userID']==$id) {echo("<div align='center'><h2>Vous ne pouvez pas vous supprimer</h2></div>");}
+						else {$envoimodif = $bdd -> prepare("UPDATE membres SET admin = '0' WHERE id = '$id' ");
+						$envoimodif -> execute();}
 					}
 				 
 				?>

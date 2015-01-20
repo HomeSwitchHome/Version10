@@ -51,7 +51,7 @@ if (isverified()) {
 $nombreClick=$infoproprio['nombreClick']+1;
 $ajoutClick = $bdd -> prepare("UPDATE logements SET nombreClick='$nombreClick' WHERE logements.id='$idLogement'");
 $ajoutClick -> execute();
-echo($body);
+
 
 ?>
 
