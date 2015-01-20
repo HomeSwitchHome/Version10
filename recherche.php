@@ -38,7 +38,7 @@
             <?php 
                 $i = 0;
                 while ($i < $nb3){
-                    echo '<option value='.$res['region'].'>';
+                    echo '<option value='.$res3['region'].'>';
                     $res3 = $stmt3->fetch();
                     $i++;
                 }
@@ -48,7 +48,7 @@
             <?php 
                 $i = 0;
                 while ($i < $nb2){
-                    echo '<option value='.$res['departement'].'>';
+                    echo '<option value='.$res2['departement'].'>';
                     $res2 = $stmt2->fetch();
                     $i++;
                 }
@@ -95,7 +95,7 @@
 				</fieldset>
 
 				<fieldset>
-					<input type="text" name="ville" list="listeVille" placeholder="Ville" />
+					<input type="text" name="villes_id" list="listeVille" placeholder="Ville" />
 				</fieldset>
 
 				<h4>Type de logement</h4>

@@ -68,12 +68,12 @@ if(!empty($_POST)) {
 
                 <div>
                     <label for="email">Email*</label>
-                    <input type="text" id="email" name="email" value="<?= escape($email); ?>"> 
+                    <input type="email" id="email" name="email" value="<?= escape($email); ?>" required autofocus> 
                 </div>
 
                 <div>
                     <label for="mdp">Mot de passe*</label>
-                    <input type="password" id="mdp" name="mdp" value="<?= escape($mdp); ?>">
+                    <input type="password" id="mdp" name="mdp" value="<?= escape($mdp); ?>" required>
                 </div>
                 <br/>
 

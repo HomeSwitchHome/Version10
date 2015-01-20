@@ -130,39 +130,39 @@ if(!empty($_POST))
 				<div id="register-left-grid">
 					<div>
 						<label for="prenom">Prénom *</label>
-						<input type="text" id="prenom" name="prenom" value="<?= escape($prenom); ?>"> 
+						<input type="text" id="prenom" name="prenom" value="<?= escape($prenom); ?>" required autofocus> 
 					</div>
 
 					<div>
 						<label for="nom">Nom *</label>
-						<input type="text" id="nom" name="nom" value="<?= escape($nom); ?>"> 
+						<input type="text" id="nom" name="nom" value="<?= escape($nom); ?>"  required> 
 					</div>
 
 					<div>
 						<label for="age">Age *</label>
-						<input type="text" id="age" name="age" value="<?= escape($age); ?>"> 
+						<input type="text" id="age" name="age" value="<?= escape($age); ?>" required> 
 					</div>
 
 					<div>
 						<label for="telephone">Télephone *</label>
-						<input type="text" id="telephone" name="telephone" value="<?= escape($telephone); ?>"> 
+						<input type="text" id="telephone" name="telephone" value="<?= escape($telephone); ?>"  required> 
 					</div>
 
 					<div>
 						<label for="email">Email *</label>
-						<input type="text" id="email" name="email" value="<?= escape($email); ?>"> 
+						<input type="email" id="email" name="email" value="<?= escape($email); ?>"  required> 
 					</div>
 				</div>
 
 				<div id="register-right-grid">
 					<div>
 						<label for="mdp">Mot de passe *</label>
-						<input type="password" id="mdp" name="mdp" value="<?= escape($mdp); ?>">
+						<input type="password" id="mdp" name="mdp" value="<?= escape($mdp); ?>"  required>
 					</div>	
 
 					<div>
 						<label for="check_mdp">Confirmez votre mot de passe *</label>
-						<input type="password" id="check_mdp" name="check_mdp" value="<?= escape($check_mdp); ?>">
+						<input type="password" id="check_mdp" name="check_mdp" value="<?= escape($check_mdp); ?>"  required>
 					</div>
 				</div>
 
