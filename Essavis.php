@@ -45,7 +45,8 @@ require_once('config.php');?>
 
 	while($donnees = $req->fetch(PDO::FETCH_ASSOC)){
 ?>
-<p><strong><?php echo htmlspecialchars($donnees['pseudo']); ?></strong> le <?php echo $donnees['dateAjout']; ?> :</p><?php if (isadmin()) {echo('<a href="suppression-commentaire.php?idCommentaire='.$donnees['id'].'&idLogement='.$idLogement.'">X</a>');}?>
+<p><strong><?php echo htmlspecialchars($donnees['pseudo']); ?></strong> le <?php echo $donnees['dateAjout']; ?> :</p>
+<?php if (isadmin()) {echo('<a href="suppression-commentaire.php?idCommentaire='.$donnees['id'].'&idLogement='.$idLogement.'">X</a>');};?>
 <p><?php echo nl2br(htmlspecialchars($donnees['message'])); ?></p>
 
 <?php

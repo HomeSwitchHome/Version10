@@ -5,7 +5,7 @@
         <div id="menu" class="container">
        
                 <ul>
-       
+                
                         <li><a href="index.php"><img src="logo2.png" height="40" width="40" id="logo2"></a></li>
                         <li><a href="logement.php">Logements</a></li>
                         <li><a href="recherche.php">Recherche</a></li>
@@ -17,7 +17,7 @@
                 echo "<li><a href=\"login.php\">Connexion</a></li>"; }
  
         else {
-                if (isverified()) echo "<li><a href=\"up_house.php\">Annonce</a></li>";
+                if (isverified()) echo "<li><a href=\"up_house.php\">Déposer une annonce</a></li>";
                 echo "<li><a href=\"profil.php\">Mon profil</a></li>";
 
                 /*$verifadmin = $bdd -> prepare("SELECT admin FROM membres WHERE id =".$_SESSION["userID"]);

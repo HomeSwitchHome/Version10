@@ -60,10 +60,19 @@ $membrelog=$result['membres_idMembres'];
             <div class="annonce">
 	            <div class="profil">
 	                <div class="colonne_gauche_profil">
-	                	<?php if ($membrelog == $_SESSION['userID'] || isadmin()) {
+	                	<?php if ($membrelog == $_SESSION['userID'] && isadmin()) {
 	                	echo ("<div align=\"center\">
 	                		<a href=\"#\" onClick=\"confirme2(".$idLogement.")\">Je suis intéressé par cette annonce !</a>
 	                		<br/>
+	                		<a href=\"modifier-annonce.php?idLogement=".$idLogement."\">Modifier mon annonce</a>
+	                		<br/>
+	                		<a href=\"#\" onClick=\"confirme(".$idLogement.")\">Supprimer mon annonce</a>
+	                		<br/>
+	                	</div>");
+	                	}
+	                	elseif ($membrelog == $_SESSION['userID'] && !isadmin()) {
+	                	echo ("<div align=\"center\">
+	                		
 	                		<a href=\"modifier-annonce.php?idLogement=".$idLogement."\">Modifier mon annonce</a>
 	                		<br/>
 	                		<a href=\"#\" onClick=\"confirme(".$idLogement.")\">Supprimer mon annonce</a>
