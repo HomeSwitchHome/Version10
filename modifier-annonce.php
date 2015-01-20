@@ -31,6 +31,31 @@ try{
     </head>
 
     <body>
+        <?php
+            $sql = "SELECT * FROM villes";
+
+            $stmt = $bdd->prepare($sql);
+
+            try{
+                $stmt->execute();
+                $nb = $stmt->rowCount();
+                $res = $stmt->fetch();
+            }catch (PDOException $e) {
+                echo $e->getMessage();
+            }
+        ?>
+        <datalist id="listeVille">
+            <?php 
+                $i = 0;
+                while ($i < $nb){
+                    echo '<option value='.$res['ville'].'>';
+                    $res = $stmt->fetch();
+                    $i++;
+                }
+            ?>
+            
+        </datalist>
+
         <div id="wrapper">
             <?php include("header.php"); ?>
 
@@ -42,7 +67,7 @@ try{
 
                     <div>
                         <label for="titre_annonce">Titre de l'annonce :</label><br/>
-                        <input type="text" name="titre_annonce" value="<?php echo $result['titre_annonce']; ?>" required/>
+                        <input type="text" name="titre_annonce" value="<?php echo $result['titre_annonce']; ?>" autofocus required/>
                     </div>
 
                     <div>
@@ -52,7 +77,7 @@ try{
 
                     <div>
                         <label for="ville">Ville :</label><br/>
-                        <input type="text" name="ville" value="<?php echo $result2['ville']; ?>" required/>
+                        <input type="text" name="ville" list="listeVille" value="<?php echo $result2['ville']; ?>" required/>
                     </div>
 
                     <div>
@@ -65,34 +90,34 @@ try{
 
                     <div>
                         <label for="surfaceInterieure">Taille du logement (en m²) :</label>
-                        <input type="number" name="surfaceInterieure" value="<?php echo $result['surfaceInterieure']; ?>" required/>
+                        <input type="number" name="surfaceInterieure" min="0" value="<?php echo $result['surfaceInterieure']; ?>" required/>
                     </div>
 
                     <div>
                         <label for="nombrePieces">Nombre de pièces :</label>
-                        <input type="number" name="nombrePieces" value="<?php echo $result['nombrePieces']; ?>" required/>
+                        <input type="number" name="nombrePieces" min="0" value="<?php echo $result['nombrePieces']; ?>" required/>
                     </div>
 
                     <div>
                         <label for="surfaceExterieure">Superficie exterieure :</label>
-                        <input type="number" name="surfaceExterieure" value="<?php echo $result['surfaceExterieure']; ?>"/>
+                        <input type="number" name="surfaceExterieure" min="0" value="<?php echo $result['surfaceExterieure']; ?>"/>
                     </div>
 
                     <div>
                         <label for="nombreLitsSimples">Nombre de lits simples :</label>
-                        <input type="number" name="nombreLitsSimples" value="<?php echo $result['nombreLitsSimples']; ?>"/>
+                        <input type="number" name="nombreLitsSimples" min="0" value="<?php echo $result['nombreLitsSimples']; ?>"/>
                     </div>
                     
                     <div>
                         <label for="nombreLitsDoubles">Nombre de lits doubles :</label>
-                        <input type="number" name="nombreLitsDoubles" value="<?php echo $result['nombreLitsDoubles']; ?>"/>
+                        <input type="number" name="nombreLitsDoubles" min="0" value="<?php echo $result['nombreLitsDoubles']; ?>"/>
                     </div>
 
                     <br/> 
 
                     <div>
                         <label for="descriptionSuccincte">Description succincte :</label>
-                        <textarea name="descriptionSuccincte" rows="3" cols="45" required><?php echo $result['descriptionSuccincte']; ?></textarea>
+                        <textarea name="descriptionSuccincte" rows="3" cols="45" maxlenght="120" title="120 caractères maximum" required><?php echo $result['descriptionSuccincte']; ?></textarea>
                     </div>           
 
                     <div>

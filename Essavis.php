@@ -13,17 +13,16 @@
 		$form = array();
 		$errors = array();
 		$pseudo=$comments['prenom']." ".$comments['nom'];
-			if(!empty($_POST['message'])){
-				if(empty($errors)){
+		if(!empty($_POST['message'])){
+			if(empty($errors)){
 
-					
-					$req = $bdd->prepare('INSERT INTO minichat (pseudo, message, dateAjout, IDLogement) VALUES ("'.$pseudo.'","'.$_POST['message'].'", NOW(), "'.$idLogement.'")');
-					$req->execute();
-				}
-			}else{
-				$errors['message'] = message('Votre message doit être rempli.', 'error');
+				
+				$req = $bdd->prepare('INSERT INTO minichat (pseudo, message, dateAjout, IDLogement) VALUES ("'.$pseudo.'","'.$_POST['message'].'", NOW(), "'.$idLogement.'")');
+				$req->execute();
 			}
-		
+		}else{
+			$errors['message'] = message('Votre message doit être rempli.', 'error');
+		}
 	}
 ?>
 
@@ -60,6 +59,8 @@ $req->closeCursor();
 
 <h3> Ajouter un commentaire: </h3><br />
 <form method="post" action="#commentaires">
+
+	<?php if(!empty($comments['statut'])){if($comments['statut'] == 'deconnecter'){echo "<p>Veuillez vous inscrire et activer votre compte afin de poster un commentaire</p>";}} ?>
 	
 	<p>Message :</p>
 	<p>
