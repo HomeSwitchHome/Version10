@@ -87,15 +87,15 @@
 				</fieldset>-->
 
 				<fieldset>
-					<input type="text" name="region" list="listeRegion" placeholder="Région" />
+					<input type="text" name="lieu[region]" list="listeRegion" placeholder="Région" />
 				</fieldset>
 
 				<fieldset>
-					<input type="text" name="departement" list="listeDepartement" placeholder="Département" />
+					<input type="text" name="lieu[departement]" list="listeDepartement" placeholder="Département" />
 				</fieldset>
 
 				<fieldset>
-					<input type="text" name="villes_id" list="listeVille" placeholder="Ville" />
+					<input type="text" name="lieu[ville]" list="listeVille" placeholder="Ville" />
 				</fieldset>
 
 				<h4>Type de logement</h4>

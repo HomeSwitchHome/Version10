@@ -12,7 +12,7 @@
 				'host'		=> 'localhost',
 				'database'	=> 'hsh',
 				'login'		=> 'root',
-				'password'	=> 'root',
+				'password'	=> '',
 			)
 		);
 
@@ -72,7 +72,7 @@
 
 	function isadmin()
 	{ 
-		$bdd = new PDO('mysql:host=localhost;dbname=hsh', 'root', 'root', [PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8']);
+		$bdd = new PDO('mysql:host=localhost;dbname=hsh', 'root', '', [PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8']);
 		$bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		if (!empty($_SESSION["userID"])) {
 		$verifadmin = $bdd -> prepare("SELECT admin FROM membres WHERE id =".$_SESSION["userID"]);
@@ -88,7 +88,7 @@
 
 	function isverified()
 	{ 
-		$bdd = new PDO('mysql:host=localhost;dbname=hsh', 'root', 'root', [PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8']);
+		$bdd = new PDO('mysql:host=localhost;dbname=hsh', 'root', '', [PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8']);
 		$bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		if (!empty($_SESSION["userID"])) {
 		$verif = $bdd -> prepare("SELECT compteActif FROM membres WHERE id =".$_SESSION["userID"]);

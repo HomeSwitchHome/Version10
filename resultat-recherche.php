@@ -2,6 +2,7 @@
 	require_once("config.php");
 
     debug($_POST);
+
     // if(!empty($_POST['region'])){
     //     $sql1 = "SELECT id FROM regions WHERE region = :region";
     //     $stmt1 = $bdd->prepare($sql1);
@@ -39,12 +40,27 @@
     // debug($res2);
     // debug($res3);
 
-    $sql = "SELECT * FROM logements INNER JOIN equipe ON logements.id = equipe.logements_id WHERE logements_id = (SELECT id FROM equipements WHERE equipement = Garage)";
+    $sql = "SELECT * FROM logements";
 
-    // $sql = "SELECT * FROM logements";
+    $i=0;
+    $j=0;
+    $z=0;
+    foreach($_POST['lieu'] as $k =>$v){
+        if(!empty($v)){
+            $z=++;
+        }
+    };
+    if(!empty($_POST['lieu']['region'])){
+        $sql .= " INNER JOIN villes ON logements.villes_id = villes.id";
+        $sql .= " INNER JOIN departements ON villes.departements_idDepartements = departements.id";
+        $sql .= " INNER JOIN regions ON regions.regions_idRegions = regions.id";
+    }elseif(!empty($_POST['lieu']['departement'])){
+        $sql .= " INNER JOIN villes ON logements.villes_id = villes.id";
+        $sql .= " INNER JOIN departements ON villes.departements_idDepartements = departements.id";
+    }elseif(!empty($_POST['lieu']['ville'])){
+        $sql .= " INNER JOIN villes ON logements.villes_id = villes.id";
+    }
 
-    // $i=0;
-    // $j=0;
     // if(isset($_POST['equipements_id'])){
     //     $sql .= " INNER JOIN equipe ON logements.id = equipe.logements_id";
     // $j++;
@@ -52,7 +68,7 @@
     //     $sql .= " INNER JOIN contraint ON logements.id = contraint.logements_id";
     // $j++;
     // }
-    // foreach($_POST as $k => $v){
+    foreach($_POST as $k => $v){
     //     if($k=='types_idTypes'){
     //         if (!empty($v)){
     //             if($i==0){
@@ -101,16 +117,28 @@
     //             }
     //             $sql .= " ";
     //             $i++;
-    //     }elseif($k=='villes_id'){
-    //         if(!empty($v)){
-    //             if($i==0){
-    //                 $sql .= " WHERE";
-    //             }else{
-    //                 $sql .= " AND";
-    //             }
-    //             $sql .= " villes_id = $res3";
-    //             $i++;
-    //     }elseif(!is_array($v)){
+    //     }
+    if($k=='lieu'){
+        foreach($v as $m => $w){
+            if(!empty($w)){
+                if($i==0){
+                    $sql .= " WHERE";
+                }else{
+                    $sql .= " AND";
+                }
+                    $sql .= " $m =";
+                    debug($z);
+                if($z 1){
+                    $sql .= " '".$_POST['lieu'][''.$m.'']."'";
+                }else{
+                    $sql .= " $m.id";
+                    $z--;
+                }
+                $i++;
+            }
+        }
+    }
+        // elseif(!is_array($v)){
     //         if (!empty($v)){
     //             if($i==0){
     //                 $sql .= " WHERE";
@@ -174,10 +202,14 @@
     //         }
 
     //     }  
-    // }
+    }
 
     // $sql .= " ORDER BY nombreClick desc";
 
+    // $sql = "SELECT * FROM logements INNER JOIN equipe ON logements.id = equipe.logements_id WHERE logements_id = (SELECT id FROM equipements WHERE equipement = Garage)";
+    
+    // $sql = "SELECT * FROM logements INNER JOIN villes ON logements.villes_id = villes.id WHERE departements_idDepartements IN (SELECT id FROM departements WHERE departement = '".$_POST['departement']."')";
+    // $sql = "SELECT * FROM logements INNER JOIN villes ON logements.villes_id = villes.id WHERE departements_idDepartements IN (SELECT id FROM departements INNER JOIN regions ON departements.regions_idRegions = regions.id WHERE regions_idRegions = IN (SELECT id FROM regions WHERE region = '".$_POST['region']."')";
     debug($sql);
 
 
@@ -189,7 +221,7 @@
         echo $e->getMessage();
     }
 
-    $ligne = $stmt-> fetch();
+    $ligne = $stmt-> fetchAll();
     $nb = $stmt->rowCount();
 
     debug($ligne);
