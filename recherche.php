@@ -26,7 +26,6 @@
                 $nb = $stmt->rowCount();
                 $nb2 = $stmt2->rowCount();
                 $nb3 = $stmt3->rowCount();
-
                 $res = $stmt->fetch();
                 $res2 = $stmt2->fetch();
                 $res3 = $stmt3->fetch();
@@ -87,15 +86,15 @@
 				</fieldset>-->
 
 				<fieldset>
-					<input type="text" name="lieu[region]" list="listeRegion" placeholder="Région" />
+					<input type="text" name="region" list="listeRegion" placeholder="Région" />
 				</fieldset>
 
 				<fieldset>
-					<input type="text" name="lieu[departement]" list="listeDepartement" placeholder="Département" />
+					<input type="text" name="departement" list="listeDepartement" placeholder="Département" />
 				</fieldset>
 
 				<fieldset>
-                    <input type="text" name="lieu[ville]" list="listeVille" placeholder="Ville" />
+                    <input type="text" name="ville" list="listeVille" placeholder="Ville" />
 				</fieldset>
 
 				<h4>Type de logement</h4>

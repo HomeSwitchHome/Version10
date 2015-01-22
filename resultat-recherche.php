@@ -1,65 +1,58 @@
 <?php
-	require_once("config.php");
+    require_once("config.php");
 
-    debug($_POST);
+    // debug($_POST);
 
-    // if(!empty($_POST['region'])){
-    //     $sql1 = "SELECT id FROM regions WHERE region = :region";
-    //     $stmt1 = $bdd->prepare($sql1);
-    //     try{
-    //         $stmt1->execute(['region' => $_POST['region']]);
-    //         $res1 = $stmt1->fetch();
-    //     }catch(PDOException $e){
-    //         echo $e->getMessage();
-    //     }
-    // }
-
-    // if(!empty($_POST['departement'])){
-    //     $sql2 = "SELECT id FROM departements WHERE departement = :departement";
-    //     $stmt2 = $bdd->prepare($sql2);
-    //     try{
-    //         $stmt2->execute(['departement' => $_POST['departement']]);
-    //         $res2 = $stmt2->fetch();
-    //     }catch(PDOException $e){
-    //         echo $e->getMessage();
-    //     }
-    // }
-
-    // if(!empty($_POST['villes_id'])){
-    //     $sql3 = "SELECT id FROM villes WHERE ville = :ville";
-    //     $stmt3 = $bdd->prepare($sql3);
-    //     try{
-    //         $stmt3->execute(['ville' => $_POST['villes_id']]);
-    //         $res3 = $stmt3->fetch();
-    //     }catch(PDOException $e){
-    //         echo $e->getMessage();
-    //     }
-    // }
-
-    // debug($res1);
-    // debug($res2);
-    // debug($res3);
+    function constructeurCondition($v, $i, $h = null, $sql, $st, $st2 = null, $k, $w = null){
+        if (!empty($v)){
+            global $i;
+            global $h;
+            global $sql;
+            // debug($k);
+            if($i==0){
+                $sql .= " WHERE";
+            }else{
+                $sql .= " AND";
+            }
+            if($h==0){
+                    $sql .= " $st";
+                    $h++;
+                }else{
+                    $sql .= " $st2";
+                }
+                $i++;
+        }else{
+            $h++;
+        }
+    }
 
     $sql = "SELECT * FROM logements";
 
+
     $i=0;
     $j=0;
-    $z=0;
-    foreach($_POST['lieu'] as $k =>$v){
-        if(!empty($v)){
-            $z++;
-        }
-    }
-    if(!empty($_POST['lieu']['region'])){
-        $sql .= " INNER JOIN villes ON logements.villes_id = villes.id";
-        $sql .= " INNER JOIN departements ON villes.departements_idDepartements = departements.id";
-        $sql .= " INNER JOIN regions ON departements.regions_idRegions = regions.id";
-    }elseif(!empty($_POST['lieu']['departement'])){
-        $sql .= " INNER JOIN villes ON logements.villes_id = villes.id";
-        $sql .= " INNER JOIN departements ON villes.departements_idDepartements = departements.id";
-    }elseif(!empty($_POST['lieu']['ville'])){
-        $sql .= " INNER JOIN villes ON logements.villes_id = villes.id";
-    }
+    $st2='erreur';
+    $w='erreur2';
+    // $z=0;
+    // $vi='villes_id';
+    // $de='departements_idDepartements';
+    // $re='regions_idRegions';
+    // $lo='logements';
+    // foreach($_POST['lieu'] as $k =>$v){
+    //     if(!empty($v)){
+    //         $z++;
+    //     }
+    // }
+    // if(!empty($_POST['lieu']['region'])){
+    //     $sql .= " INNER JOIN villes ON logements.$vi = villes.id";
+    //     $sql .= " INNER JOIN departements ON villes.$de = departements.id";
+    //     $sql .= " INNER JOIN regions ON departements.$re = regions.id";
+    // }elseif(!empty($_POST['lieu']['departement'])){
+    //     $sql .= " INNER JOIN villes ON logements.$vi = villes.id";
+    //     $sql .= " INNER JOIN departements ON villes.$de = departements.id";
+    // }elseif(!empty($_POST['lieu']['ville'])){
+    //     $sql .= " INNER JOIN villes ON logements.$vi = villes.id";
+    // }
 
     // if(isset($_POST['equipements_id'])){
     //     $sql .= " INNER JOIN equipe ON logements.id = equipe.logements_id";
@@ -69,148 +62,109 @@
     // $j++;
     // }
     foreach($_POST as $k => $v){
-    //     if($k=='types_idTypes'){
-    //         if (!empty($v)){
-    //             if($i==0){
-    //                 $sql .= " WHERE";
-    //             }else{
-    //                 $sql .= " AND";
-    //             }
-    //             $sql .= " $k = $v";
-    //             $i++;
-    //         }
-    //     }elseif($k=='surfaceTotale'){
-    //         if(!empty($v)){
-    //             if($i==0){
-    //                 $sql .= " WHERE";
-    //             }else{
-    //                 $sql .= " AND";
-    //             }
-    //             $sql .= " surfaceInterieure + surfaceExterieure >= $v";
-    //             $i++;
-    //         }
-    //     }elseif($k=='capaciteTotale'){
-    //         if(!empty($v)){
-    //             if($i==0){
-    //                 $sql .= " WHERE";
-    //             }else{
-    //                 $sql .= " AND";
-    //             }
-    //             $sql .= " nombreLitsSimples + nombreLitsDoubles * 2 >= $v";
-    //             $i++;
-    //         }
-    //     }elseif($k=='region'){
-    //         if(!empty($v)){
-    //             if($i==0){
-    //                 $sql .= " WHERE";
-    //             }else{
-    //                 $sql .= " AND";
-    //             }
-    //             $sql .= " ";
-    //             $i++;
-    //     }elseif($k=='departement'){
-    //         if(!empty($v)){
-    //             if($i==0){
-    //                 $sql .= " WHERE";
-    //             }else{
-    //                 $sql .= " AND";
-    //             }
-    //             $sql .= " ";
-    //             $i++;
-    //     }
-    if($k=='lieu'){
-        foreach($v as $m => $w){
-            if(!empty($w)){
-                if($i==0){
-                    $sql .= " WHERE";
-                }else{
-                    $sql .= " AND";
+        // if(!is_array($v)){
+            // $k = 'default_non_tableau';
+        // }
+        $h=0;
+        switch($k){
+            case "types_idTypes":
+                $st="$k = $v";
+                constructeurCondition($v, $i, $h, $sql, $st, $st2, $k, $w);
+                break;
+            case "surfaceTotale":
+                $st="surfaceInterieure + surfaceExterieure >= $v";
+                constructeurCondition($v, $i, $h, $sql, $st, $st2, $k, $w);
+                break;
+            case "capaciteTotale":
+                $st="nombreLitsSimples + nombreLitsDoubles * 2 >= $v";
+                constructeurCondition($v, $i, $h, $sql, $st, $st2, $k, $w);
+                break;
+            // case 'region':
+            //     return true;
+            //     $st=;
+            //     if(!empty($v)){
+            //         if($i==0){
+            //             $sql .= " WHERE";
+            //         }else{
+            //             $sql .= " AND";
+            //         }
+            //         $sql .= " ";
+            //         $i++;
+            // case 'departement':
+            //     return true;
+            //     $st=;
+            //     if(!empty($v)){
+            //         if($i==0){
+            //             $sql .= " WHERE";
+            //         }else{
+            //             $sql .= " AND";
+            //         }
+            //         $sql .= " ";
+            //         $i++;
+            //     }
+        // if($k=='lieu'){
+        //     $u='logements';
+        //     foreach($v as $m => $w){
+        //         if(!empty($w)){
+        //             if($i==0){
+        //                 $sql .= " WHERE";
+        //             }else{
+        //                 $sql .= " AND";
+        //             }if($m=='ville'){
+        //                 $sql .= " $m.$de =";
+        //             }elseif($m=='departement'){
+        //                 $sql .= " $m.$re =";
+        //             }elseif($m=='region'){
+        //                 $sql .= " $m.$re =";
+        //             }
+        //                 debug($z);
+        //             if($z==1){
+        //                 $sql .= " '".$_POST['lieu'][''.$m.'']."'";
+        //             }else{
+        //                 $sql .= " $m.id";
+        //                 $z--;
+        //             }
+        //             $i++;
+        //         }
+        //     }
+        // }
+            case 'default_non_tableau':
+                $st="$k >= $v";
+                constructeurCondition($v, $i, $sql, $st, $k);
+            case "surfaceInterieure":
+            case "surfaceExterieure":
+                foreach ($v as $m => $w){
+                    $st="$k >= $w";
+                    $st2="$k <= $w";
+                    constructeurCondition($w, $i, $h , $sql, $st, $st2 , $k, $w);
                 }
-                    $sql .= " $m =";
-                    debug($z);
-                if($z==1){
-                    $sql .= " '".$_POST['lieu'][''.$m.'']."'";
-                }else{
-                    $sql .= " $m.id";
-                    $z--;
+            case "nombreLitsDoubles":
+            case "nombreLitsSimples":
+                foreach ($v as $m => $w){
+                    $st="$k >= $w";
+                    $st2="$k <= $w";
+                    constructeurCondition($w, $i, $h , $sql, $st, $st2 , $k, $w);
                 }
-                $i++;
-            }
-        }
-    }
-        // elseif(!is_array($v)){
-    //         if (!empty($v)){
-    //             if($i==0){
-    //                 $sql .= " WHERE";
-    //             }else{
-    //                 $sql .= " AND";
-    //             }
-    //             $sql .= " $k >= $v";
-    //             $i++;
-    //         }
-    //     }elseif($k=='surfaceInterieure' || $k=='surfaceExterieure'){
-    //         $h=0;
-    //         foreach ($v as $m => $w){
-    //             if(!empty($w)){
-    //                 if($i==0){
-    //                     $sql .= " WHERE";
-    //                 }else{
-    //                     $sql .= " AND";
-    //                 }
-    //                 if($h==0){
-    //                     $sql .= " $k >= $w";
-    //                     $h++;
-    //                 }else{
-    //                     $sql .= " $k <= $w";
-    //                 }
-    //                 $i++;
-    //             }else{
-    //                 $h++;
-    //             }
-    //         }
-    //     }elseif($k=='nombreLitsDoubles' || $k=='nombreLitsSimples'){
-    //         $h=0;
-    //         foreach ($v as $m => $w){
-    //             if(!empty($w)){
-    //                 if($i==0){
-    //                     $sql .= " WHERE";
-    //                 }else{
-    //                     $sql .= " AND";
-    //                 }
-    //                 if($h==0){
-    //                     $sql .= " $k >= $w";
-    //                     $h++;
-    //                 }else{
-    //                     $sql .= " $k <= $w";
-    //                 }
-    //                 $i++;
-    //             }else{
-    //                 $h++;
-    //             }
-    //         }
-    //     }else{
-    //         if($j>0){
-    //             foreach ($v as $m => $w){
-    //                 if($i==0){
-    //                     $sql .= " WHERE";
-    //                 }else{
-    //                     $sql .= " AND";
-    //                 }
-    //                 $sql .= " $k = $w";
-    //                 $i++;
-    //             }
-    //         }
-
-    //     }  
+                break;
+                
+            // default:
+            //     if($j>0){
+            //         foreach ($v as $m => $w){
+            //             $st="$k = $w";
+            //             constructeurCondition($v, $i, $sql, $st, $k, $w);
+            //         }
+            //     }
+            //     break;
+        }  
     }
 
-    // $sql .= " ORDER BY nombreClick desc";
+    $sql .= " ORDER BY nombreClick desc";
 
     // $sql = "SELECT * FROM logements INNER JOIN equipe ON logements.id = equipe.logements_id WHERE logements_id = (SELECT id FROM equipements WHERE equipement = Garage)";
     
     // $sql = "SELECT * FROM logements INNER JOIN villes ON logements.villes_id = villes.id WHERE departements_idDepartements IN (SELECT id FROM departements WHERE departement = '".$_POST['departement']."')";
     // $sql = "SELECT * FROM logements INNER JOIN villes ON logements.villes_id = villes.id WHERE departements_idDepartements IN (SELECT id FROM departements INNER JOIN regions ON departements.regions_idRegions = regions.id WHERE regions_idRegions = IN (SELECT id FROM regions WHERE region = '".$_POST['region']."')";
-    debug($sql);
+    // debug($sql);
 
 
     try{
@@ -221,10 +175,10 @@
         echo $e->getMessage();
     }
 
-    $ligne = $stmt-> fetchAll();
+    $ligne = $stmt-> fetch();
     $nb = $stmt->rowCount();
 
-    debug($ligne);
+    // debug($ligne);
 
 
     if($nb==0){
